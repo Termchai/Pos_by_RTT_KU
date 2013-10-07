@@ -14,6 +14,9 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.database.sqlite.SQLiteDatabase;
 import android.view.Menu;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.Toast;
 
 
@@ -32,8 +35,17 @@ public class main_activity extends Activity {
         myDb.getWritableDatabase();
         StoreController sCT = new StoreController(myDb);
         
+        Button addButton = (Button) findViewById(R.id.add_button);
         
-        
+//        addButton.setOnClickListener(new OnClickListener(){
+//
+//			@Override
+//			public void onClick(View v) {
+//				// TODO Auto-generated method stub
+//				//setContentView(R.layout.add_layout);
+//			}
+//        	
+//        });
         Toast.makeText(main_activity.this,"Fuck You All",
         		Toast.LENGTH_LONG).show();
 
