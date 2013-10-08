@@ -24,6 +24,7 @@
         </activity>
         <activity android:name="Add_Activity"></activity>
         <activity android:name="Remove_Activity"></activity>
+        <activity android:name="Sale_Activity"></activity>
     </application>
 
 </manifest>

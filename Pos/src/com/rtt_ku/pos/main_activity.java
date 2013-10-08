@@ -38,6 +38,7 @@ public class main_activity extends Activity {
         
         Button addButton = (Button) findViewById(R.id.add_button);
         Button removeButton = (Button) findViewById(R.id.remove_button);
+        Button makeSaleButton = (Button) findViewById(R.id.sale_button);
         
         addButton.setOnClickListener(new OnClickListener(){
 
@@ -60,6 +61,16 @@ public class main_activity extends Activity {
 			}
         });
         
+        makeSaleButton.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				setContentView(R.layout.makesale_layout);
+				startActivity(new Intent(main_activity.this, Sale_Activity.class));
+			}
+        	
+        });
         Toast.makeText(main_activity.this,"Fuck You All",
         		Toast.LENGTH_LONG).show();
 
