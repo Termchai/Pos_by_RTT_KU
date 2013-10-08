@@ -21,14 +21,16 @@ public class StoreController {
 	}
 	
 	// add new Product to Database and InventoryAll
-	public void addProduct(String Product_Code, String Name, int Quantity, int Price)
+	/*
+	 * return -1 is product has already
+	 * 		  1 is add product suscess
+	 */
+	public int addProduct(String Product_Code, String Name, int Quantity, int Price)
 	{
-		if (dbCT.isHasYet(Product_Code)) System.out.println("Product number " + Product_Code + " has already");
-		else
-		{
+		if (dbCT.isHasYet(Product_Code)) return -1;
 			dbCT.insertProduct(Product_Code, Name, Quantity, Price);
 			updateInventory();
-		}
+			return 1;
 	}
 	
 	public boolean removeProduct(String Product_Code)

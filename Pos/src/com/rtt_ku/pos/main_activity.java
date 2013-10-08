@@ -34,6 +34,7 @@ public class main_activity extends Activity {
 //	SQLiteDatabase db;
 	DatabaseReader databaseReader;
 	ArrayList<Product> productList = new ArrayList<Product>();
+    public static StoreController sCT;
 	
 	ArrayAdapter<String> listAdapter;
 	ListView list_item;
@@ -48,7 +49,7 @@ public class main_activity extends Activity {
         
         Database myDb = new Database(this);
         myDb.getWritableDatabase();
-        StoreController sCT = new StoreController(myDb);
+        sCT = new StoreController(myDb);
         
         list_item = (ListView)findViewById(R.id.listItem);
 		list_item.setAdapter(new MyAdapter());
