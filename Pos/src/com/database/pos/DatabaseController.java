@@ -23,9 +23,9 @@ public class DatabaseController {
 		return true;
 	}
 	
-	public void insertProduct(String Product_Code, String Name, int Quantity)
+	public void insertProduct(String Product_Code, String Name, int Quantity, int price)
 	{
-		db.InsertData(Product_Code, Name, Quantity);
+		db.InsertData(Product_Code, Name, Quantity, price);
 	}
 	
 	public void removeProduct(String Product_Code)

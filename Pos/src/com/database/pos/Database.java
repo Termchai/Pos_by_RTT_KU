@@ -33,7 +33,9 @@ public class Database extends SQLiteOpenHelper {
 
 		" Name TEXT(100)," +
 
-		" Quantity Integer);");
+		" Quantity Integer" +
+		
+		" Price Integer);");
 	}
 
 	@Override
@@ -42,7 +44,7 @@ public class Database extends SQLiteOpenHelper {
 
 	}
 
-	public long InsertData(String productCode, String name, int quantity) {
+	public long InsertData(String productCode, String name, int quantity, int price) {
 		try {
 			SQLiteDatabase db;
 			db = this.getWritableDatabase();
@@ -51,6 +53,7 @@ public class Database extends SQLiteOpenHelper {
 			Val.put("Product_Code", productCode);
 			Val.put("Name", name);
 			Val.put("Quantity", quantity);
+			Val.put("Price", price);
 
 			long rows = db.insert(DATABASE_NAME, null, Val);
 
@@ -87,11 +90,13 @@ public class Database extends SQLiteOpenHelper {
 					 * [1] Product_Code
 					 * [2] Name
 					 * [3] Quantity
+					 * [4] Price
 					 */
 					arrData[0] = cursor.getString(0);
 					arrData[1] = cursor.getString(1);
 					arrData[2] = cursor.getString(2);
 					arrData[3] = cursor.getString(3);
+					arrData[4] = cursor.getString(4);
 				}
 			}
 			cursor.close();
@@ -126,7 +131,8 @@ public class Database extends SQLiteOpenHelper {
 			 	        	String product_code = cursor.getString(1);
 			 	        	String name = cursor.getString(2);
 			 	        	int quantity = Integer.parseInt(cursor.getString(3));
-			 	        	Product cMember = new Product(product_code, name, quantity);
+			 	        	int price = Integer.parseInt(cursor.getString(4));
+			 	        	Product cMember = new Product(product_code, name, quantity, price);
 			 	        	MemberList.add(cMember);
 			 	        } while (cursor.moveToNext());
 			 	    }

@@ -15,19 +15,18 @@ public class StoreController {
 		inCT = new InventoryController();
 		updateInventory();
 		inCT.printList();
-		addQuantity("C008", 13);
 		inCT.printList();
 		
 		
 	}
 	
 	// add new Product to Database and InventoryAll
-	public void addProduct(String Product_Code, String Name, int Quantity)
+	public void addProduct(String Product_Code, String Name, int Quantity, int Price)
 	{
 		if (dbCT.isHasYet(Product_Code)) System.out.println("Product number " + Product_Code + " has already");
 		else
 		{
-			dbCT.insertProduct(Product_Code, Name, Quantity);
+			dbCT.insertProduct(Product_Code, Name, Quantity, Price);
 			updateInventory();
 		}
 	}
