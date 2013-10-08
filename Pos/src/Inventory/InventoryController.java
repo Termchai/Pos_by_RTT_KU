@@ -19,4 +19,8 @@ public class InventoryController {
 	{
 		return inAll.getProduct(Product_Code);
 	}
+	public ArrayList<Product> getProductList() {
+		
+		return inAll.getProductList();
+	}
 }

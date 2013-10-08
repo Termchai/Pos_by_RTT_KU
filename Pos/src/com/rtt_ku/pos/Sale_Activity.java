@@ -36,8 +36,6 @@ public class Sale_Activity extends Activity{
 		
 		list_item.setAdapter(new MyAdapter());
 		
-
-		
 		
 		
 		cancel_button.setOnClickListener(new OnClickListener(){

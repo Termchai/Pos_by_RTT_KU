@@ -50,6 +50,8 @@ public class main_activity extends Activity {
         Database myDb = new Database(this);
         myDb.getWritableDatabase();
         sCT = new StoreController(myDb);
+        productList = sCT.getProductList();
+        System.out.println(productList + "testttttttttt");
         
         list_item = (ListView)findViewById(R.id.listItem);
 		list_item.setAdapter(new MyAdapter());
@@ -79,18 +81,18 @@ public class main_activity extends Activity {
 			}
         });
         
-        makeSaleButton.setOnClickListener(new OnClickListener(){
-
-			@Override
-			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
-				setContentView(R.layout.makesale_layout);
-				startActivity(new Intent(main_activity.this, Sale_Activity.class));
-			}
+//        makeSaleButton.setOnClickListener(new OnClickListener(){
+//
+//			@Override
+//			public void onClick(View arg0) {
+//				// TODO Auto-generated method stub
+//				setContentView(R.layout.makesale_layout);
+//				startActivity(new Intent(main_activity.this, Sale_Activity.class));
+//			}
         	
-        });
-        Toast.makeText(main_activity.this,"Fuck You All",
-        		Toast.LENGTH_LONG).show();
+//        });
+//        Toast.makeText(main_activity.this,"Fuck You All",
+//        		Toast.LENGTH_LONG).show();
 
     }
 
@@ -104,10 +106,12 @@ public class main_activity extends Activity {
 
     class MyAdapter extends BaseAdapter{
 		private Holder holder;
+
+		
 		@Override
 		public int getCount() {
 			// TODO Auto-generated method stub
-			return FRUITS.length;
+			return productList.size();
 		}
 
 		@Override
@@ -130,21 +134,28 @@ public class main_activity extends Activity {
 				holder = new Holder();
 				
 				holder.title = (TextView) view.findViewById(R.id.text_item);
-				holder.quantity = (TextView) view.findViewById(R.id.text_quantity);
+				holder.quantity = (TextView) view.findViewById(R.id.text_quantity); 
+				holder.price = (TextView) view.findViewById(R.id.text_price);
 				view.setTag(holder);
 			}
 			else {
 				holder = (Holder) view.getTag();
 			}
-			
-			holder.title.setText(FRUITS[position]);
-			holder.quantity.setText("kuyy");
+			Product p = productList.get(position);
+			String product_name = p.getName();
+			String product_code = p.getProduct_Code();
+			int product_quantity = p.getQuantity();
+			int product_price = p.getPrice();
+			holder.title.setText(productList.get(position).getName() + " <" + product_code + "> ");
+			holder.quantity.setText(product_quantity +  " item(s)");
+			holder.price.setText(product_price+"");
 			return view;
 		}
 		class Holder{
 			
 			public TextView title;
 			public TextView quantity;
+			public TextView price;
 		}
 	}
 }

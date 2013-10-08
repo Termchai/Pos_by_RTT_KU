@@ -33,9 +33,9 @@ public class Database extends SQLiteOpenHelper {
 
 		" Name TEXT(100)," +
 
-		" Quantity Integer" +
+		" Quantity INTEGER," +
 		
-		" Price Integer);");
+		" Price INTEGER);");
 	}
 
 	@Override

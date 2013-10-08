@@ -1,5 +1,7 @@
 package com.rtt_store.pos;
 
+import java.util.ArrayList;
+
 import Inventory.AbstractInventory;
 import Inventory.InventoryController;
 import Inventory.Product;
@@ -50,6 +52,11 @@ public class StoreController {
 	public void updateInventory()
 	{
 		inCT.updateInventory(dbCT.getAllProduct());
+	}
+	
+	public ArrayList<Product> getProductList()
+	{
+		return inCT.getProductList();
 	}
 	
 	// set product quantity by Product_Code

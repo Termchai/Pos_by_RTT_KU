@@ -22,7 +22,7 @@
         android:layout_height="wrap_content" >
 
         <EditText
-            android:id="@+id/editText1"
+            android:id="@+id/price_text"
             android:layout_width="116dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.20"
@@ -38,5 +38,11 @@
             android:text="OK" />
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/cancel_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BACK" />
 
 </LinearLayout>

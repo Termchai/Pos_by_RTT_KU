@@ -14,6 +14,11 @@ public abstract class AbstractInventory {
 		this.productList = productList;
 	}
 	
+	public ArrayList<Product> getProductList()
+	{
+		return productList;
+	}
+	
 	
 	
 	// get Object Product by Product code

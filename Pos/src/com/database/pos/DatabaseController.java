@@ -28,9 +28,9 @@ public class DatabaseController {
 		db.InsertData(Product_Code, Name, Quantity, price);
 	}
 	
-	public void removeProduct(String Product_Code)
+	public long removeProduct(String Product_Code)
 	{
-		db.DeleteData(Product_Code);
+		return db.DeleteData(Product_Code);
 	}
 	
 	public boolean setQuantityProduct(String Product_Code, int Quantity)
