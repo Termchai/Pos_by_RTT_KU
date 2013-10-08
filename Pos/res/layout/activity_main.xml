@@ -9,7 +9,7 @@
     tools:context=".main_activity" >
 
     <ListView
-        android:id="@+id/listView1"
+        android:id="@+id/listItem"
         android:layout_width="match_parent"
         android:layout_height="325dp">
     </ListView>
@@ -27,8 +27,8 @@
         android:id="@+id/add_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/listView1"
-        android:layout_below="@+id/listView1"
+        android:layout_alignLeft="@+id/listItem"
+        android:layout_below="@+id/listItem"
         android:text="ADD" />
 
     <Button
