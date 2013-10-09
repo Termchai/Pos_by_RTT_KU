@@ -13,12 +13,11 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
 public class Sale_Activity extends Activity{
-	ArrayAdapter<String> listAdapter;
+	
 	ListView list_item;
 	
 //	ArrayList<String> data = new ArrayList<String>();

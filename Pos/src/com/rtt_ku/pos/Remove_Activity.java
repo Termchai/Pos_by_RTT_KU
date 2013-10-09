@@ -11,18 +11,25 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
+/**
+ * activity on remove button. 
+ * @author Suttanan
+ *
+ */
 public class Remove_Activity extends Activity{
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.remove_layout);
 	    
+	    // view matching
 	    Button okButton = (Button)findViewById(R.id.OK_button);
 		Button cancelButton = (Button)findViewById(R.id.cancel_button);
+		
         Database myDb = new Database(this);
         myDb.getWritableDatabase();
 		final StoreController sCT = new StoreController(myDb);
 		
+		// add function on click at OK button.
 		okButton.setOnClickListener(new OnClickListener(){
 		
 			@Override
@@ -45,6 +52,7 @@ public class Remove_Activity extends Activity{
 			
 		});
 		
+		// add function at cancel button.
 		cancelButton.setOnClickListener(new OnClickListener(){
 
 			@Override

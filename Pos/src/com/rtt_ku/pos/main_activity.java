@@ -28,11 +28,16 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
+/**
+ * activity on main layout.
+ * @author rtt
+ *
+ */
 public class main_activity extends Activity {
 
 //	SQLiteDatabase db;
 	DatabaseReader databaseReader;
+	// list item
 	ArrayList<Product> productList = new ArrayList<Product>();
     public static StoreController sCT;
 	
@@ -53,30 +58,34 @@ public class main_activity extends Activity {
         productList = sCT.getProductList();
         System.out.println(productList + "testttttttttt");
         
-        list_item = (ListView)findViewById(R.id.listItem);
-		list_item.setAdapter(new MyAdapter());
-		
+        // view matching.
         Button addButton = (Button) findViewById(R.id.add_button);
         Button removeButton = (Button) findViewById(R.id.remove_button);
         Button makeSaleButton = (Button) findViewById(R.id.sale_button);
+        list_item = (ListView)findViewById(R.id.listItem);
         
+        // adapter of list item.
+		list_item.setAdapter(new MyAdapter());
+		
+        // add function on click at add button.
         addButton.setOnClickListener(new OnClickListener(){
 
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				setContentView(R.layout.add_layout);
+				//setContentView(R.layout.add_layout);
 				startActivity(new Intent(main_activity.this, Add_Activity.class));
 			}
         	
         });
         
+        // add function on click at remove button.
         removeButton.setOnClickListener(new OnClickListener(){
 
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				setContentView(R.layout.remove_layout);
+				//setContentView(R.layout.remove_layout);
 				startActivity(new Intent(main_activity.this, Remove_Activity.class));
 			}
         });
@@ -104,6 +113,7 @@ public class main_activity extends Activity {
         return true;
     }
 
+    // inner class to adapter holder with listview.
     class MyAdapter extends BaseAdapter{
 		private Holder holder;
 
@@ -151,6 +161,8 @@ public class main_activity extends Activity {
 			holder.price.setText(product_price+"");
 			return view;
 		}
+		
+		// hold text view in each list of item. 
 		class Holder{
 			
 			public TextView title;

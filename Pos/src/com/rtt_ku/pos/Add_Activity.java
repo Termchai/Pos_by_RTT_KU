@@ -11,13 +11,19 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
+/**
+ * activity on add button.
+ * @author Suttanan
+ *
+ */
 public class Add_Activity extends Activity {
 	 StoreController sCT ;
+	 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.add_layout);
 		
+		// view matching
 		Button okButton = (Button)findViewById(R.id.OK_button);
 		Button cancelButton = (Button)findViewById(R.id.cancel_button);
 		
@@ -26,6 +32,7 @@ public class Add_Activity extends Activity {
         sCT = new StoreController(myDb);;
         
 		
+        // add function on click at OK button.
 		okButton.setOnClickListener(new OnClickListener(){
 
 			@Override
@@ -64,6 +71,7 @@ public class Add_Activity extends Activity {
 			
 		});
 		
+		// add function on click at cancel button.
 		cancelButton.setOnClickListener(new OnClickListener(){
 
 			@Override
@@ -75,6 +83,14 @@ public class Add_Activity extends Activity {
 			
 		});
 	}
+	
+	/**
+	 * insert product on list view.
+	 * @param product_code  code of each product.
+	 * @param name	name of product.
+	 * @param quantity	quantity of product.
+	 * @param price	price of product.
+	 */
 	public void insertProduct(String product_code, String name, int quantity, int price)
 	{
 		int temp = sCT.addProduct(product_code, name, quantity, price);
