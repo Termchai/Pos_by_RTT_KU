@@ -8,7 +8,11 @@ import Inventory.Product;
 
 import com.database.pos.Database;
 import com.database.pos.DatabaseController;
-
+/**
+ * have all Controller (now have inventory and database)
+ * have relation with GUI and can manage everything in store
+ * @author Termchai
+ */
 public class StoreController {
 	DatabaseController dbCT;
 	InventoryController inCT;
@@ -27,6 +31,14 @@ public class StoreController {
 	 * return -1 is product has already
 	 * 		  1 is add product suscess
 	 */
+	/**
+	 * add new product in database and update inventory
+	 * @param Product_Code
+	 * @param Name
+	 * @param Quantity
+	 * @param Price
+	 * @return 1 if success, -1 if this product code has already
+	 */
 	public int addProduct(String Product_Code, String Name, int Quantity, int Price)
 	{
 		if (dbCT.isHasYet(Product_Code)) return -1;
@@ -35,6 +47,11 @@ public class StoreController {
 			return 1;
 	}
 	
+	/**
+	 * remove product by product code
+	 * @param Product_Code
+	 * @return true if remove complete, false if can't find that product
+	 */
 	public boolean removeProduct(String Product_Code)
 	{
 		if (dbCT.isHasYet(Product_Code))
@@ -48,18 +65,30 @@ public class StoreController {
 		return false;
 	}
 	
-	// update inventory
+
+	/**
+	 * update inventory
+	 */
 	public void updateInventory()
 	{
 		inCT.updateInventory(dbCT.getAllProduct());
 	}
 	
+	/**
+	 * get all product 
+	 * @return arraylist <product>
+	 */
 	public ArrayList<Product> getProductList()
 	{
 		return inCT.getProductList();
 	}
 	
-	// set product quantity by Product_Code
+	/**
+	 * set amount quantity of product
+	 * @param Product_Code
+	 * @param Quantity
+	 * @return true if success, false if can't find product
+	 */
 	public boolean setQuantity(String Product_Code, int Quantity)
 	{
 		if(dbCT.setQuantityProduct(Product_Code, Quantity)) 
@@ -71,7 +100,12 @@ public class StoreController {
 		System.out.println("Product Code : " + Product_Code + " don't has yet");
 		return false;
 	}
-	// plus/minus product quantity by Product_Code and diff quantity
+
+/**
+ * add different quantity of product
+ * @param Product_Code
+ * @param diff different of product that will be add/remove
+ */
 	public void addQuantity(String Product_Code, int diff)
 	{
 		int newQuantity = dbCT.addQuantity(Product_Code, diff);

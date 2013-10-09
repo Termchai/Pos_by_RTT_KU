@@ -8,7 +8,11 @@ import Inventory.Product;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
+/**
+ * read database(inventory) and create object product
+ * @author Termchai
+ *
+ */
 public class DatabaseReader {
 	SQLiteDatabase db;
 	Database myDb;
@@ -16,8 +20,11 @@ public class DatabaseReader {
 	{
 		this.myDb = dbTemp;
 	}
-	
-	public ArrayList getData()
+	/**
+	 * 
+	 * @return arraylist of object product
+	 */
+	public ArrayList<Product> getData()
 	{
 		ArrayList<Product> list;
 		db = myDb.getReadableDatabase();
