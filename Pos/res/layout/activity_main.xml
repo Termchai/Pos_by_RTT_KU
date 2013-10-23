@@ -8,36 +8,31 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".main_activity" >
 
-    <ListView
-        android:id="@+id/listItem"
+    <TabHost android:id="@android:id/tabhost" android:layout_width="match_parent" android:layout_height="match_parent">
+
+            <TabWidget android:id="@android:id/tabs" android:layout_width="match_parent" android:layout_height="wrap_content">
+                </TabWidget><FrameLayout android:id="@android:id/tabcontent" android:layout_width="match_parent" android:layout_height="match_parent">
+
+                    <include android:id="@+id/tab1_ref" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/inventory_tab" />
+
+                    <include android:id="@+id/tab2_ref" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/sale_tab" />
+
+                    <include android:id="@+id/tab3_ref" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/product_tab" />
+                </FrameLayout><LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical">
+
+                
+
+                
+            </LinearLayout>
+        </TabHost><LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="325dp">
-    </ListView>
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical" >
 
-    <Button
-        android:id="@+id/remove_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/add_button"
-        android:layout_alignBottom="@+id/add_button"
-        android:layout_centerHorizontal="true"
-        android:text="REMOVE" />
-
-    <Button
-        android:id="@+id/add_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/listItem"
-        android:layout_below="@+id/listItem"
-        android:text="ADD" />
-
-    <Button
-        android:id="@+id/sale_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/add_button"
-        android:layout_alignRight="@+id/remove_button"
-        android:layout_below="@+id/add_button"
-        android:text="Sale" />
+        
+    </LinearLayout>
 
 </RelativeLayout>

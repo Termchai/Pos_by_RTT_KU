@@ -43,7 +43,7 @@ public class Sale_Activity extends Activity{
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
 				setContentView(R.layout.activity_main);
-				startActivity(new Intent(Sale_Activity.this, main_activity.class));
+				startActivity(new Intent(Sale_Activity.this, main_activity2.class));
 			}
 			
 		});
