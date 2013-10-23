@@ -61,7 +61,7 @@ public class Add_Activity extends Activity {
 				price = Integer.parseInt(p.getText().toString());
 				
 				// when click add button
-				insertProduct(product_code, name, quantity, price);
+				insertProduct(product_code, name, quantity, price,"","","","","","","");
 				}
 				else 
 				{
@@ -91,10 +91,11 @@ public class Add_Activity extends Activity {
 	 * @param quantity	quantity of product.
 	 * @param price	price of product.
 	 */
-	public void insertProduct(String product_code, String name, int quantity, int price)
+	public void insertProduct(String productCode, String name, int quantity, int price, String type, String date,
+			String barcode, String picture, String lastedit, String status, String stage)
 	{
-		int temp = sCT.addProduct(product_code, name, quantity, price);
-		if (temp == 1) Toast.makeText(Add_Activity.this,"added <" + product_code + "> " + name + " Complete.", Toast.LENGTH_SHORT).show();
-		else if (temp == -1) Toast.makeText(Add_Activity.this, product_code + " is already exist.", Toast.LENGTH_SHORT).show();
+		int temp = sCT.addProduct(productCode, name, quantity, price,type,date,barcode,picture,lastedit,status,stage);
+		if (temp == 1) Toast.makeText(Add_Activity.this,"added <" + productCode + "> " + name + " Complete.", Toast.LENGTH_SHORT).show();
+		else if (temp == -1) Toast.makeText(Add_Activity.this, productCode + " is already exist.", Toast.LENGTH_SHORT).show();
 	}
 }
