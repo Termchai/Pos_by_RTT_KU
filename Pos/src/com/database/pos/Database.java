@@ -35,7 +35,21 @@ public class Database extends SQLiteOpenHelper {
 
 		" Quantity INTEGER," +
 		
-		" Price INTEGER);");
+		" Price INTEGER," +
+		
+		" Type TEXT," +
+		
+		" Date TEXT," +
+		
+		" Barcode TEXT," +
+		
+		" Picture TEXT," +
+		
+		" LastEdit TEXT," +
+		
+		" Status TEXT," +
+		
+		" Stage TEXT);");
 	}
 
 	@Override
@@ -44,7 +58,8 @@ public class Database extends SQLiteOpenHelper {
 
 	}
 
-	public long InsertData(String productCode, String name, int quantity, int price) {
+	public long InsertData(String productCode, String name, int quantity, int price, String type, String date,
+			String barcode, String picture, String lastedit, String status, String stage) {
 		try {
 			SQLiteDatabase db;
 			db = this.getWritableDatabase();
@@ -54,6 +69,13 @@ public class Database extends SQLiteOpenHelper {
 			Val.put("Name", name);
 			Val.put("Quantity", quantity);
 			Val.put("Price", price);
+			Val.put("Type",type);
+			Val.put("Date", date);
+			Val.put("Barcode", barcode);
+			Val.put("Picture", picture);
+			Val.put("Lastedit", lastedit);
+			Val.put("Status", status);
+			Val.put("Stage", stage);
 
 			long rows = db.insert(DATABASE_NAME, null, Val);
 
@@ -91,12 +113,18 @@ public class Database extends SQLiteOpenHelper {
 					 * [2] Name
 					 * [3] Quantity
 					 * [4] Price
+					 * [5] Type
+					 * [6] Date
+					 * [7] Barcode
+					 * [8] Picture
+					 * [9] Last Edit
+					 * [10] Status
+					 * [11] Stage
 					 */
-					arrData[0] = cursor.getString(0);
-					arrData[1] = cursor.getString(1);
-					arrData[2] = cursor.getString(2);
-					arrData[3] = cursor.getString(3);
-					arrData[4] = cursor.getString(4);
+					for (int i=0; i<arrData.length; i++)
+					{
+						arrData[i] = cursor.getString(i);
+					}
 				}
 			}
 			cursor.close();
@@ -128,11 +156,38 @@ public class Database extends SQLiteOpenHelper {
 			 	{
 			 	    if (cursor.moveToFirst()) {
 			 	        do {
+							/*
+							 * [0] ID
+							 * [1] Product_Code
+							 * [2] Name
+							 * [3] Quantity
+							 * [4] Price
+							 * [5] Type
+							 * [6] Date
+							 * [7] Barcode
+							 * [8] Picture
+							 * [9] Last Edit
+							 * [10] Status
+							 * [11] Stage
+							 */
 			 	        	String product_code = cursor.getString(1);
 			 	        	String name = cursor.getString(2);
 			 	        	int quantity = Integer.parseInt(cursor.getString(3));
 			 	        	int price = Integer.parseInt(cursor.getString(4));
-			 	        	Product cMember = new Product(product_code, name, quantity, price);
+			 	        	String type = cursor.getString(5);
+			 	        	String date = cursor.getString(6);
+			 	        	String barcode = cursor.getString(7);
+			 	        	String picture = cursor.getString(8);
+			 	        	String lastedit = cursor.getString(9);
+			 	        	String status = cursor.getString(10);
+			 	        	String stage = cursor.getString(11);
+			 	        	
+			 	        	
+			 	        	
+			 	        	
+			 	        	
+			 	        	
+			 	        	Product cMember = new Product(product_code, name, quantity, price,type,date,barcode,picture,lastedit,status,stage);
 			 	        	MemberList.add(cMember);
 			 	        } while (cursor.moveToNext());
 			 	    }

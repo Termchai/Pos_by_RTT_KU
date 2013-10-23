@@ -43,9 +43,10 @@ public class DatabaseController {
 	 * @param Quantity
 	 * @param price
 	 */
-	public void insertProduct(String Product_Code, String Name, int Quantity, int price)
+	public void insertProduct(String productCode, String name, int quantity, int price, String type, String date,
+			String barcode, String picture, String lastedit, String status, String stage)
 	{
-		db.InsertData(Product_Code, Name, Quantity, price);
+		db.InsertData(productCode, name, quantity, price,type,date,barcode,picture,lastedit,status,stage);
 	}
 	
 	/**

@@ -20,17 +20,11 @@ public class StoreController {
 		dbCT = new DatabaseController(db);
 		inCT = new InventoryController();
 		updateInventory();
-		inCT.printList();
-		inCT.printList();
+//		inCT.printList();
 		
 		
 	}
-	
-	// add new Product to Database and InventoryAll
-	/*
-	 * return -1 is product has already
-	 * 		  1 is add product suscess
-	 */
+
 	/**
 	 * add new product in database and update inventory
 	 * @param Product_Code
@@ -39,10 +33,11 @@ public class StoreController {
 	 * @param Price
 	 * @return 1 if success, -1 if this product code has already
 	 */
-	public int addProduct(String Product_Code, String Name, int Quantity, int Price)
+	public int addProduct(String productCode, String name, int quantity, int price, String type, String date,
+			String barcode, String picture, String lastedit, String status, String stage)
 	{
-		if (dbCT.isHasYet(Product_Code)) return -1;
-			dbCT.insertProduct(Product_Code, Name, Quantity, Price);
+		if (dbCT.isHasYet(productCode)) return -1;
+			dbCT.insertProduct(productCode, name, quantity, price,type,date,barcode,picture,lastedit,status,stage);
 			updateInventory();
 			return 1;
 	}

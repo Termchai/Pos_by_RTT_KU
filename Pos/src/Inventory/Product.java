@@ -4,15 +4,40 @@ import com.database.pos.Database;
 import com.rtt_ku.pos.main_activity;
 
 public class Product {
-		String product_code, name;
+	
+	/*
+	 * [0] ID
+	 * [1] Product_Code
+	 * [2] Name
+	 * [3] Quantity
+	 * [4] Price
+	 * [5] Type
+	 * [6] Date
+	 * [7] Barcode
+	 * [8] Picture
+	 * [9] Last Edit
+	 * [10] Status
+	 * [11] Stage
+	 */
+	
+	
+		String product_code, name, type, date, barcode, picture, lastedit, status, stage;
 		int quantity;
 		int price;
-		public Product(String Product_Code, String Name, int Quantity, int Price)
+		public Product(String productCode, String name, int quantity, int price, String type, String date,
+				String barcode, String picture, String lastedit, String status, String stage)
 		{
-			this.product_code = Product_Code;
-			this.name = Name;
-			this.quantity = Quantity;
-			this.price = Price;
+			this.product_code = productCode;
+			this.name = name;
+			this.quantity = quantity;
+			this.price = price;
+			this.type = type;
+			this.date = date;
+			this.barcode = barcode;
+			this.picture = picture;
+			this.lastedit = lastedit;
+			this.status = status;
+			this.stage = stage;
 		}
 		public String getProduct_Code() {return product_code;}
 		public String getName() {return name;}
@@ -20,7 +45,7 @@ public class Product {
 		public int getPrice() {return price;}
 		public String toString()
 		{
-			return product_code + " " + name + " " + quantity + " " + price;
+			return product_code + " " + name + " " + quantity + " " + price + type + date + barcode + picture + lastedit + status +stage;
 			
 		}
 	}

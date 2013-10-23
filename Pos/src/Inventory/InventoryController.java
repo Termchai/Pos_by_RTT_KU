@@ -14,7 +14,7 @@ public class InventoryController {
 
 	
 	public InventoryController() {
-		inAll = new InventoryAll();
+		inAll = InventoryAll.getInstance();
 	}
 	/**
 	 * update all product in database to inventory
