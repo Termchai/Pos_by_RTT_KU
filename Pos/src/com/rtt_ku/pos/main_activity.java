@@ -48,5 +48,22 @@ public class main_activity extends Activity {
         myTabHost.setup();
         
         TabHost.TabSpec tabSpec;
+        tabSpec = myTabHost.newTabSpec("Inventory");
+        tabSpec.setIndicator("Inventory");
+        tabSpec.setContent(R.id.tab1_ref);
+        myTabHost.addTab(tabSpec);
+        
+        tabSpec = myTabHost.newTabSpec("Sale");
+        tabSpec.setIndicator("Sale");
+        tabSpec.setContent(R.id.tab2_ref);
+        myTabHost.addTab(tabSpec);
+        
+        tabSpec = myTabHost.newTabSpec("Product");
+        tabSpec.setIndicator("Product");
+        tabSpec.setContent(R.id.tab3_ref);
+        myTabHost.addTab(tabSpec);
+        
+        //Set default tab
+        myTabHost.setCurrentTab(1);
     }
 }
