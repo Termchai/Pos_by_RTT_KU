@@ -46,5 +46,7 @@ public class main_activity extends Activity {
         //view matching
         myTabHost = (TabHost) findViewById(android.R.id.tabhost);
         myTabHost.setup();
+        
+        TabHost.TabSpec tabSpec;
     }
 }
