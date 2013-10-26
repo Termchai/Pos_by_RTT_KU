@@ -78,7 +78,7 @@ public class Add_Activity extends Activity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				setContentView(R.layout.activity_main);
-				startActivity(new Intent(Add_Activity.this, main_activity2.class));
+				startActivity(new Intent(Add_Activity.this, Tab_Inventory_Activity.class));
 			}
 			
 		});
