@@ -1,38 +1,28 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".main_activity" >
+<?xml version="1.0" encoding="utf-8"?>
 
-    <TabHost android:id="@android:id/tabhost" android:layout_width="match_parent" android:layout_height="match_parent">
-
-            <TabWidget android:id="@android:id/tabs" android:layout_width="match_parent" android:layout_height="wrap_content">
-                </TabWidget><FrameLayout android:id="@android:id/tabcontent" android:layout_width="match_parent" android:layout_height="match_parent">
-
-                    <include android:id="@+id/tab1_ref" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/inventory_tab" />
-
-                    <include android:id="@+id/tab2_ref" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/sale_tab" />
-
-                    <include android:id="@+id/tab3_ref" android:layout_width="match_parent" android:layout_height="match_parent" layout="@layout/product_tab" />
-                </FrameLayout><LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical">
-
+<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+         android:layout_width="fill_parent"
+         android:layout_height="fill_parent"
+          android:id="@android:id/tabhost">
+         
+        <LinearLayout 
+                android:id="@+id/LinearLayout01"
+                android:orientation="vertical" 
+                android:layout_height="fill_parent"
+                android:layout_width="fill_parent">
                 
-
+                <TabWidget 
+                    android:id="@android:id/tabs"
+                    android:layout_height="wrap_content" 
+                    android:layout_width="fill_parent">
+                </TabWidget>
                 
-            </LinearLayout>
-        </TabHost><LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:orientation="vertical" >
+                <FrameLayout 
+                    android:id="@android:id/tabcontent"
+                    android:layout_height="fill_parent"
+                     android:layout_width="fill_parent">
+                </FrameLayout>
+                
+        </LinearLayout>
 
-        
-    </LinearLayout>
-
-</RelativeLayout>
+</TabHost>
