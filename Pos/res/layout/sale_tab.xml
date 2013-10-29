@@ -23,7 +23,7 @@
             <ListView
                 android:id="@+id/listView2"
                 android:layout_width="157dp"
-                android:layout_height="247dp"
+                android:layout_height="match_parent"
                 android:background="@drawable/grey_button" >
 
             </ListView>
