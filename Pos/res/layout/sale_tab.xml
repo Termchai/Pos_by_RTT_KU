@@ -9,17 +9,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical" >
-		<TextView
-		    		android:paddingLeft="100dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Basket"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-		
+
         <ListView
             android:id="@+id/listView1"
             android:layout_width="fill_parent"
-            android:layout_height="100dp" >
+            android:layout_height="400dp" >
         </ListView>
         
         <LinearLayout 
@@ -28,18 +22,23 @@
             android:background="@drawable/grey_button">
             
         </LinearLayout>
-        
+
         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <ListView
+                android:id="@+id/listView2"
+                android:layout_width="330dp"
+                android:layout_height="match_parent" >
+
+            </ListView>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical" >
-				
-            	<TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Total"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-            	
+
                 <TextView
                     android:id="@+id/textView1"
                     android:layout_width="wrap_content"
@@ -78,32 +77,6 @@
                 </LinearLayout>
 
             </LinearLayout>
-        
-        <LinearLayout 
-            android:layout_width="fill_parent"
-            android:layout_height="5dp"
-            android:background="@drawable/grey_button">
-            
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Inventory"
-                    android:padding="100dp"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-            <ListView
-                android:id="@+id/listView2"
-                android:layout_width="100dp"
-                android:layout_height="match_parent" >
-
-            </ListView>
-
-            
 
         </LinearLayout>
 
