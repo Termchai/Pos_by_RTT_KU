@@ -118,4 +118,9 @@ public class StoreController {
 	{
 		return dbCT.isHasYet(product_code);
 	}
+	
+	public Product getProduct(String product_code)
+	{
+		return inCT.getProduct(product_code);
+	}
 }

@@ -25,6 +25,10 @@ public class DatabaseController {
 		return dbR.getData();
 	}
 	
+	
+	
+	
+	
 	/**
 	 * check product is has already yet?
 	 * @param Product_Code 
