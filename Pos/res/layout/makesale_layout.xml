@@ -34,8 +34,10 @@
         <Button
             android:id="@+id/ok_button"
             android:layout_width="117dp"
-            android:layout_height="33dp"
-            android:text="OK" />
+            android:layout_height="45dp"
+            android:text="OK" 
+            android:textColor="#FFFFFF"
+            android:background="@drawable/greenbutton"/>
 
     </LinearLayout>
 
@@ -43,6 +45,8 @@
         android:id="@+id/cancel_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="BACK" />
+        android:background="@drawable/light_grey_button"
+        android:text="BACK"
+        android:textColor="#FFFFFF" />
 
 </LinearLayout>
