@@ -66,6 +66,20 @@ public class Check_product_Activity extends Activity {
 					editText.setVisibility(View.VISIBLE);
 					addTextView.setVisibility(View.VISIBLE);
 					setQuantityButton.setVisibility(View.VISIBLE);
+					
+					String quantity = editText.getText().toString();
+					
+					setQuantityButton.setOnClickListener(new OnClickListener(){
+
+						@Override
+						public void onClick(View v) {
+							// TODO Auto-generated method stub
+							//setContentView(R.layout.activity_main);
+							
+						}
+						
+					});
+					
 				}
 			}
 
