@@ -20,6 +20,7 @@ public class Check_product_Activity extends Activity {
 	TextView addTextView;
 	EditText editText;
 	Button setQuantityButton;
+	String product_code;
 	
 	public void onCreate(Bundle savedInstanceState) {
 
@@ -50,10 +51,10 @@ public class Check_product_Activity extends Activity {
 
 				EditText pc = (EditText) findViewById(R.id.pc_text);
 				
-				String product_code = pc.getText().toString();
+				product_code = pc.getText().toString();
 				if(!sCT.isHasYet(product_code))
 				{
-					//has
+					// not has
 					Toast.makeText(Check_product_Activity.this,"Put your fucking hand up", Toast.LENGTH_SHORT).show();
 					Intent intent = new Intent(Check_product_Activity.this, Add_Activity.class);
 					intent.putExtra("pc", product_code);
@@ -61,13 +62,13 @@ public class Check_product_Activity extends Activity {
 				}
 				else
 				{
-					// not has
+					// has
 					Toast.makeText(Check_product_Activity.this,"This product id has already", Toast.LENGTH_SHORT).show();
 					editText.setVisibility(View.VISIBLE);
 					addTextView.setVisibility(View.VISIBLE);
 					setQuantityButton.setVisibility(View.VISIBLE);
 					
-					String quantity = editText.getText().toString();
+					
 					
 					setQuantityButton.setOnClickListener(new OnClickListener(){
 
@@ -75,6 +76,9 @@ public class Check_product_Activity extends Activity {
 						public void onClick(View v) {
 							// TODO Auto-generated method stub
 							//setContentView(R.layout.activity_main);
+							String quantity = editText.getText().toString();
+							sCT.addQuantity(product_code, Integer.parseInt(quantity));
+							startActivity(new Intent(Check_product_Activity.this,main_activity.class));
 							
 						}
 						

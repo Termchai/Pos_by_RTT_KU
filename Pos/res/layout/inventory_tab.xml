@@ -27,12 +27,6 @@
                 android:text="Add" />
 
             <Button
-                android:id="@+id/button_remove"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Edit" />
-
-            <Button
                 android:id="@+id/set_quantity_ok_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
