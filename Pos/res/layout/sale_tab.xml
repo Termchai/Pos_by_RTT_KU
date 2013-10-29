@@ -15,6 +15,13 @@
             android:layout_width="fill_parent"
             android:layout_height="192dp" >
         </ListView>
+        
+        <LinearLayout 
+            android:layout_width="fill_parent"
+            android:layout_height="5dp"
+            android:background="@drawable/grey_button">
+            
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -22,9 +29,8 @@
 
             <ListView
                 android:id="@+id/listView2"
-                android:layout_width="157dp"
-                android:layout_height="match_parent"
-                android:background="@drawable/grey_button" >
+                android:layout_width="330dp"
+                android:layout_height="match_parent" >
 
             </ListView>
 
