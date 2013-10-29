@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import Inventory.AbstractInventory;
 import Inventory.InventoryController;
 import Inventory.Product;
+import Sale.Basket;
 
 import com.database.pos.Database;
 import com.database.pos.DatabaseController;
@@ -23,6 +24,11 @@ public class StoreController {
 //		inCT.printList();
 		
 		
+	}
+	
+	public void setDB(Database db)
+	{
+		this.dbCT = new DatabaseController(db);
 	}
 
 	/**
@@ -122,5 +128,10 @@ public class StoreController {
 	public Product getProduct(String product_code)
 	{
 		return inCT.getProduct(product_code);
+	}
+	
+	public void confirmSale(Basket basket)
+	{
+		dbCT.confirmSale(basket);
 	}
 }
