@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-     <TextView
+
+    <TextView
         android:id="@+id/text_item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -14,7 +15,8 @@
         android:id="@+id/pc_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10" >
+        android:ems="10"
+         >
 
         <requestFocus />
     </EditText>
@@ -27,14 +29,31 @@
             android:id="@+id/button1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="OK" />
+            android:text="OK"/>
 
         <Button
             android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cancel" />
-
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/set_quantity_textView1"
+        android:layout_width="149dp"
+        android:layout_height="wrap_content"
+        android:text="Add quantity" />
+
+    <EditText
+        android:id="@+id/set_quantity_editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10" />
+
+    <Button
+        android:id="@+id/set_quantity_ok_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button" />
 
 </LinearLayout>

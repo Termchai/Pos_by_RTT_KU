@@ -10,12 +10,17 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class Check_product_Activity extends Activity {
 
 	StoreController sCT;
 
+	TextView addTextView;
+	EditText editText;
+	Button setQuantityButton;
+	
 	public void onCreate(Bundle savedInstanceState) {
 
 		super.onCreate(savedInstanceState);
@@ -29,7 +34,14 @@ public class Check_product_Activity extends Activity {
 		// view matching
 		Button okButton = (Button) findViewById(R.id.button1);
 		Button cancelButton = (Button) findViewById(R.id.button2);
-
+		addTextView = (TextView)findViewById(R.id.set_quantity_textView1);
+		editText = (EditText) findViewById(R.id.set_quantity_editText);
+		setQuantityButton = (Button) findViewById(R.id.set_quantity_ok_button);
+		
+		editText.setVisibility(View.INVISIBLE);
+		addTextView.setVisibility(View.INVISIBLE);
+		setQuantityButton.setVisibility(View.INVISIBLE);
+		
 		// add function on click at OK button.
 		okButton.setOnClickListener(new OnClickListener() {
 
@@ -51,6 +63,9 @@ public class Check_product_Activity extends Activity {
 				{
 					// not has
 					Toast.makeText(Check_product_Activity.this,"This product id has already", Toast.LENGTH_SHORT).show();
+					editText.setVisibility(View.VISIBLE);
+					addTextView.setVisibility(View.VISIBLE);
+					setQuantityButton.setVisibility(View.VISIBLE);
 				}
 			}
 

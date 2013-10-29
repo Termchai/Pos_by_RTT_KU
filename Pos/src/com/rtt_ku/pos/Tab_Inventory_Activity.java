@@ -52,7 +52,7 @@ public class Tab_Inventory_Activity extends Activity{
 		
 		// view matching
 		addButton = (Button) findViewById(R.id.button_add);
-		removeButton = (Button) findViewById(R.id.button3);
+		removeButton = (Button) findViewById(R.id.set_quantity_ok_button);
         list_item = (ListView)findViewById(R.id.listView1);
         
         // adapter of list item.
