@@ -39,7 +39,7 @@ public class Check_product_Activity extends Activity {
 				EditText pc = (EditText) findViewById(R.id.pc_text);
 				
 				String product_code = pc.getText().toString();
-				if(sCT.isHasYet(product_code))
+				if(!sCT.isHasYet(product_code))
 				{
 					//has
 					Toast.makeText(Check_product_Activity.this,"Put your fucking hand up", Toast.LENGTH_SHORT).show();
