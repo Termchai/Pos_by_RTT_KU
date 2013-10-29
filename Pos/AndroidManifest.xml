@@ -25,8 +25,8 @@
         <activity android:name="Add_Activity"></activity>
         <activity android:name="Remove_Activity"></activity>
         <activity android:name="Sale_Activity"></activity>
-        <activity android:name="Tab_Inventory_Activity">
-        </activity>
+        <activity android:name="Tab_Inventory_Activity"> </activity>
+        <activity android:name="Check_product_Activity"></activity>
         <activity android:name="Tab_Product_Activity"></activity>
         <activity android:name="Tab_Sale_Activity"></activity>
     </application>

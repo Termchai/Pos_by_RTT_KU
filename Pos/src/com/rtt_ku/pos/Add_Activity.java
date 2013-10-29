@@ -38,7 +38,6 @@ public class Add_Activity extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				EditText pc = (EditText)findViewById(R.id.pc_text);
 				EditText n = (EditText)findViewById(R.id.name_text);
 				EditText quan = (EditText)findViewById(R.id.quantity_text);
 				EditText p =(EditText)findViewById(R.id.price_text);
@@ -46,11 +45,13 @@ public class Add_Activity extends Activity {
 				
 				
 				// toString
-				
-				String product_code = pc.getText().toString();
 				String name = n.getText().toString();
 				String quantityString = quan.getText().toString();
 				String priceString = p.getText().toString();
+				
+				Intent intent = getIntent();
+				Bundle b = intent.getExtras();
+				String product_code = (String)b.get("pc");
 				
 				if (!(product_code.equals("") || name.equals("") || quantityString.equals("") || priceString.equals("")))
 				{

@@ -113,4 +113,9 @@ public class StoreController {
 		else if (newQuantity == -2)
 			System.out.println(Product_Code + " not found");
 	}
+	
+	public boolean isHasYet(String product_code)
+	{
+		return dbCT.isHasYet(product_code);
+	}
 }

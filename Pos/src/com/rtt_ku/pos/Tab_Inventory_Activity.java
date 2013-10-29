@@ -51,21 +51,21 @@ public class Tab_Inventory_Activity extends Activity{
         productList = sCT.getProductList();
 		
 		// view matching
-		addButton = (Button) findViewById(R.id.button1);
+		addButton = (Button) findViewById(R.id.button_add);
 		removeButton = (Button) findViewById(R.id.button3);
         list_item = (ListView)findViewById(R.id.listView1);
         
         // adapter of list item.
 		list_item.setAdapter(new MyAdapter());
 		
-		// add function on click at add button.
+		//add function on click at add button.
         addButton.setOnClickListener(new OnClickListener(){
 
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				//setContentView(R.layout.add_layout);
-				startActivity(new Intent(Tab_Inventory_Activity.this, Add_Activity.class));
+				startActivity(new Intent(Tab_Inventory_Activity.this, Check_product_Activity.class));
 			}
         	
         });
