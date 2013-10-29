@@ -41,6 +41,7 @@ public class Tab_Sale_Activity extends Activity{
 	private ListView list_sale_item;
 	private Basket basket;
 	private SaleItemAdapter saleAdapter;
+	private TextView total_text;
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -55,6 +56,7 @@ public class Tab_Sale_Activity extends Activity{
 		// view matching
 		list_item = (ListView)findViewById(R.id.listView2);
 		list_sale_item = (ListView)findViewById(R.id.listView1);
+		total_text = (TextView)findViewById(R.id.textView1);
 		
 		// adapter of list item.
 		MyAdapter adapter = new MyAdapter();
@@ -79,6 +81,7 @@ public class Tab_Sale_Activity extends Activity{
 	        	Toast.makeText(Tab_Sale_Activity.this,temp.getProduct_Code() + "fuck", Toast.LENGTH_SHORT).show();
 //	        	startActivity(new Intent(Tab_Sale_Activity.this,Tab_Sale_Activity.class));
 	        	saleAdapter.notifyDataSetChanged();
+	        	total_text.setText(basket.getTotalPrice()+"");
 	        }
 
 	    });
@@ -88,11 +91,6 @@ public class Tab_Sale_Activity extends Activity{
 		list_sale_item.setAdapter(new SaleItemAdapter());
 	}
 	
-	public void init()
-	{
-		basket = new Basket();
-		
-	}
 	 @Override
 	    public boolean onCreateOptionsMenu(Menu menu) {
 	        // Inflate the menu; this adds items to the action bar if it is present.

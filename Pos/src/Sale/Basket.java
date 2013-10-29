@@ -37,13 +37,11 @@ public class Basket {
 	
 	public double getTotalPrice()
 	{
-		Set<Product> set = map.keySet();
-		Iterator<Product> it = set.iterator();
 		double total = 0;
-		while(it.hasNext())
+		for (int i=0; i<list.size(); i++)
 		{
-			Product product = it.next();
-			total += map.get(product) + product.getPrice();
+			Product p = list.get(i);
+			total += (p.getPrice() * map.get(p)); 
 		}
 		return total;
 	}
