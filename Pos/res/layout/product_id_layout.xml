@@ -29,13 +29,17 @@
             android:id="@+id/button1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="OK"/>
+            android:text="OK"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/greenbutton"/>
 
         <Button
             android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cancel" />
+            android:text="Cancel"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/light_grey_button" />
     </LinearLayout>
 
     <TextView
@@ -54,6 +58,8 @@
         android:id="@+id/set_quantity_ok_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:text="OK"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/greenbutton" />
 
 </LinearLayout>

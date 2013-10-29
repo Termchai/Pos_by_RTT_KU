@@ -21,7 +21,9 @@
         android:layout_alignBaseline="@+id/add_button"
         android:layout_alignBottom="@+id/add_button"
         android:layout_centerHorizontal="true"
-        android:text="REMOVE" />
+        android:text="REMOVE"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/light_grey_button" />
 
     <Button
         android:id="@+id/add_button"
@@ -29,7 +31,9 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/listItem"
         android:layout_below="@+id/listItem"
-        android:text="ADD" />
+        android:text="ADD" 
+        android:textColor="#FFFFFF"
+        android:background="@drawable/greenbutton"/>
 
     <Button
         android:id="@+id/sale_button"
