@@ -13,17 +13,21 @@ import com.rtt_store.pos.StoreController;
 import Inventory.Product;
 import Sale.Basket;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -42,7 +46,9 @@ public class Tab_Sale_Activity extends Activity{
 	private Basket basket;
 	private SaleItemAdapter saleAdapter;
 	private TextView total_text;
-
+	private EditText cash;
+	private Button ok_button;
+	
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.sale_tab);
@@ -57,6 +63,8 @@ public class Tab_Sale_Activity extends Activity{
 		list_item = (ListView)findViewById(R.id.listView2);
 		list_sale_item = (ListView)findViewById(R.id.listView1);
 		total_text = (TextView)findViewById(R.id.textView1);
+		cash = (EditText)findViewById(R.id.set_quantity_editText);
+		ok_button = (Button)findViewById(R.id.button1);
 		
 		// adapter of list item.
 		MyAdapter adapter = new MyAdapter();
@@ -65,6 +73,48 @@ public class Tab_Sale_Activity extends Activity{
 		list_item.setAdapter(adapter);
 		list_sale_item.setAdapter(saleAdapter);
 		 
+		ok_button.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				double cashh = Double.parseDouble(cash.getText().toString());
+				double change = cashh-basket.getTotalPrice();
+				Toast.makeText(Tab_Sale_Activity.this,change+"", Toast.LENGTH_SHORT).show();
+				if(cashh >= basket.getTotalPrice()){
+					final AlertDialog.Builder dialog_change = new AlertDialog.Builder(Tab_Sale_Activity.this);
+				
+					dialog_change.setTitle("Change");
+					dialog_change.setMessage("Total price = " + basket.getTotalPrice() + "\nCash = " + cash.getText().toString() + "\nChange = " + change);
+						dialog_change.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+	
+						@Override
+						public void onClick(DialogInterface arg0, int arg1) {
+							// TODO Auto-generated method stub
+							basket = new Basket();
+							saleAdapter.notifyDataSetChanged();
+							total_text.setText("0.0");
+							cash.setText("");
+						}
+					}).show();
+				}
+				
+				else 
+				{
+					final AlertDialog.Builder dialog_not = new AlertDialog.Builder(Tab_Sale_Activity.this);
+					
+					dialog_not.setTitle("Warning!!!");
+					dialog_not.setMessage("Not enough money");
+						dialog_not.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+	
+						@Override
+						public void onClick(DialogInterface arg0, int arg1) {
+							// TODO Auto-generated method stub
+						}
+					}).show();
+				}
+			}
+		});
 		list_item.setOnItemClickListener(new OnItemClickListener() {
 
 	        @Override
