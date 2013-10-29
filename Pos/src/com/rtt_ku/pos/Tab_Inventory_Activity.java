@@ -2,6 +2,7 @@ package com.rtt_ku.pos;
 
 import java.util.ArrayList;
 
+import com.database.pos.Database;
 import com.database.pos.DatabaseReader;
 import com.rtt_ku.pos.main_activity2.MyAdapter;
 import com.rtt_ku.pos.main_activity2.MyAdapter.Holder;
@@ -43,6 +44,11 @@ public class Tab_Inventory_Activity extends Activity{
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.inventory_tab);
+
+        Database myDb = new Database(this);
+        myDb.getWritableDatabase();
+        sCT = new StoreController(myDb);
+        productList = sCT.getProductList();
 		
 		// view matching
 		addButton = (Button) findViewById(R.id.button1);

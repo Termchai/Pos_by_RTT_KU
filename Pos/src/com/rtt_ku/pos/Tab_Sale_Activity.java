@@ -2,6 +2,7 @@ package com.rtt_ku.pos;
 
 import java.util.ArrayList;
 
+import com.database.pos.Database;
 import com.database.pos.DatabaseReader;
 import com.rtt_ku.pos.Tab_Inventory_Activity.MyAdapter;
 import com.rtt_ku.pos.Tab_Inventory_Activity.MyAdapter.Holder;
@@ -34,6 +35,11 @@ public class Tab_Sale_Activity extends Activity{
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.sale_tab);
+		
+        Database myDb = new Database(this);
+        myDb.getWritableDatabase();
+        sCT = new StoreController(myDb);
+        productList = sCT.getProductList();
 		
 		// view matching
 		list_item = (ListView)findViewById(R.id.listView2);
