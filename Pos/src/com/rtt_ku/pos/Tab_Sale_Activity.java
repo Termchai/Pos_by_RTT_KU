@@ -15,11 +15,14 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Tab_Sale_Activity extends Activity{
 
@@ -31,6 +34,7 @@ public class Tab_Sale_Activity extends Activity{
 	
 	private ArrayAdapter<String> listAdapter;
 	private ListView list_item;
+	private ListView list_sale_item;
 	
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -43,9 +47,22 @@ public class Tab_Sale_Activity extends Activity{
 		
 		// view matching
 		list_item = (ListView)findViewById(R.id.listView2);
-		        
+		list_sale_item = (ListView)findViewById(R.id.listView1);
+		
 		// adapter of list item.
 		list_item.setAdapter(new MyAdapter());
+		list_sale_item = (ListView)findViewById(R.id.listView1);
+		
+		list_item.setOnItemClickListener(new OnItemClickListener() {
+
+	        @Override
+	        public void onItemClick(AdapterView<?> parent, View view, int position,
+	                long id) {
+	            // TODO Auto-generated method stub
+	        	Toast.makeText(Tab_Sale_Activity.this,"Hello" + position, Toast.LENGTH_SHORT).show();
+	        }
+
+	    });
 	}
 	
 	 @Override
@@ -57,6 +74,63 @@ public class Tab_Sale_Activity extends Activity{
 
 	    // inner class to adapter holder with listview.
 	    class MyAdapter extends BaseAdapter{
+			private Holder holder;
+
+			
+			@Override
+			public int getCount() {
+				// TODO Auto-generated method stub
+				return productList.size();
+			}
+
+			@Override
+			public Object getItem(int arg0) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+
+			@Override
+			public long getItemId(int arg0) {
+				// TODO Auto-generated method stub
+				return 0;
+			}
+
+			@Override
+			public View getView(int position, View view, ViewGroup parent) {
+				// TODO Auto-generated method stub
+				if(view == null){
+					view = LayoutInflater.from(getApplicationContext()).inflate(R.layout.item_layout, null);
+					holder = new Holder();
+					
+					holder.title = (TextView) view.findViewById(R.id.text_item);
+					holder.quantity = (TextView) view.findViewById(R.id.text_quantity); 
+					holder.price = (TextView) view.findViewById(R.id.text_price);
+					view.setTag(holder);
+				}
+				else {
+					holder = (Holder) view.getTag();
+				}
+				Product p = productList.get(position);
+				String product_name = p.getName();
+				String product_code = p.getProduct_Code();
+				int product_quantity = p.getQuantity();
+				int product_price = p.getPrice();
+				holder.title.setText(productList.get(position).getName() + " <" + product_code + "> ");
+				holder.quantity.setText(product_quantity +  " item(s)");
+				holder.price.setText(product_price+"");
+				return view;
+			}
+			
+			// hold text view in each list of item. 
+			class Holder{
+				
+				public TextView title;
+				public TextView quantity;
+				public TextView price;
+			}
+		}
+	    
+	    class SaleItemAdapter extends BaseAdapter{
 			private Holder holder;
 
 			
