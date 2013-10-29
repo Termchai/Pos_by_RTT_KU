@@ -80,6 +80,8 @@ public class Tab_Sale_Activity extends Activity{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				try
+				{
 				double cashh = Double.parseDouble(cash.getText().toString());
 				double change = cashh-basket.getTotalPrice();
 				Toast.makeText(Tab_Sale_Activity.this,change+"", Toast.LENGTH_SHORT).show();
@@ -129,6 +131,22 @@ public class Tab_Sale_Activity extends Activity{
 				}
 				
 				
+			}catch(Exception e){ 
+				final AlertDialog.Builder dialog_Limit = new AlertDialog.Builder(Tab_Sale_Activity.this);
+				
+				dialog_Limit.setTitle("Warning!!!");
+				dialog_Limit.setMessage("Please enter amount of cash");
+					dialog_Limit.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface arg0, int arg1) {
+						// TODO Auto-generated method stub
+					}
+				}).show();
+			
+			
+			
+		}
 			}
 		});
 		list_item.setOnItemClickListener(new OnItemClickListener() {
