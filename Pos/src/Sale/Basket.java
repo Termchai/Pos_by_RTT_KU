@@ -47,4 +47,5 @@ public class Basket {
 	}
 	public HashMap<Product,Integer> getMap(){return map;}
 	public ArrayList<Product> getList(){return list;}
+	
 }

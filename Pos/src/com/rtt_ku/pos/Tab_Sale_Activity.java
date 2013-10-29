@@ -48,12 +48,14 @@ public class Tab_Sale_Activity extends Activity{
 	private TextView total_text;
 	private EditText cash;
 	private Button ok_button;
+	private MyAdapter adapter;
+	private Database myDb;
 	
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.sale_tab);
 		
-        Database myDb = new Database(this);
+        myDb = new Database(this);
         myDb.getWritableDatabase();
         sCT = new StoreController(myDb);
         productList = sCT.getProductList();
@@ -67,7 +69,7 @@ public class Tab_Sale_Activity extends Activity{
 		ok_button = (Button)findViewById(R.id.button1);
 		
 		// adapter of list item.
-		MyAdapter adapter = new MyAdapter();
+		adapter = new MyAdapter();
 		saleAdapter = new SaleItemAdapter();
 		
 		list_item.setAdapter(adapter);
@@ -82,6 +84,10 @@ public class Tab_Sale_Activity extends Activity{
 				double change = cashh-basket.getTotalPrice();
 				Toast.makeText(Tab_Sale_Activity.this,change+"", Toast.LENGTH_SHORT).show();
 				if(cashh >= basket.getTotalPrice()){
+					
+
+
+					
 					final AlertDialog.Builder dialog_change = new AlertDialog.Builder(Tab_Sale_Activity.this);
 				
 					dialog_change.setTitle("Change");
@@ -91,12 +97,20 @@ public class Tab_Sale_Activity extends Activity{
 						@Override
 						public void onClick(DialogInterface arg0, int arg1) {
 							// TODO Auto-generated method stub
+							sCT.confirmSale(basket);
+							sCT.setDB(myDb);
+							sCT.updateInventory();
+							productList = sCT.getProductList();
+							adapter.notifyDataSetChanged();
+							
 							basket = new Basket();
 							saleAdapter.notifyDataSetChanged();
 							total_text.setText("0.0");
 							cash.setText("");
+
 						}
 					}).show();
+
 				}
 				
 				else 
@@ -113,6 +127,8 @@ public class Tab_Sale_Activity extends Activity{
 						}
 					}).show();
 				}
+				
+				
 			}
 		});
 		list_item.setOnItemClickListener(new OnItemClickListener() {
@@ -120,20 +136,43 @@ public class Tab_Sale_Activity extends Activity{
 	        @Override
 	        public void onItemClick(AdapterView<?> parent, View view, int position,
 	                long id) {
-	            // TODO Auto-generated method stub
-//	        	Object o = list_item.getItemAtPosition(position);
-//	        	 MyAdapter str = (MyAdapter)o;
-//	        	 
-//	        	Toast.makeText(Tab_Sale_Activity.this,productList.get(position).getName(), Toast.LENGTH_SHORT).show();
 	        	
 	        	Product temp = sCT.getProduct(productList.get(position).getProduct_Code());
-	        	basket.addProduct(temp, 1);
-	        	Toast.makeText(Tab_Sale_Activity.this,temp.getProduct_Code() + "fuck", Toast.LENGTH_SHORT).show();
-//	        	startActivity(new Intent(Tab_Sale_Activity.this,Tab_Sale_Activity.class));
-	        	saleAdapter.notifyDataSetChanged();
-	        	total_text.setText(basket.getTotalPrice()+"");
+	        	if(basket.getMap().containsKey(temp))
+	        	{
+	        	if (basket.getMap().get(temp)+1 <= temp.getQuantity())
+		        {
+		        	basket.addProduct(temp, 1);	
+		        	Toast.makeText(Tab_Sale_Activity.this,temp.getProduct_Code() + "fuck", Toast.LENGTH_SHORT).show();
+	//	        	startActivity(new Intent(Tab_Sale_Activity.this,Tab_Sale_Activity.class));
+		        	saleAdapter.notifyDataSetChanged();
+		        	total_text.setText(basket.getTotalPrice()+"");
+	        	
+	        	}
+	        	else
+	        	{
+	        		final AlertDialog.Builder dialog_Limit = new AlertDialog.Builder(Tab_Sale_Activity.this);
+					
+					dialog_Limit.setTitle("Warning!!!");
+					dialog_Limit.setMessage("Not enough item");
+						dialog_Limit.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+	
+						@Override
+						public void onClick(DialogInterface arg0, int arg1) {
+							// TODO Auto-generated method stub
+						}
+					}).show();
+	        	}
 	        }
-
+	        	else
+	        	{
+		        	basket.addProduct(temp, 1);	
+		        	Toast.makeText(Tab_Sale_Activity.this,temp.getProduct_Code() + "fuck", Toast.LENGTH_SHORT).show();
+	//	        	startActivity(new Intent(Tab_Sale_Activity.this,Tab_Sale_Activity.class));
+		        	saleAdapter.notifyDataSetChanged();
+		        	total_text.setText(basket.getTotalPrice()+"");
+	        	}
+	        }
 	    });
 	}
 	
@@ -198,6 +237,7 @@ public class Tab_Sale_Activity extends Activity{
 				else {
 					holder = (Holder) view.getTag();
 				}
+				
 				Product p = productList.get(position);
 				String product_name = p.getName();
 				String product_code = p.getProduct_Code();

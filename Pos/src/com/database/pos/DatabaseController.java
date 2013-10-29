@@ -1,8 +1,10 @@
 package com.database.pos;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import Inventory.Product;
+import Sale.Basket;
 /**
  * control database
  * @author Termchai
@@ -104,6 +106,16 @@ public class DatabaseController {
 		return -2;
 	}
 	
+	public void confirmSale(Basket basket)
+	{
+		ArrayList<Product> list = basket.getList();
+		HashMap<Product,Integer> map = basket.getMap();
+		for (int i=0; i<list.size(); i++)
+		{
+			Product p = list.get(i);
+			addQuantity(p.getProduct_Code(), -(map.get(p)));
+		}
+	}
 	
 	
 }
