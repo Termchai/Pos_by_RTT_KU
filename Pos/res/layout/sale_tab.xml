@@ -12,7 +12,7 @@
 
         <ListView
             android:id="@+id/listView1"
-            android:layout_width="match_parent"
+            android:layout_width="fill_parent"
             android:layout_height="192dp" >
         </ListView>
 
@@ -23,7 +23,8 @@
             <ListView
                 android:id="@+id/listView2"
                 android:layout_width="157dp"
-                android:layout_height="247dp" >
+                android:layout_height="247dp"
+                android:background="@drawable/grey_button" >
 
             </ListView>
 
@@ -55,13 +56,17 @@
                         android:id="@+id/button1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="OK" />
+                        android:text="OK"
+                        android:textColor="#FFFFFF"
+          			    android:background="@drawable/greenbutton" />
 
                     <Button
                         android:id="@+id/button2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Cancel" />
+                        android:text="Cancel"
+                        android:textColor="#FFFFFF"
+						android:background="@drawable/light_grey_button" />
 
                 </LinearLayout>
 

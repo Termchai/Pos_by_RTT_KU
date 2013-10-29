@@ -12,8 +12,8 @@
 
         <ListView
             android:id="@+id/listView1"
-            android:layout_width="match_parent"
-            android:layout_height="700dp" >
+            android:layout_width="fill_parent"
+            android:layout_height="380dip" >
         </ListView>
 
         <LinearLayout
