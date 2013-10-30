@@ -116,12 +116,12 @@ public class Tab_Inventory_Activity extends Activity{
 				public View getView(int position, View view, ViewGroup parent) {
 					// TODO Auto-generated method stub
 					if(view == null){
-						view = LayoutInflater.from(getApplicationContext()).inflate(R.layout.item_layout, null);
+						view = LayoutInflater.from(getApplicationContext()).inflate(R.layout.large_item_layout, null);
 						holder = new Holder();
 						
-						holder.title = (TextView) view.findViewById(R.id.text_item);
-						holder.quantity = (TextView) view.findViewById(R.id.text_quantity); 
-						holder.price = (TextView) view.findViewById(R.id.text_price);
+						holder.title = (TextView) view.findViewById(R.id.large_text_item);
+						holder.quantity = (TextView) view.findViewById(R.id.large_text_quantity); 
+						holder.price = (TextView) view.findViewById(R.id.large_text_price);
 						view.setTag(holder);
 					}
 					else {

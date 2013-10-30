@@ -161,7 +161,7 @@ public class Tab_Sale_Activity extends Activity{
 	        	if (basket.getMap().get(temp)+1 <= temp.getQuantity())
 		        {
 		        	basket.addProduct(temp, 1);	
-		        	Toast.makeText(Tab_Sale_Activity.this,temp.getProduct_Code() + "fuck", Toast.LENGTH_SHORT).show();
+		        	Toast.makeText(Tab_Sale_Activity.this,temp.getProduct_Code(), Toast.LENGTH_SHORT).show();
 	//	        	startActivity(new Intent(Tab_Sale_Activity.this,Tab_Sale_Activity.class));
 		        	saleAdapter.notifyDataSetChanged();
 		        	total_text.setText(basket.getTotalPrice()+"");
@@ -302,12 +302,12 @@ public class Tab_Sale_Activity extends Activity{
 			public View getView(int position, View view, ViewGroup parent) {
 				// TODO Auto-generated method stub
 				if(view == null){
-					view = LayoutInflater.from(getApplicationContext()).inflate(R.layout.item_layout, null);
+					view = LayoutInflater.from(getApplicationContext()).inflate(R.layout.large_item_layout, null);
 					holder = new Holder();
 					
-					holder.title = (TextView) view.findViewById(R.id.text_item);
-					holder.quantity = (TextView) view.findViewById(R.id.text_quantity); 
-					holder.price = (TextView) view.findViewById(R.id.text_price);
+					holder.title = (TextView) view.findViewById(R.id.large_text_item);
+					holder.quantity = (TextView) view.findViewById(R.id.large_text_quantity); 
+					holder.price = (TextView) view.findViewById(R.id.large_text_price);
 					view.setTag(holder);
 				}
 				else {
@@ -316,12 +316,6 @@ public class Tab_Sale_Activity extends Activity{
 				
 				//
 				ArrayList<Product> list = basket.getList();
-				
-				Toast.makeText(Tab_Sale_Activity.this,"fuuuuu", Toast.LENGTH_SHORT).show();
-				
-				
-				
-				
 				
 				
 				Product p = list.get(position);
