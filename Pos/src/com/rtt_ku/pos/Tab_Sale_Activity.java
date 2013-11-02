@@ -48,6 +48,7 @@ public class Tab_Sale_Activity extends Activity{
 	private TextView total_text;
 	private EditText cash;
 	private Button ok_button;
+	private Button reset_button;
 	private MyAdapter adapter;
 	private Database myDb;
 	
@@ -67,6 +68,7 @@ public class Tab_Sale_Activity extends Activity{
 		total_text = (TextView)findViewById(R.id.textView1);
 		cash = (EditText)findViewById(R.id.set_quantity_editText);
 		ok_button = (Button)findViewById(R.id.button1);
+		reset_button =(Button)findViewById(R.id.button2);
 		
 		// adapter of list item.
 		adapter = new MyAdapter();
@@ -149,6 +151,19 @@ public class Tab_Sale_Activity extends Activity{
 		}
 			}
 		});
+		
+		reset_button.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				basket = new Basket();
+				saleAdapter.notifyDataSetChanged();
+				total_text.setText("0.0");
+				cash.setText("");
+			}
+		});
+		
 		list_item.setOnItemClickListener(new OnItemClickListener() {
 
 	        @Override
@@ -161,7 +176,7 @@ public class Tab_Sale_Activity extends Activity{
 	        	if (basket.getMap().get(temp)+1 <= temp.getQuantity())
 		        {
 		        	basket.addProduct(temp, 1);	
-		        	Toast.makeText(Tab_Sale_Activity.this,temp.getProduct_Code(), Toast.LENGTH_SHORT).show();
+//		        	Toast.makeText(Tab_Sale_Activity.this,temp.getProduct_Code(), Toast.LENGTH_SHORT).show();
 	//	        	startActivity(new Intent(Tab_Sale_Activity.this,Tab_Sale_Activity.class));
 		        	saleAdapter.notifyDataSetChanged();
 		        	total_text.setText(basket.getTotalPrice()+"");
@@ -182,13 +197,28 @@ public class Tab_Sale_Activity extends Activity{
 					}).show();
 	        	}
 	        }
-	        	else
+	        	else if (temp.getQuantity()!=0)
 	        	{
+	        		
 		        	basket.addProduct(temp, 1);	
-		        	Toast.makeText(Tab_Sale_Activity.this,temp.getProduct_Code() + "fuck", Toast.LENGTH_SHORT).show();
+//		        	Toast.makeText(Tab_Sale_Activity.this,temp.getProduct_Code() + "fuck", Toast.LENGTH_SHORT).show();
 	//	        	startActivity(new Intent(Tab_Sale_Activity.this,Tab_Sale_Activity.class));
 		        	saleAdapter.notifyDataSetChanged();
 		        	total_text.setText(basket.getTotalPrice()+"");
+	        	}
+	        	else 
+	        	{
+	        		final AlertDialog.Builder dialog_Limit = new AlertDialog.Builder(Tab_Sale_Activity.this);
+					
+					dialog_Limit.setTitle("Warning!!!");
+					dialog_Limit.setMessage("Not enough item");
+						dialog_Limit.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+	
+						@Override
+						public void onClick(DialogInterface arg0, int arg1) {
+							// TODO Auto-generated method stub
+						}
+					}).show();
 	        	}
 	        }
 	    });
@@ -323,7 +353,7 @@ public class Tab_Sale_Activity extends Activity{
 				String product_code = p.getProduct_Code();
 				int product_quantity = basket.getMap().get(p);
 				int product_price = p.getPrice();
-				holder.title.setText(productList.get(position).getName() + " <" + product_code + "> ");
+				holder.title.setText(product_name + " <" + product_code + "> ");
 				holder.quantity.setText(product_quantity +  " item(s)");
 				holder.price.setText(product_price+"");
 				return view;

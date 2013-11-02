@@ -78,6 +78,6 @@ public class main_activity extends TabActivity {
         myTabHost.addTab(tabSpec3);
         
         //Set default tab
-        //myTabHost.setCurrentTab(1);
+//        myTabHost.setCurrentTab(1);
     }
 }

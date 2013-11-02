@@ -63,6 +63,8 @@ public class Add_Activity extends Activity {
 				
 				// when click add button
 				insertProduct(product_code, name, quantity, price,"","","","","","","");
+				startActivity(new Intent(Add_Activity.this, main_activity.class));
+
 				}
 				else 
 				{
