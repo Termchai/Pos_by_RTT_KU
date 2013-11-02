@@ -60,7 +60,7 @@ public class Tab_Sale_Activity extends Activity{
         myDb.getWritableDatabase();
         sCT = new StoreController(myDb);
         productList = sCT.getProductList();
-        basket = new Basket();
+        basket = sCT.
 		
 		// view matching
 		list_item = (ListView)findViewById(R.id.listView2);

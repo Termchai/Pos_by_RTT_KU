@@ -6,6 +6,7 @@ import Inventory.AbstractInventory;
 import Inventory.InventoryController;
 import Inventory.Product;
 import Sale.Basket;
+import Sale.SaleController;
 
 import com.database.pos.Database;
 import com.database.pos.DatabaseController;
@@ -17,9 +18,11 @@ import com.database.pos.DatabaseController;
 public class StoreController {
 	DatabaseController dbCT;
 	InventoryController inCT;
+	SaleController saleCT;
 	public StoreController(Database db) {
 		dbCT = new DatabaseController(db);
 		inCT = new InventoryController();
+		saleCT = new SaleController();
 		updateInventory();
 //		inCT.printList();
 		
@@ -30,6 +33,11 @@ public class StoreController {
 	{
 		this.dbCT = new DatabaseController(db);
 	}
+	
+//	public Basket newBasket()
+//	{
+//		return 
+//	}
 
 	
 	/**
