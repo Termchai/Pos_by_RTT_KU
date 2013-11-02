@@ -31,6 +31,7 @@ public class StoreController {
 		this.dbCT = new DatabaseController(db);
 	}
 
+	
 	/**
 	 * add new product in database and update inventory
 	 * @param Product_Code
