@@ -60,7 +60,7 @@ public class Tab_Sale_Activity extends Activity{
         myDb.getWritableDatabase();
         sCT = new StoreController(myDb);
         productList = sCT.getProductList();
-        basket = sCT.
+        basket = sCT.newBasket();
 		
 		// view matching
 		list_item = (ListView)findViewById(R.id.listView2);
@@ -107,7 +107,7 @@ public class Tab_Sale_Activity extends Activity{
 							productList = sCT.getProductList();
 							adapter.notifyDataSetChanged();
 							
-							basket = new Basket();
+							basket = sCT.newBasket();
 							saleAdapter.notifyDataSetChanged();
 							total_text.setText("0.0");
 							cash.setText("");
@@ -157,7 +157,7 @@ public class Tab_Sale_Activity extends Activity{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				basket = new Basket();
+				basket = sCT.newBasket();
 				saleAdapter.notifyDataSetChanged();
 				total_text.setText("0.0");
 				cash.setText("");

@@ -34,10 +34,10 @@ public class StoreController {
 		this.dbCT = new DatabaseController(db);
 	}
 	
-//	public Basket newBasket()
-//	{
-//		return 
-//	}
+	public Basket newBasket()
+	{
+		return saleCT.newBasket();
+	}
 
 	
 	/**
