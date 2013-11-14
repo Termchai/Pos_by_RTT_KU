@@ -39,10 +39,10 @@ public class Remove_Activity extends Activity{
 				String product_code = pc.getText().toString();
 				boolean check = sCT.removeProduct(product_code);
 				String output = "";
-				if (check) output = "<" + product_code  + "> have been removed";
-				else output = "can't find <" +product_code + "> in inventory";
-		        Toast.makeText(Remove_Activity.this,output,
-		        		Toast.LENGTH_LONG).show();
+//				if (check) output = "<" + product_code  + "> have been removed";
+//				else output = "can't find <" +product_code + "> in inventory";
+//		        Toast.makeText(Remove_Activity.this,output,
+//		        		Toast.LENGTH_LONG).show();
 		        if (check) {
 					setContentView(R.layout.activity_main);
 					startActivity(new Intent(Remove_Activity.this, main_activity.class));

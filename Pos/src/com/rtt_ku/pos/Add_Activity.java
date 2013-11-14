@@ -98,7 +98,7 @@ public class Add_Activity extends Activity {
 			String barcode, String picture, String lastedit, String status, String stage)
 	{
 		int temp = sCT.addProduct(productCode, name, quantity, price,type,date,barcode,picture,lastedit,status,stage);
-		if (temp == 1) Toast.makeText(Add_Activity.this,"added <" + productCode + "> " + name + " Complete.", Toast.LENGTH_SHORT).show();
-		else if (temp == -1) Toast.makeText(Add_Activity.this, productCode + " is already exist.", Toast.LENGTH_SHORT).show();
+//		if (temp == 1) Toast.makeText(Add_Activity.this,"added <" + productCode + "> " + name + " Complete.", Toast.LENGTH_SHORT).show();
+		if (temp == -1) Toast.makeText(Add_Activity.this, productCode + " is already exist.", Toast.LENGTH_SHORT).show();
 	}
 }
