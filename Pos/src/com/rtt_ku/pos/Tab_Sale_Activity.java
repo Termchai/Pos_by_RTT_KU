@@ -49,7 +49,7 @@ public class Tab_Sale_Activity extends Activity{
 	private EditText cash;
 	private Button ok_button;
 	private Button reset_button;
-	private InventoryAdapter adapter;
+	private SaleAdapter adapter;
 	private Database myDb;
 	
 	public void onCreate(Bundle savedInstanceState) {
@@ -70,9 +70,8 @@ public class Tab_Sale_Activity extends Activity{
 		ok_button = (Button)findViewById(R.id.button1);
 		reset_button =(Button)findViewById(R.id.button2);
 		
-		View view = LayoutInflater.from(getApplicationContext()).inflate(R.layout.item_layout, null);
 		// adapter of list item.
-		adapter = new InventoryAdapter(productList, view);
+		adapter = new SaleAdapter(productList, this);
 		saleAdapter = new SaleItemAdapter();
 		
 		list_item.setAdapter(adapter);
@@ -368,4 +367,10 @@ public class Tab_Sale_Activity extends Activity{
 				public TextView price;
 			}
 		}
+	    
+	    public View getView () {
+	        View view = LayoutInflater.from(getApplicationContext()).inflate(R.layout.item_layout, null);
+	        return view;
+		}
 }
+

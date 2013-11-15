@@ -2,24 +2,22 @@ package com.rtt_ku.pos;
 
 import java.util.ArrayList;
 
+import com.rtt_ku.pos.InventoryAdapter.Holder;
+
 import Inventory.Product;
-import android.app.Activity;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-public class InventoryAdapter extends BaseAdapter{
-
+public class SaleAdapter extends BaseAdapter{
 	private Holder holder;
-	private View VIEW;
 	private ArrayList<Product> list;
-	private Tab_Inventory_Activity ac;
+	private Tab_Sale_Activity sa;
 	
-	public InventoryAdapter(ArrayList<Product> list,Tab_Inventory_Activity ac){
+	public SaleAdapter(ArrayList<Product> list, Tab_Sale_Activity sa){
 		this.list = list;
-		this.ac = ac;
+		this.sa = sa;
 	}
 	@Override
 	public int getCount() {
@@ -43,12 +41,12 @@ public class InventoryAdapter extends BaseAdapter{
 	public View getView(int position, View view, ViewGroup parent) {
 		// TODO Auto-generated method stub
 		if(view == null){
-			view = ac.getView();
+			view = sa.getView();
 			holder = new Holder();
 			
-			holder.title = (TextView) view.findViewById(R.id.large_text_item);
-			holder.quantity = (TextView) view.findViewById(R.id.large_text_quantity); 
-			holder.price = (TextView) view.findViewById(R.id.large_text_price);
+			holder.title = (TextView) view.findViewById(R.id.text_item);
+			holder.quantity = (TextView) view.findViewById(R.id.text_quantity); 
+			holder.price = (TextView) view.findViewById(R.id.text_price);
 			view.setTag(holder);
 		}
 		else {
@@ -73,4 +71,3 @@ public class InventoryAdapter extends BaseAdapter{
 		public TextView price;
 	}
 }
-

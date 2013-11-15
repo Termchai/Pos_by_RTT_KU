@@ -54,10 +54,9 @@ public class Tab_Inventory_Activity extends Activity{
 		addButton = (Button) findViewById(R.id.button_add);
 		removeButton = (Button) findViewById(R.id.set_quantity_ok_button);
         list_item = (ListView)findViewById(R.id.listView1);
-        
-        View view = LayoutInflater.from(getApplicationContext()).inflate(R.layout.large_item_layout, null);
+
         // adapter of list item.
-		list_item.setAdapter(new InventoryAdapter(productList, view));
+		list_item.setAdapter(new InventoryAdapter(productList,this));
 		
 		//add function on click at add button.
         addButton.setOnClickListener(new OnClickListener(){
@@ -82,6 +81,10 @@ public class Tab_Inventory_Activity extends Activity{
 			}
         });
 		
+	}
+	public View getView () {
+        View view = LayoutInflater.from(getApplicationContext()).inflate(R.layout.large_item_layout, null);
+        return view;
 	}
 		 @Override
 		    public boolean onCreateOptionsMenu(Menu menu) {

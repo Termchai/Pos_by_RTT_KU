@@ -205,9 +205,7 @@ public class Database extends SQLiteOpenHelper {
 	// Update Data
 	public long UpdateQuantity(String Product_Code,int Quantity) {
 		// TODO Auto-generated method stub
-		
 		 try {
-			
 			SQLiteDatabase db;
 	    		db = this.getWritableDatabase(); // Write Data
 
@@ -223,7 +221,6 @@ public class Database extends SQLiteOpenHelper {
 		 } catch (Exception e) {
 		    return -1;
 		 }
-
 	}
 	
 	// Delete Data
