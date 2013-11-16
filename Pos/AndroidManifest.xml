@@ -30,6 +30,9 @@
         <activity android:name="Tab_Product_Activity"></activity>
         <activity android:name="Tab_Sale_Activity"></activity>
         <activity android:name="OnClickChangeView"></activity>
+        <activity android:name="Inventory_editItem"></activity>
+        <activity android:name="ProductItem_Info"></activity>
+        <activity android:name="ProductItem_Edit"></activity>
     </application>
 
 </manifest>

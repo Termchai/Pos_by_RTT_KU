@@ -17,11 +17,13 @@ import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.AdapterView.OnItemClickListener;
 
 public class Tab_Inventory_Activity extends Activity{
 
@@ -53,7 +55,7 @@ public class Tab_Inventory_Activity extends Activity{
 		// view matching
 		addButton = (Button) findViewById(R.id.button_add);
 		removeButton = (Button) findViewById(R.id.set_quantity_ok_button);
-        list_item = (ListView)findViewById(R.id.listView1);
+        list_item = (ListView)findViewById(R.id.inventory_listView);
 
         // adapter of list item.
 		list_item.setAdapter(new InventoryAdapter(productList,this));
@@ -77,6 +79,17 @@ public class Tab_Inventory_Activity extends Activity{
 			@Override
 			public void onClick(View v) {
 				startActivity(new Intent(Tab_Inventory_Activity.this, Remove_Activity.class));
+			}
+        });
+        
+        list_item.setOnItemClickListener(new OnItemClickListener() {
+
+
+			@Override
+			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+					long arg3) {
+				// TODO Auto-generated method stub
+				startActivity(new Intent(Tab_Inventory_Activity.this,Inventory_editItem.class));
 			}
         });
 		

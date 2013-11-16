@@ -33,7 +33,7 @@
         android:ems="10" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/product_item_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Price"

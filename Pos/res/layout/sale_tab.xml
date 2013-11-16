@@ -10,7 +10,7 @@
         android:orientation="vertical" >
 
         <ListView
-            android:id="@+id/listView1"
+            android:id="@+id/inventory_listView"
             android:layout_width="fill_parent"
             android:layout_height="190dp" >
 
@@ -52,14 +52,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" >
                     <Button
-                        android:id="@+id/inventoryItem_add_button"
+                        android:id="@+id/productItem_add_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="OK"
                         android:textColor="#FFFFFF"
           			    android:background="@drawable/greenbutton" />
                     <Button
-                        android:id="@+id/inventoryItem_edit_button"
+                        android:id="@+id/productItem_edit_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Reset"

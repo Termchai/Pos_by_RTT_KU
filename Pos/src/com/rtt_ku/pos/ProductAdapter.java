@@ -3,22 +3,22 @@ package com.rtt_ku.pos;
 import java.util.ArrayList;
 
 import Inventory.Product;
-import android.app.Activity;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-public class InventoryAdapter extends BaseAdapter{
+import com.rtt_ku.pos.InventoryAdapter.Holder;
 
+public class ProductAdapter extends BaseAdapter{
+	
 	private Holder holder;
 	private ArrayList<Product> list;
-	private Tab_Inventory_Activity ac;
+	private Tab_Product_Activity pa;
 	
-	public InventoryAdapter(ArrayList<Product> list,Tab_Inventory_Activity ac){
+	public ProductAdapter(ArrayList<Product> list,Tab_Product_Activity pa){
 		this.list = list;
-		this.ac = ac;
+		this.pa = pa;
 	}
 	@Override
 	public int getCount() {
@@ -42,12 +42,11 @@ public class InventoryAdapter extends BaseAdapter{
 	public View getView(int position, View view, ViewGroup parent) {
 		// TODO Auto-generated method stub
 		if(view == null){
-			view = ac.getView();
+			view = pa.getView();
 			holder = new Holder();
-			
-			holder.title = (TextView) view.findViewById(R.id.large_text_item);
-			holder.quantity = (TextView) view.findViewById(R.id.large_text_quantity); 
-			holder.price = (TextView) view.findViewById(R.id.large_text_price);
+	
+			holder.title = (TextView) view.findViewById(R.id.product_itemName);
+			holder.quantity = (TextView) view.findViewById(R.id.product_itemQuantity); 
 			view.setTag(holder);
 		}
 		else {
@@ -57,10 +56,8 @@ public class InventoryAdapter extends BaseAdapter{
 		String product_name = p.getName();
 		String product_code = p.getProduct_Code();
 		int product_quantity = p.getQuantity();
-		int product_price = p.getPrice();
 		holder.title.setText(list.get(position).getName() + " <" + product_code + "> ");
 		holder.quantity.setText(product_quantity +  " item(s)");
-		holder.price.setText(product_price+"");
 		return view;
 	}
 	
@@ -69,7 +66,5 @@ public class InventoryAdapter extends BaseAdapter{
 		
 		public TextView title;
 		public TextView quantity;
-		public TextView price;
 	}
 }
-

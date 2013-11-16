@@ -64,11 +64,11 @@ public class Tab_Sale_Activity extends Activity{
 		
 		// view matching
 		list_item = (ListView)findViewById(R.id.listView2);
-		list_sale_item = (ListView)findViewById(R.id.listView1);
+		list_sale_item = (ListView)findViewById(R.id.inventory_listView);
 		total_text = (TextView)findViewById(R.id.textView1);
 		cash = (EditText)findViewById(R.id.set_quantity_editText);
-		ok_button = (Button)findViewById(R.id.inventoryItem_add_button);
-		reset_button =(Button)findViewById(R.id.inventoryItem_edit_button);
+		ok_button = (Button)findViewById(R.id.productItem_add_button);
+		reset_button =(Button)findViewById(R.id.productItem_edit_button);
 		
 		// adapter of list item.
 		adapter = new SaleAdapter(productList, this);
