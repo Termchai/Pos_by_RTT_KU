@@ -29,6 +29,7 @@
         <activity android:name="Check_product_Activity"></activity>
         <activity android:name="Tab_Product_Activity"></activity>
         <activity android:name="Tab_Sale_Activity"></activity>
+        <activity android:name="OnClickChangeView"></activity>
     </application>
 
 </manifest>

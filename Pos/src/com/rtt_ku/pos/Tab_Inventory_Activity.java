@@ -59,24 +59,23 @@ public class Tab_Inventory_Activity extends Activity{
 		list_item.setAdapter(new InventoryAdapter(productList,this));
 		
 		//add function on click at add button.
-        addButton.setOnClickListener(new OnClickListener(){
-
+//		Intent intent = new Intent(Tab_Inventory_Activity.this, Check_product_Activity.class);
+//		addButton.setOnClickListener(new OnClickChangeView(Tab_Inventory_Activity.this, intent));
+		addButton.setOnClickListener(new OnClickListener() {
+			
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				//setContentView(R.layout.add_layout);
-				startActivity(new Intent(Tab_Inventory_Activity.this, Check_product_Activity.class));
+				startActivity(new Intent(v.getContext(), Check_product_Activity.class));
 			}
-        	
-        });
-        
+		});
+		
+ 
         // add function on click at remove button.
         removeButton.setOnClickListener(new OnClickListener(){
 
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				//setContentView(R.layout.remove_layout);
 				startActivity(new Intent(Tab_Inventory_Activity.this, Remove_Activity.class));
 			}
         });
@@ -86,11 +85,6 @@ public class Tab_Inventory_Activity extends Activity{
         View view = LayoutInflater.from(getApplicationContext()).inflate(R.layout.large_item_layout, null);
         return view;
 	}
-		 @Override
-		    public boolean onCreateOptionsMenu(Menu menu) {
-		        // Inflate the menu; this adds items to the action bar if it is present.
-		        getMenuInflater().inflate(R.menu.pos__ui, menu);
-		        return true;
-		    }
-	}
+		
+}
 

@@ -35,8 +35,8 @@ public class Check_product_Activity extends Activity {
 		;
 
 		// view matching
-		Button okButton = (Button) findViewById(R.id.button1);
-		Button cancelButton = (Button) findViewById(R.id.button2);
+		Button okButton = (Button) findViewById(R.id.inventoryItem_add_button);
+		Button cancelButton = (Button) findViewById(R.id.inventoryItem_edit_button);
 		addTextView = (TextView)findViewById(R.id.set_quantity_textView1);
 		editText = (EditText) findViewById(R.id.set_quantity_editText);
 		setQuantityButton = (Button) findViewById(R.id.set_quantity_ok_button);

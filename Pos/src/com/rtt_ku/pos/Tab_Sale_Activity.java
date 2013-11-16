@@ -67,8 +67,8 @@ public class Tab_Sale_Activity extends Activity{
 		list_sale_item = (ListView)findViewById(R.id.listView1);
 		total_text = (TextView)findViewById(R.id.textView1);
 		cash = (EditText)findViewById(R.id.set_quantity_editText);
-		ok_button = (Button)findViewById(R.id.button1);
-		reset_button =(Button)findViewById(R.id.button2);
+		ok_button = (Button)findViewById(R.id.inventoryItem_add_button);
+		reset_button =(Button)findViewById(R.id.inventoryItem_edit_button);
 		
 		// adapter of list item.
 		adapter = new SaleAdapter(productList, this);
