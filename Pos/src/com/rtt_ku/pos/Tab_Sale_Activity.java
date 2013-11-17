@@ -174,6 +174,15 @@ public class Tab_Sale_Activity extends Activity{
 			}
 		});
 		
+		report_button.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				startActivity(new Intent(v.getContext(), Sale_Report.class));
+			}
+		});
+		
 		list_item.setOnItemClickListener(new OnItemClickListener() {
 
 	        @Override
