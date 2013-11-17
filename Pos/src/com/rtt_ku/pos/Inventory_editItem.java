@@ -37,7 +37,6 @@ public class Inventory_editItem extends Activity{
 		final EditText quantityTextEdit = (EditText) findViewById(R.id.inventoryEdit_quantity_edittext);
 		TextView product_code_textview = (TextView)findViewById(R.id.inventoryEdit_productcode_textview);
 		TextView name_textview = (TextView)findViewById(R.id.inventoryEdit_name_textview);
-		TextView price_code_textview = (TextView)findViewById(R.id.inventoryEdit_price_textview);
 		TextView old_quantity_textview = (TextView)findViewById(R.id.inventoryEdit_oldquantity_textview);
 		Button okButton = (Button)findViewById(R.id.inventoryEdit_ok_button);
 		Button cancelButton = (Button)findViewById(R.id.inventoryEdit_cancel_button);
@@ -47,7 +46,6 @@ public class Inventory_editItem extends Activity{
 		// set view
 		product_code_textview.setText(p.getProduct_Code());
 		name_textview.setText(p.getName());
-		price_code_textview.setText(p.getPrice()+"");
 		old_quantity_textview.setText(p.getQuantity()+"");
 		
 		

@@ -61,11 +61,7 @@ public class Tab_Inventory_Activity extends Activity{
         DbSr.getWritableDatabase();
         sCT = new StoreController(myDb,DbSr);
         
-        
-        
         System.out.println(DbSr.SelectAllData());
-        
-        
         
         
         productList = sCT.getProductList();
@@ -95,7 +91,7 @@ public class Tab_Inventory_Activity extends Activity{
 			
 			@Override
 			public void onClick(View v) {
-				
+				startActivity(new Intent(v.getContext(), Inventory_Edit.class));
 			}
 		});
 		
@@ -113,11 +109,11 @@ public class Tab_Inventory_Activity extends Activity{
 
 
 			@Override
-			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
-					long arg3) {
+			public void onItemClick(AdapterView<?> arg0, View arg1, int position,
+					long id) {
 				// TODO Auto-generated method stub
 				Intent intent = new Intent(Tab_Inventory_Activity.this, Inventory_editItem.class);
-				Product p = sCT.getProductList().get(arg2);
+				Product p = sCT.getProductList().get(position);
 				intent.putExtra("pc",p.getProduct_Code()) ;
 				startActivity(intent);
 			}
