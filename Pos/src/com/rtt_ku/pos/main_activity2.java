@@ -158,6 +158,7 @@ public class main_activity2 extends Activity {
 			String product_code = p.getProduct_Code();
 			int product_quantity = p.getQuantity();
 			int product_price = p.getPrice();
+			holder.product_code = product_code;
 			holder.title.setText(productList.get(position).getName() + " <" + product_code + "> ");
 			holder.quantity.setText(product_quantity +  " item(s)");
 			holder.price.setText(product_price+"");
@@ -166,7 +167,7 @@ public class main_activity2 extends Activity {
 		
 		// hold text view in each list of item. 
 		class Holder{
-			
+			public String product_code;
 			public TextView title;
 			public TextView quantity;
 			public TextView price;

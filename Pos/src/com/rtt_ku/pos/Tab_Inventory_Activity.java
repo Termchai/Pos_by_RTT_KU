@@ -89,7 +89,10 @@ public class Tab_Inventory_Activity extends Activity{
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 					long arg3) {
 				// TODO Auto-generated method stub
-				startActivity(new Intent(Tab_Inventory_Activity.this,Inventory_editItem.class));
+				Intent intent = new Intent(Tab_Inventory_Activity.this, Inventory_editItem.class);
+				Product p = sCT.getProductList().get(arg2);
+				intent.putExtra("pc",p.getProduct_Code()) ;
+				startActivity(intent);
 			}
         });
 		

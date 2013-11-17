@@ -16,6 +16,7 @@ public class InventoryAdapter extends BaseAdapter{
 	private ArrayList<Product> list;
 	private Tab_Inventory_Activity ac;
 	
+	
 	public InventoryAdapter(ArrayList<Product> list,Tab_Inventory_Activity ac){
 		this.list = list;
 		this.ac = ac;
@@ -66,7 +67,6 @@ public class InventoryAdapter extends BaseAdapter{
 	
 	// hold text view in each list of item. 
 	class Holder{
-		
 		public TextView title;
 		public TextView quantity;
 		public TextView price;
