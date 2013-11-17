@@ -1,6 +1,7 @@
 package com.rtt_ku.pos;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.database.pos.Database;
@@ -9,6 +10,7 @@ import com.database.pos.DatabaseReader;
 import com.rtt_ku.pos.Sale_Activity.MyAdapter;
 import com.rtt_ku.pos.Sale_Activity.MyAdapter.Holder;
 import com.rtt_store.pos.StoreController;
+import com.salerecord.pos.DatabaseSaleRecord;
 
 import Inventory.InventoryAll;
 import Inventory.Product;
@@ -58,6 +60,7 @@ public class main_activity2 extends Activity {
         myDb.getWritableDatabase();
         sCT = new StoreController(myDb);
         productList = sCT.getProductList();
+        
         System.out.println(productList + "testttttttttt");
         
         // view matching.

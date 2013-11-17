@@ -9,6 +9,8 @@ import com.database.pos.DatabaseReader;
 //import com.rtt_ku.pos.Tab_Inventory_Activity.MyAdapter;
 //import com.rtt_ku.pos.Tab_Inventory_Activity.MyAdapter.Holder;
 import com.rtt_store.pos.StoreController;
+import com.salerecord.pos.DailyRecord;
+import com.salerecord.pos.DatabaseSaleRecord;
 
 import Inventory.Product;
 import Sale.Basket;
@@ -17,6 +19,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.format.Time;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
@@ -58,7 +61,9 @@ public class Tab_Sale_Activity extends Activity{
 		
         myDb = new Database(this);
         myDb.getWritableDatabase();
-        sCT = new StoreController(myDb);
+        DatabaseSaleRecord DbSr = new DatabaseSaleRecord(this);
+        DbSr.getWritableDatabase();
+        sCT = new StoreController(myDb,DbSr);
         productList = sCT.getProductList();
         basket = sCT.newBasket();
 		
@@ -101,7 +106,10 @@ public class Tab_Sale_Activity extends Activity{
 						@Override
 						public void onClick(DialogInterface arg0, int arg1) {
 							// TODO Auto-generated method stub
-							sCT.confirmSale(basket);
+							Time now = new Time();
+							now.setToNow();
+							DailyRecord dr = new DailyRecord(Tab_Sale_Activity.this, now);
+							sCT.confirmSale(basket,dr);
 							sCT.setDB(myDb);
 							sCT.updateInventory();
 							productList = sCT.getProductList();

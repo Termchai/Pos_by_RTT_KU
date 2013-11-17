@@ -28,9 +28,6 @@ public class DatabaseController {
 	}
 	
 	
-	
-	
-	
 	/**
 	 * check product is has already yet?
 	 * @param Product_Code 

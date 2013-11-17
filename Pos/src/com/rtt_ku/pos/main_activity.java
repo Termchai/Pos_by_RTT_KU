@@ -1,6 +1,7 @@
 package com.rtt_ku.pos;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.database.pos.Database;
@@ -44,7 +45,6 @@ public class main_activity extends TabActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        
         //view matching
         myTabHost = (TabHost) findViewById(android.R.id.tabhost);
         
