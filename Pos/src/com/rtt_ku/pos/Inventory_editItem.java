@@ -5,6 +5,8 @@ import com.rtt_store.pos.StoreController;
 
 import Inventory.Product;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -29,7 +31,7 @@ public class Inventory_editItem extends Activity{
 	    // get product
 		Intent intend = getIntent();
 		final String product_code = intend.getExtras().getString("pc");
-		Product p = sCT.getProduct(product_code);
+		final Product p = sCT.getProduct(product_code);
 		
 		// find view
 		final EditText quantityTextEdit = (EditText) findViewById(R.id.inventoryEdit_quantity_edittext);
@@ -39,6 +41,8 @@ public class Inventory_editItem extends Activity{
 		TextView old_quantity_textview = (TextView)findViewById(R.id.inventoryEdit_oldquantity_textview);
 		Button okButton = (Button)findViewById(R.id.inventoryEdit_ok_button);
 		Button cancelButton = (Button)findViewById(R.id.inventoryEdit_cancel_button);
+		Button removeButton = (Button)findViewById(R.id.inventoryEdit_remove_button);
+
 		
 		// set view
 		product_code_textview.setText(p.getProduct_Code());
@@ -50,11 +54,47 @@ public class Inventory_editItem extends Activity{
 		okButton.setOnClickListener(new OnClickListener() {
 			
 			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				
-				sCT.setQuantity(product_code,Integer.parseInt(quantityTextEdit.getText().toString()));
-				startActivity(new Intent(v.getContext(), main_activity.class));
+			public void onClick(final View v) {
+				try
+				{
+					int oldQuan = p.getQuantity();
+					final int diff = Integer.parseInt(quantityTextEdit.getText().toString());
+					int newQuan = oldQuan+diff;
+					if (newQuan < 0) throw new Exception();
+					AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+							Inventory_editItem.this);
+					
+						alertDialogBuilder.setTitle("change quantity");
+						alertDialogBuilder
+							.setMessage("Do you sure to change quantity <" + p.getProduct_Code() +"> from " + oldQuan + " to " + newQuan +"")
+							.setCancelable(false)
+							.setPositiveButton("Yes",new DialogInterface.OnClickListener() {
+								public void onClick(DialogInterface dialog,int id) {
+									sCT.addQuantity(product_code,diff);
+									startActivity(new Intent(v.getContext(), main_activity.class));
+								}
+							  })
+							.setNegativeButton("No",new DialogInterface.OnClickListener() {
+								public void onClick(DialogInterface dialog,int id) {
+									dialog.cancel();
+								}
+							});
+							AlertDialog alertDialog = alertDialogBuilder.create();
+							alertDialog.show();
+							
+				}catch (Exception e) {
+					final AlertDialog.Builder dialog_not = new AlertDialog.Builder(Inventory_editItem.this);
+					
+					dialog_not.setTitle("Warning!!!");
+					dialog_not.setMessage("Plese enter amount of Add Quantity");
+						dialog_not.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+	
+						@Override
+						public void onClick(DialogInterface arg0, int arg1) {
+							// TODO Auto-generated method stub
+						}
+					}).show();
+				}
 			}
 		});
 		
@@ -64,6 +104,35 @@ public class Inventory_editItem extends Activity{
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				startActivity(new Intent(v.getContext(), main_activity.class));
+			}
+		});
+		
+		removeButton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(final View v) {
+				
+				AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+						Inventory_editItem.this);
+				
+					alertDialogBuilder.setTitle("Remove product");
+					alertDialogBuilder
+						.setMessage("Do you sure to remove product <" + p.getProduct_Code() +">")
+						.setCancelable(false)
+						.setPositiveButton("Yes",new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog,int id) {
+								sCT.removeProduct(p.getProduct_Code());
+								startActivity(new Intent(v.getContext(), main_activity.class));
+							}
+						  })
+						.setNegativeButton("No",new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog,int id) {
+								dialog.cancel();
+							}
+						});
+						AlertDialog alertDialog = alertDialogBuilder.create();
+						alertDialog.show();
+				
 			}
 		});
 	}

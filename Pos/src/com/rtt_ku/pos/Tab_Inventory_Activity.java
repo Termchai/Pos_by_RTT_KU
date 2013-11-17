@@ -10,6 +10,7 @@ import com.rtt_store.pos.StoreController;
 
 import Inventory.Product;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -40,6 +41,7 @@ public class Tab_Inventory_Activity extends Activity{
 	private ArrayAdapter<String> listAdapter;
 	private ListView list_item;
 	private Button removeButton;
+	private Button editButton;
 	
 	private Button addButton;
 	
@@ -55,6 +57,7 @@ public class Tab_Inventory_Activity extends Activity{
 		// view matching
 		addButton = (Button) findViewById(R.id.button_add);
 		removeButton = (Button) findViewById(R.id.set_quantity_ok_button);
+		editButton = (Button) findViewById(R.id.Inventort_Tab_Edit_Button);
         list_item = (ListView)findViewById(R.id.inventory_listView);
 
         // adapter of list item.
@@ -72,7 +75,15 @@ public class Tab_Inventory_Activity extends Activity{
 			}
 		});
 		
- 
+		editButton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+			}
+		});
+		
+		
         // add function on click at remove button.
         removeButton.setOnClickListener(new OnClickListener(){
 
