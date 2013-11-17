@@ -157,8 +157,9 @@ public class StoreController {
 	public void confirmSale(Basket basket,DailyRecord dr)
 	{
 		dbCT.confirmSale(basket);
-		srCT.confirmSale(basket,dr);
 		srCT.insert(dr.getTIme());
+		srCT.confirmSale(basket,dr);
+
 	}
 	
 	public ArrayList<Wan> getWans()

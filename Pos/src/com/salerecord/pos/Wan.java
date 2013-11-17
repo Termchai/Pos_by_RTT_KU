@@ -6,7 +6,7 @@ package com.salerecord.pos;
 		public String getMonth(){return month;}
 		public String getYear(){return year;}
 		public void setDay(int day){this.day = day+"";}
-		public void setMonth(int month){this.month = year+"";}
+		public void setMonth(int month){this.month = month+"";}
 		public void setYear(int year){this.year = year+"";}
 
 		

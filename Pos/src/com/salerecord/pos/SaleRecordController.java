@@ -19,7 +19,7 @@ public class SaleRecordController {
 	public void insert (Time time)
 	{
 		String d = time.monthDay+"";
-		String m = (time.month+1)+"";
+		String m = (time.month)+"";
 		String y = time.year+"";
 		System.out.println("d : " + d + " m : " + m + " y : " + y);
 		ArrayList<Wan> wans = dbSr.SelectAllData();
@@ -54,9 +54,8 @@ public class SaleRecordController {
 		
 		dr.InsertData(now.hour+"", now.minute+"", temp);
 		
-		
-		
 	}
+	
 
 	public ArrayList<Wan> getListSaleRecord() {
 		// TODO Auto-generated method stub

@@ -26,8 +26,8 @@ public class DailyRecord extends SQLiteOpenHelper {
  
 
 	public DailyRecord(Context context, Time time) {
-		super(context, ""+time.monthDay+(time.month+1)+time.year, null, DATABASE_VERSION);
-		DATABASE_NAME = ""+time.monthDay+(time.month+1)+time.year;
+		super(context, ""+time.monthDay+(time.month)+time.year, null, DATABASE_VERSION);
+		DATABASE_NAME = ""+time.monthDay+(time.month)+time.year;
 		TABLE_NAME = "date"+DATABASE_NAME;
 		this.time = time;
 		// TODO Auto-generated constructor stub
