@@ -21,13 +21,22 @@
             android:layout_height="wrap_content" >
 
             <Button
-                android:paddingRight="100dp"
                 android:id="@+id/button_add"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Add" 
-                android:textColor="#FFFFFF"
-                android:background="@drawable/greenbutton"/>
+                android:background="@drawable/greenbutton"
+                android:paddingRight="100dp"
+                android:text="Add"
+                android:textColor="#FFFFFF" />
+
+            <Button
+                android:id="@+id/Inventort_Tab_Edit_Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/light_grey_button"
+                android:paddingRight="100dp"
+                android:text="Edit"
+                android:textColor="#FFFFFF" />
 
             <Button
                 android:paddingRight="100dp"
