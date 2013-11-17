@@ -4,21 +4,37 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit Product Detail"
+        android:textSize="40dp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
         <TextView
             android:id="@+id/textView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Product ID" />
+            android:layout_width="200dp"
+            android:layout_height="35dp"
+            android:text="Product Code"
+            android:textSize="25dp" />
 
         <TextView
-            android:id="@+id/product_itemId"
+            android:id="@+id/TextView02"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:layout_height="35dp"
+            android:text=":   "
+            android:textSize="25dp" />
+
+        <TextView
+            android:id="@+id/inventoryEdit_productcode_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:text="TextView"
+            android:textSize="25dp" />
 
     </LinearLayout>
 
@@ -28,15 +44,24 @@
 
         <TextView
             android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Name" />
+            android:layout_width="200dp"
+            android:layout_height="35dp"
+            android:text="Name"
+            android:textSize="25dp" />
 
         <TextView
-            android:id="@+id/product_item_name"
+            android:id="@+id/textView8"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:layout_height="35dp"
+            android:text=":   "
+            android:textSize="25dp" />
+
+        <TextView
+            android:id="@+id/inventoryEdit_name_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:text="TextView"
+            android:textSize="25dp" />
 
     </LinearLayout>
 
@@ -46,15 +71,58 @@
 
         <TextView
             android:id="@+id/textView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Price" />
+            android:layout_width="200dp"
+            android:layout_height="35dp"
+            android:text="Price"
+            android:textSize="25dp" />
 
         <TextView
-            android:id="@+id/product_item_quantity"
+            android:id="@+id/TextView01"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:text=":   "
+            android:textSize="25dp" />
+
+        <TextView
+            android:id="@+id/inventoryEdit_price_textview"
+            android:layout_width="200dp"
+            android:layout_height="35dp"
+            android:text="TextView"
+            android:textSize="25dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="25dp" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="200dp"
+            android:layout_height="35dp"
+            android:text="Old Quantity"
+            android:textSize="25dp" />
+
+        <TextView
+            android:id="@+id/TextView03"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:text=":   "
+            android:textSize="25dp" />
+
+        <TextView
+            android:id="@+id/inventoryEdit_oldquantity_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:text="TextView"
+            android:textSize="25dp" />
 
     </LinearLayout>
 
@@ -64,38 +132,41 @@
 
         <TextView
             android:id="@+id/textView7"
+            android:layout_width="200dp"
+            android:layout_height="35dp"
+            android:text="New Quantity"
+            android:textSize="25dp" />
+
+        <TextView
+            android:id="@+id/TextView04"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Quantity" />
+            android:layout_height="35dp"
+            android:text=":   "
+            android:textSize="25dp" />
 
         <EditText
             android:id="@+id/inventoryEdit_quantity_edittext"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_weight="1"
-            android:ems="10" >
+            android:ems="10"
+            android:gravity="center_vertical|right" >
 
             <requestFocus />
         </EditText>
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+    <Button
+        android:id="@+id/inventoryEdit_ok_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OK" />
 
-        <Button
-            android:id="@+id/inventoryEdit_ok_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="OK" />
-
-        <Button
-            android:id="@+id/inventoryEdit_cancel_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Cancel" />
-
-    </LinearLayout>
+    <Button
+        android:id="@+id/inventoryEdit_cancel_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancel" />
 
 </LinearLayout>
