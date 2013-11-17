@@ -54,6 +54,7 @@ public class Tab_Sale_Activity extends Activity{
 	private Button reset_button;
 	private MyAdapter adapter;
 	private Database myDb;
+	private Button report_button;
 	
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -70,10 +71,11 @@ public class Tab_Sale_Activity extends Activity{
 		// view matching
 		list_item = (ListView)findViewById(R.id.listView2);
 		list_sale_item = (ListView)findViewById(R.id.inventory_listView);
-		total_text = (TextView)findViewById(R.id.textView1);
+		total_text = (TextView)findViewById(R.id.sale_report_productTextView);
 		cash = (EditText)findViewById(R.id.set_quantity_editText);
 		ok_button = (Button)findViewById(R.id.productItem_add_button);
 		reset_button =(Button)findViewById(R.id.productItem_edit_button);
+		report_button = (Button)findViewById(R.id.sale_report_button);
 		
 		// adapter of list item.
 		adapter = new MyAdapter();
