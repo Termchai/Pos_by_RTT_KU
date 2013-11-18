@@ -16,6 +16,8 @@ import Inventory.Product;
 import Sale.Basket;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -42,6 +44,7 @@ public class Tab_Sale_Activity extends Activity{
 	// list item
 	ArrayList<Product> productList = new ArrayList<Product>();
     public static StoreController sCT;
+    private Context context = this;
 	
 	private ArrayAdapter<String> listAdapter;
 	private ListView list_item;
@@ -189,56 +192,98 @@ public class Tab_Sale_Activity extends Activity{
 	        public void onItemClick(AdapterView<?> parent, View view, int position,
 	                long id) {
 	        	
-	        	Product temp = sCT.getProduct(productList.get(position).getProduct_Code());
-	        	if(basket.getMap().containsKey(temp))
-	        	{
-	        	if (basket.getMap().get(temp)+1 <= temp.getQuantity())
-		        {
-		        	basket.addProduct(temp, 1);	
-//		        	Toast.makeText(Tab_Sale_Activity.this,temp.getProduct_Code(), Toast.LENGTH_SHORT).show();
-	//	        	startActivity(new Intent(Tab_Sale_Activity.this,Tab_Sale_Activity.class));
-		        	saleAdapter.notifyDataSetChanged();
-		        	total_text.setText(basket.getTotalPrice()+"");
+//	        	Product temp = sCT.getProduct(productList.get(position).getProduct_Code());
+//	        	if(basket.getMap().containsKey(temp))
+//	        	{
+//	        	if (basket.getMap().get(temp)+1 <= temp.getQuantity())
+//		        {
+//		        	basket.addProduct(temp, 1);	
+////		        	Toast.makeText(Tab_Sale_Activity.this,temp.getProduct_Code(), Toast.LENGTH_SHORT).show();
+//	//	        	startActivity(new Intent(Tab_Sale_Activity.this,Tab_Sale_Activity.class));
+//		        	saleAdapter.notifyDataSetChanged();
+//		        	total_text.setText(basket.getTotalPrice()+"");
+//	        	
+//	        	}
+//	        	else
+//	        	{
+//	        		final AlertDialog.Builder dialog_Limit = new AlertDialog.Builder(Tab_Sale_Activity.this);
+//					
+//					dialog_Limit.setTitle("Warning!!!");
+//					dialog_Limit.setMessage("Not enough item");
+//						dialog_Limit.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+//	
+//						@Override
+//						public void onClick(DialogInterface arg0, int arg1) {
+//							// TODO Auto-generated method stub
+//						}
+//					}).show();
+//	        	}
+//	        }
+//	        	else if (temp.getQuantity()!=0)
+//	        	{
+//	        		
+//		        	basket.addProduct(temp, 1);	
+////		        	Toast.makeText(Tab_Sale_Activity.this,temp.getProduct_Code() + "fuck", Toast.LENGTH_SHORT).show();
+//	//	        	startActivity(new Intent(Tab_Sale_Activity.this,Tab_Sale_Activity.class));
+//		        	saleAdapter.notifyDataSetChanged();
+//		        	total_text.setText(basket.getTotalPrice()+"");
+//	        	}
+//	        	else 
+//	        	{
+//	        		final AlertDialog.Builder dialog_Limit = new AlertDialog.Builder(Tab_Sale_Activity.this);
+//					
+//					dialog_Limit.setTitle("Warning!!!");
+//					dialog_Limit.setMessage("Not enough item");
+//						dialog_Limit.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+//	
+//						@Override
+//						public void onClick(DialogInterface arg0, int arg1) {
+//							// TODO Auto-generated method stub
+//						}
+//					}).show();
+//	        	}
 	        	
-	        	}
-	        	else
-	        	{
-	        		final AlertDialog.Builder dialog_Limit = new AlertDialog.Builder(Tab_Sale_Activity.this);
+	        	final Dialog dialog = new Dialog(context);
+	        	dialog.setContentView(R.layout.sale_dialog);
+	        	dialog.setTitle("kuyyy");
+	        	
+	        	Product product =  productList.get(position);
+	        	
+	        	TextView name = (TextView)dialog.findViewById(R.id.sale_dialogtextView);
+	        	EditText quantity = (EditText) dialog.findViewById(R.id.saleDialog_editText);
+	        	Button dialogOkButton = (Button) dialog.findViewById(R.id.saleDialog_okButton);
+	        	Button dialogCancelButton = (Button)dialog.findViewById(R.id.saleDialog_cancelButton);
+	        	Button dialogEditButton = (Button)dialog.findViewById(R.id.saleDialog_editButton);
+	        	
+	        	name.setText(product.getName());
+	        	
+	        	dialogOkButton.setOnClickListener(new OnClickListener() {
 					
-					dialog_Limit.setTitle("Warning!!!");
-					dialog_Limit.setMessage("Not enough item");
-						dialog_Limit.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-	
-						@Override
-						public void onClick(DialogInterface arg0, int arg1) {
-							// TODO Auto-generated method stub
-						}
-					}).show();
-	        	}
-	        }
-	        	else if (temp.getQuantity()!=0)
-	        	{
-	        		
-		        	basket.addProduct(temp, 1);	
-//		        	Toast.makeText(Tab_Sale_Activity.this,temp.getProduct_Code() + "fuck", Toast.LENGTH_SHORT).show();
-	//	        	startActivity(new Intent(Tab_Sale_Activity.this,Tab_Sale_Activity.class));
-		        	saleAdapter.notifyDataSetChanged();
-		        	total_text.setText(basket.getTotalPrice()+"");
-	        	}
-	        	else 
-	        	{
-	        		final AlertDialog.Builder dialog_Limit = new AlertDialog.Builder(Tab_Sale_Activity.this);
+					@Override
+					public void onClick(View v) {
+						// TODO Auto-generated method stub
+						
+					}
+				});
+	        	
+	        	dialogCancelButton.setOnClickListener(new OnClickListener() {
 					
-					dialog_Limit.setTitle("Warning!!!");
-					dialog_Limit.setMessage("Not enough item");
-						dialog_Limit.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-	
-						@Override
-						public void onClick(DialogInterface arg0, int arg1) {
-							// TODO Auto-generated method stub
-						}
-					}).show();
-	        	}
+					@Override
+					public void onClick(View v) {
+						// TODO Auto-generated method stub
+						dialog.dismiss();
+					}
+				});
+	        	
+	        	dialogEditButton.setOnClickListener(new OnClickListener() {
+					
+					@Override
+					public void onClick(View v) {
+						// TODO Auto-generated method stub
+						
+					}
+				});
+	        	dialog.show();
 	        }
 	    });
 	}
