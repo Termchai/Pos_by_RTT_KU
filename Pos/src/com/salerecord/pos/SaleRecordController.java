@@ -40,13 +40,13 @@ public class SaleRecordController {
 		insert(now);
 		String temp = "";
 		ArrayList<Product> list = basket.getList();
-		HashMap<Product,Integer> map = basket.getMap();
+		HashMap<Product,Integer> mapQuan = basket.getMapQuan();
 		for (int i=0 ; i<list.size(); i++)
 		{
 			Product p = list.get(i);
 			String product_code = p.getProduct_Code();
-			String price = p.getPrice()+"";
-			String quantity = map.get(p)+"";
+			String price = basket.getMapPrice().get(p)+"";
+			String quantity = mapQuan.get(p)+"";
 			String before = product_code + " " + price + " " + quantity;
 			if (temp.equals("")) temp = before;
 			else temp = temp + ":" + before;

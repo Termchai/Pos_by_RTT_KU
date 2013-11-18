@@ -76,8 +76,8 @@ public class SaleReportAdapter extends BaseAdapter{
 		holder.date.setText(p.day + "/" + (p.month+1) + "/" + p.year);
 		holder.time.setText(hour + ":" + min);
 		holder.productCode.setText(p.product_code);
-		holder.price.setText(p.price);
-		holder.quantity.setText(p.quantity);
+		holder.price.setText(p.quantity);
+		holder.quantity.setText(p.price);
 		
 		
 		return view;

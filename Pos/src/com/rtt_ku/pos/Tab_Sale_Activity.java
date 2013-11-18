@@ -245,12 +245,12 @@ public class Tab_Sale_Activity extends Activity{
 	        	
 	        	final Dialog dialog = new Dialog(context);
 	        	dialog.setContentView(R.layout.sale_dialog);
-	        	dialog.setTitle("kuyyy");
 	        	
-	        	Product product =  productList.get(position);
-	        	
+	        	final Product product =  productList.get(position);
+	        	dialog.setTitle(product.getName());
+
 	        	TextView name = (TextView)dialog.findViewById(R.id.sale_dialogtextView);
-	        	EditText quantity = (EditText) dialog.findViewById(R.id.saleDialog_editText);
+	        	final EditText quantity = (EditText) dialog.findViewById(R.id.saleDialog_editText);
 	        	Button dialogOkButton = (Button) dialog.findViewById(R.id.saleDialog_okButton);
 	        	Button dialogCancelButton = (Button)dialog.findViewById(R.id.saleDialog_cancelButton);
 	        	Button dialogEditButton = (Button)dialog.findViewById(R.id.saleDialog_editButton);
@@ -258,11 +258,26 @@ public class Tab_Sale_Activity extends Activity{
 	        	name.setText(product.getName());
 	        	
 	        	dialogOkButton.setOnClickListener(new OnClickListener() {
-					
+					// input only quantity
 					@Override
 					public void onClick(View v) {
 						// TODO Auto-generated method stub
-						
+						try
+						{
+							int quan = Integer.parseInt(quantity.getText().toString());
+							if (quan <= product.getQuantity())
+							{
+								System.out.println("Testttttttttttttttttttt");
+								basket.addProduct(product, quan);
+								saleAdapter.notifyDataSetChanged();
+					        	total_text.setText(basket.getTotalPrice()+"");
+
+							}
+						}catch(Exception e) {
+							
+						}
+						dialog.dismiss();
+
 					}
 				});
 	        	
@@ -280,8 +295,58 @@ public class Tab_Sale_Activity extends Activity{
 					@Override
 					public void onClick(View v) {
 						// TODO Auto-generated method stub
-						
-					}
+
+						final Dialog dialogDiscount = new Dialog(context);
+			        	dialogDiscount.setContentView(R.layout.sale_dialog_discount);
+			        	
+			        	dialogDiscount.setTitle(product.getName());
+			        	
+			        	TextView nameItem = (TextView)dialogDiscount.findViewById(R.id.sale_dialog_nameTextView);
+			        	final EditText quan = (EditText)dialogDiscount.findViewById(R.id.sale_dialog_quantityEditText);
+			        	final EditText price = (EditText)dialogDiscount.findViewById(R.id.sale_dialog_priceEditText);
+			        	Button okButton = (Button)dialogDiscount.findViewById(R.id.sale_dialog_okButton);
+			        	Button cancelButton = (Button)dialogDiscount.findViewById(R.id.sale_dialog_cancelButton);
+			        	
+			        	nameItem.setText(product.getName());
+			        	// edit price,quantity
+			        	okButton.setOnClickListener(new OnClickListener() {
+							
+							@Override
+							public void onClick(View arg0) {
+								// TODO Auto-generated method stub
+								
+//								try
+//								{
+									int tempQuan = Integer.parseInt(quan.getText().toString());
+									if (tempQuan <= product.getQuantity())
+									{
+										
+										basket.addProduct(product, tempQuan);
+										basket.setPrice(product, Integer.parseInt(price.getText().toString()));
+										
+										
+										saleAdapter.notifyDataSetChanged();
+										total_text.setText(basket.getTotalPrice()+"");
+									}
+//								}catch(Exception e) {
+//									
+//								}
+								dialog.dismiss();
+								dialogDiscount.dismiss();
+							}
+						});
+			        	
+			        	cancelButton.setOnClickListener(new OnClickListener() {
+							
+							@Override
+							public void onClick(View v) {
+								// TODO Auto-generated method stub
+								dialogDiscount.dismiss();
+							}
+						});
+			        	
+			        	dialogDiscount.show();
+				    }
 				});
 	        	dialog.show();
 	        }
@@ -415,8 +480,8 @@ public class Tab_Sale_Activity extends Activity{
 				Product p = list.get(position);
 				String product_name = p.getName();
 				String product_code = p.getProduct_Code();
-				int product_quantity = basket.getMap().get(p);
-				int product_price = p.getPrice();
+				int product_quantity = basket.getMapQuan().get(p);
+				int product_price = basket.getMapPrice().get(p);
 				holder.title.setText(product_name + " <" + product_code + "> ");
 				holder.quantity.setText(product_quantity +  " item(s)");
 				holder.price.setText(product_price+"");

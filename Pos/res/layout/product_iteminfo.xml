@@ -10,9 +10,9 @@
 
         <TextView
             android:id="@+id/sale_report_productTextView"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:text="Product ID" />
+            android:text="Product ID :" />
 
         <TextView
             android:id="@+id/product_itemId"
@@ -28,9 +28,9 @@
 
         <TextView
             android:id="@+id/sale_report_priceTextView"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:text="Name" />
+            android:text="Name :" />
 
         <TextView
             android:id="@+id/product_item_name"
@@ -52,9 +52,9 @@
 
         <TextView
             android:id="@+id/sale_report_productTextView"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:text="Cost" />
+            android:text="Cost :" />
 
         <TextView
             android:id="@+id/product_itemCost"
@@ -70,9 +70,9 @@
 
         <TextView
             android:id="@+id/textView7"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:text="Price" />
+            android:text="Price :" />
 
         <TextView
             android:id="@+id/product_itemPrice"
