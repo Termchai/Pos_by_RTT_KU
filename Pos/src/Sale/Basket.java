@@ -9,30 +9,37 @@ import java.util.Set;
 import Inventory.Product;
 
 public class Basket {
-	HashMap<Product,Integer> map;
+	HashMap<Product,Integer> map_Quan,map_Price;
 	ArrayList<Product> list;
 	
 	public Basket() {
-		map = new HashMap<Product,Integer>();
+		map_Quan = new HashMap<Product,Integer>();
 		list = new ArrayList<Product>();
+		map_Price = new HashMap<Product, Integer>();
 //		list.add(new Product("123", "test1", 4, 1, "", "", "", "", "", "", ""));
 //		list.add(new Product("1234", "test2", 2, 10, "", "", "", "", "", "", ""));
 	}
 	
 	public void addProduct(Product product, int quantity)
 	{
-		if (map.containsKey(product))
+		if (map_Quan.containsKey(product))
 		{
-			int quan = map.get(product) + quantity;
-			map.remove(product);
-			map.put(product,quan);
-			
+			int quan = map_Quan.get(product) + quantity;
+			map_Quan.remove(product);
+			map_Quan.put(product,quan);
+			map_Price.put(product, product.getPrice());
 		}
 		else
 		{
-			map.put(product, quantity);
+			map_Quan.put(product, quantity);
+			map_Price.put(product, product.getPrice());
 			list.add(product);
 		}
+	}
+	
+	public void setPrice (Product product, int price)
+	{
+		map_Price.put(product, price);
 	}
 	
 	public double getTotalPrice()
@@ -41,11 +48,11 @@ public class Basket {
 		for (int i=0; i<list.size(); i++)
 		{
 			Product p = list.get(i);
-			total += (p.getPrice() * map.get(p)); 
+			total += (map_Price.get(p) * map_Quan.get(p)); 
 		}
 		return total;
 	}
-	public HashMap<Product,Integer> getMap(){return map;}
+	public HashMap<Product,Integer> getMapQuan(){return map_Quan;}
 	public ArrayList<Product> getList(){return list;}
-	
+	public HashMap<Product,Integer> getMapPrice(){return map_Price;}
 }

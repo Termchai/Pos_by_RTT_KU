@@ -8,10 +8,11 @@
         android:id="@+id/sale_report_productTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enter Product Code" />
+        android:text="Enter Product Code"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
-        android:id="@+id/product_findId_editText"
+        android:id="@+id/inventory_editEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10" >
@@ -24,13 +25,13 @@
         android:layout_height="wrap_content" >
 
         <Button
-            android:id="@+id/product_add_okButton"
+            android:id="@+id/inventory_edit_okButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="OK" />
 
         <Button
-            android:id="@+id/product_add_cancelButton"
+            android:id="@+id/inventory_edit_cancelButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cancel" />

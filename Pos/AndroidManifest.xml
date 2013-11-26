@@ -33,6 +33,9 @@
         <activity android:name="Inventory_editItem"></activity>
         <activity android:name="ProductItem_Info"></activity>
         <activity android:name="ProductItem_Edit"></activity>
+        <activity android:name="Inventory_Edit"></activity>
+        <activity android:name="Product_Edit"></activity>
+        <activity android:name="Sale_Report"></activity>
     </application>
 
 </manifest>

@@ -8,8 +8,14 @@ import Inventory.Product;
 import Sale.Basket;
 import Sale.SaleController;
 
+import android.text.format.Time;
+
 import com.database.pos.Database;
 import com.database.pos.DatabaseController;
+import com.salerecord.pos.DailyRecord;
+import com.salerecord.pos.DatabaseSaleRecord;
+import com.salerecord.pos.SaleRecordController;
+import com.salerecord.pos.Wan;
 /**
  * have all Controller (now have inventory and database)
  * have relation with GUI and can manage everything in store
@@ -19,6 +25,7 @@ public class StoreController {
 	DatabaseController dbCT;
 	InventoryController inCT;
 	SaleController saleCT;
+	SaleRecordController srCT;
 	public StoreController(Database db) {
 		dbCT = new DatabaseController(db);
 		inCT = new InventoryController();
@@ -29,6 +36,14 @@ public class StoreController {
 		
 	}
 	
+	public StoreController(Database db, DatabaseSaleRecord dbSr) {
+		dbCT = new DatabaseController(db);
+		srCT = new SaleRecordController(dbSr);
+		inCT = new InventoryController();
+		saleCT = new SaleController();
+		updateInventory();
+	}
+
 	public void setDB(Database db)
 	{
 		this.dbCT = new DatabaseController(db);
@@ -139,8 +154,17 @@ public class StoreController {
 		return inCT.getProduct(product_code);
 	}
 	
-	public void confirmSale(Basket basket)
+	public void confirmSale(Basket basket,DailyRecord dr)
 	{
 		dbCT.confirmSale(basket);
+		srCT.insert(dr.getTIme());
+		srCT.confirmSale(basket,dr);
+
 	}
+	
+	public ArrayList<Wan> getWans()
+	{
+		return srCT.getListSaleRecord();
+	}
+	
 }

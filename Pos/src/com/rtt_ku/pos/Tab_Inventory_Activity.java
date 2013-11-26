@@ -1,18 +1,21 @@
 package com.rtt_ku.pos;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import com.database.pos.Database;
 import com.database.pos.DatabaseReader;
 import com.rtt_ku.pos.main_activity2.MyAdapter;
 import com.rtt_ku.pos.main_activity2.MyAdapter.Holder;
 import com.rtt_store.pos.StoreController;
+import com.salerecord.pos.DatabaseSaleRecord;
 
 import Inventory.Product;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.format.Time;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
@@ -24,6 +27,7 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
 public class Tab_Inventory_Activity extends Activity{
@@ -51,7 +55,15 @@ public class Tab_Inventory_Activity extends Activity{
 
         Database myDb = new Database(this);
         myDb.getWritableDatabase();
-        sCT = new StoreController(myDb);
+        Time now = new Time();
+        now.setToNow();
+        DatabaseSaleRecord DbSr = new DatabaseSaleRecord(this);
+        DbSr.getWritableDatabase();
+        sCT = new StoreController(myDb,DbSr);
+        
+        System.out.println(DbSr.SelectAllData());
+        
+        
         productList = sCT.getProductList();
 		
 		// view matching
@@ -79,7 +91,7 @@ public class Tab_Inventory_Activity extends Activity{
 			
 			@Override
 			public void onClick(View v) {
-				
+				startActivity(new Intent(v.getContext(), Inventory_Edit.class));
 			}
 		});
 		
@@ -97,11 +109,11 @@ public class Tab_Inventory_Activity extends Activity{
 
 
 			@Override
-			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
-					long arg3) {
+			public void onItemClick(AdapterView<?> arg0, View arg1, int position,
+					long id) {
 				// TODO Auto-generated method stub
 				Intent intent = new Intent(Tab_Inventory_Activity.this, Inventory_editItem.class);
-				Product p = sCT.getProductList().get(arg2);
+				Product p = sCT.getProductList().get(position);
 				intent.putExtra("pc",p.getProduct_Code()) ;
 				startActivity(intent);
 			}

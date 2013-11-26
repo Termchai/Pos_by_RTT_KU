@@ -28,9 +28,6 @@ public class DatabaseController {
 	}
 	
 	
-	
-	
-	
 	/**
 	 * check product is has already yet?
 	 * @param Product_Code 
@@ -109,7 +106,7 @@ public class DatabaseController {
 	public void confirmSale(Basket basket)
 	{
 		ArrayList<Product> list = basket.getList();
-		HashMap<Product,Integer> map = basket.getMap();
+		HashMap<Product,Integer> map = basket.getMapQuan();
 		for (int i=0; i<list.size(); i++)
 		{
 			Product p = list.get(i);
