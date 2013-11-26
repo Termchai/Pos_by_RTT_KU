@@ -1,6 +1,8 @@
 package com.rtt_ku.pos;
 
 import com.database.pos.Database;
+import com.inventory_record.pos.InventoryRecord;
+import com.inventory_record.pos.InventoryRecordController;
 import com.rtt_store.pos.StoreController;
 
 import Inventory.Product;
@@ -18,6 +20,7 @@ import android.widget.Toast;
 
 public class Inventory_editItem extends Activity{
     public static StoreController sCT;
+    public static InventoryRecordController iRC;
     
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -27,6 +30,9 @@ public class Inventory_editItem extends Activity{
 		Database myDb = new Database(this);
 	    myDb.getWritableDatabase();
 	    sCT = new StoreController(myDb);
+	    InventoryRecord iR = (new InventoryRecord(this));
+	    iR.getWritableDatabase();
+	    iRC = InventoryRecordController.getInstance(iR);
 	    
 	    // get product
 		Intent intend = getIntent();
@@ -68,6 +74,8 @@ public class Inventory_editItem extends Activity{
 							.setPositiveButton("Yes",new DialogInterface.OnClickListener() {
 								public void onClick(DialogInterface dialog,int id) {
 									sCT.addQuantity(product_code,diff);
+									iRC.addInventoryRecord(product_code, diff, sCT.getProduct(product_code).getCost());
+//									iRC.addInventoryRecord(product_code,diff,null);
 									startActivity(new Intent(v.getContext(), main_activity.class));
 								}
 							  })

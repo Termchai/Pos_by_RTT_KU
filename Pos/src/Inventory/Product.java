@@ -43,7 +43,7 @@ public class Product {
 		public String getName() {return name;}
 		public int getQuantity() {return quantity;}
 		public int getPrice() {return price;}
-		public int getCost() {return price;}
+		public int getCost() {return cost;}
 		public String getType() {return type;}
 		public String getBarcode() {return barcode;}
 		public String toString()
