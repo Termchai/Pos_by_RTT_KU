@@ -19,10 +19,7 @@ public class ProductItem_Edit extends Activity{
     public static StoreController sCT;
     private Button okButton;
     private Button cancelButton; 
-    private EditText id;
-    private EditText name;
-    private EditText cost;
-    private EditText price;
+    private EditText id,name,type,price,barcode;
     
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -41,8 +38,9 @@ public class ProductItem_Edit extends Activity{
 		cancelButton = (Button)findViewById(R.id.product_info_cancelButton);
 		id = (EditText)findViewById(R.id.product_id_editText);
 		name = (EditText)findViewById(R.id.product_name_editText);
-		cost = (EditText)findViewById(R.id.product_cost_editText);
+		type = (EditText)findViewById(R.id.product_type_editText);
 		price = (EditText)findViewById(R.id.product_price_editText);
+		barcode = (EditText)findViewById(R.id.product_barcode_editText);
 		
 		setEditText(p);
 			
@@ -72,5 +70,7 @@ public class ProductItem_Edit extends Activity{
 		name.setText(p.getName());
 //		cost.setText(p.getCost());
 		price.setText(p.getPrice()+"");
+		type.setText(p.getType());
+		barcode.setText(p.getBarcode());
 	}
 }

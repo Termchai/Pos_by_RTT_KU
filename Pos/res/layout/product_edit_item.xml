@@ -59,10 +59,10 @@
             android:id="@+id/sale_report_dateTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cost" />
+            android:text="Type" />
 
         <EditText
-            android:id="@+id/product_cost_editText"
+            android:id="@+id/product_type_editText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -93,18 +93,37 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
-        <Button
-            android:id="@+id/product_info_okButton"
+        <TextView
+            android:id="@+id/TextView01"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="OK" />
+            android:text="Barcode" />
+
+        <EditText
+            android:id="@+id/product_barcode_editText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10" />
 
         <Button
-            android:id="@+id/product_info_cancelButton"
+            android:id="@+id/Button01"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Cancel" />
+            android:layout_height="match_parent"
+            android:text="Scan" />
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/product_info_okButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OK" />
+
+    <Button
+        android:id="@+id/product_info_cancelButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancel" />
 
 </LinearLayout>

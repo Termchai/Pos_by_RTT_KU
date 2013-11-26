@@ -43,6 +43,9 @@ public class Product {
 		public String getName() {return name;}
 		public int getQuantity() {return quantity;}
 		public int getPrice() {return price;}
+		public int getCost() {return price;}
+		public String getType() {return type;}
+		public String getBarcode() {return barcode;}
 		public String toString()
 		{
 			return product_code + " " + name + " " + quantity + " " + price + type + date + barcode + picture + lastedit + status +stage;
