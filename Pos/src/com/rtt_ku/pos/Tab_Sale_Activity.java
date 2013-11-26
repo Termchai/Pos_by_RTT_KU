@@ -97,7 +97,23 @@ public class Tab_Sale_Activity extends Activity{
 				double cashh = Double.parseDouble(cash.getText().toString());
 				double change = cashh-basket.getTotalPrice();
 				Toast.makeText(Tab_Sale_Activity.this,change+"", Toast.LENGTH_SHORT).show();
-				if(cashh >= basket.getTotalPrice()){
+				
+				if(basket.getList().size()==0)
+				{
+					final AlertDialog.Builder dialog_not = new AlertDialog.Builder(Tab_Sale_Activity.this);
+					
+					dialog_not.setTitle("Warning!!!");
+					dialog_not.setMessage("Plese insert product to basket");
+						dialog_not.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+	
+						@Override
+						public void onClick(DialogInterface arg0, int arg1) {
+							// TODO Auto-generated method stub
+						}
+					}).show();
+				}
+				
+				else if(cashh >= basket.getTotalPrice()){
 					
 
 
@@ -265,7 +281,7 @@ public class Tab_Sale_Activity extends Activity{
 						try
 						{
 							int quan = Integer.parseInt(quantity.getText().toString());
-							if (quan <= product.getQuantity())
+							if (quan > 0)
 							{
 								System.out.println("Testttttttttttttttttttt");
 								basket.addProduct(product, quan);
@@ -315,8 +331,8 @@ public class Tab_Sale_Activity extends Activity{
 							public void onClick(View arg0) {
 								// TODO Auto-generated method stub
 								
-//								try
-//								{
+								try
+								{
 									int tempQuan = Integer.parseInt(quan.getText().toString());
 									if (tempQuan <= product.getQuantity())
 									{
@@ -328,9 +344,9 @@ public class Tab_Sale_Activity extends Activity{
 										saleAdapter.notifyDataSetChanged();
 										total_text.setText(basket.getTotalPrice()+"");
 									}
-//								}catch(Exception e) {
-//									
-//								}
+								}catch(Exception e) {
+									
+								}
 								dialog.dismiss();
 								dialogDiscount.dismiss();
 							}
