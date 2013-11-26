@@ -49,6 +49,8 @@ public class Database extends SQLiteOpenHelper {
 		
 		" Status TEXT," +
 		
+		" Cost INTEGER," +
+		
 		" Stage TEXT);");
 	}
 
@@ -59,7 +61,7 @@ public class Database extends SQLiteOpenHelper {
 	}
 
 	public long InsertData(String productCode, String name, int quantity, int price, String type, String date,
-			String barcode, String picture, String lastedit, String status, String stage) {
+			String barcode, String picture, String lastedit, String status, String stage,int cost) {
 		try {
 			SQLiteDatabase db;
 			db = this.getWritableDatabase();
@@ -76,6 +78,8 @@ public class Database extends SQLiteOpenHelper {
 			Val.put("Lastedit", lastedit);
 			Val.put("Status", status);
 			Val.put("Stage", stage);
+			Val.put("Cost", cost);
+			
 
 			long rows = db.insert(DATABASE_NAME, null, Val);
 
@@ -120,6 +124,7 @@ public class Database extends SQLiteOpenHelper {
 					 * [9] Last Edit
 					 * [10] Status
 					 * [11] Stage
+					 * [12] Cost
 					 */
 					for (int i=0; i<arrData.length; i++)
 					{
@@ -169,6 +174,8 @@ public class Database extends SQLiteOpenHelper {
 							 * [9] Last Edit
 							 * [10] Status
 							 * [11] Stage
+							 * [12] Cost
+
 							 */
 			 	        	String product_code = cursor.getString(1);
 			 	        	String name = cursor.getString(2);
@@ -180,14 +187,16 @@ public class Database extends SQLiteOpenHelper {
 			 	        	String picture = cursor.getString(8);
 			 	        	String lastedit = cursor.getString(9);
 			 	        	String status = cursor.getString(10);
-			 	        	String stage = cursor.getString(11);
+			 	        	int cost = Integer.parseInt(cursor.getString(11));
+			 	        	String stage = cursor.getString(12);
+
 			 	        	
 			 	        	
 			 	        	
 			 	        	
 			 	        	
 			 	        	
-			 	        	Product cMember = new Product(product_code, name, quantity, price,type,date,barcode,picture,lastedit,status,stage);
+			 	        	Product cMember = new Product(product_code, name, quantity, price,type,date,barcode,picture,lastedit,status,stage,cost);
 			 	        	MemberList.add(cMember);
 			 	        } while (cursor.moveToNext());
 			 	    }

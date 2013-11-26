@@ -22,10 +22,9 @@ public class Product {
 	
 	
 		String product_code, name, type, date, barcode, picture, lastedit, status, stage;
-		int quantity;
-		int price;
+		int quantity,cost,price;
 		public Product(String productCode, String name, int quantity, int price, String type, String date,
-				String barcode, String picture, String lastedit, String status, String stage)
+				String barcode, String picture, String lastedit, String status, String stage,int cost)
 		{
 			this.product_code = productCode;
 			this.name = name;
@@ -38,6 +37,7 @@ public class Product {
 			this.lastedit = lastedit;
 			this.status = status;
 			this.stage = stage;
+			this.cost = cost;
 		}
 		public String getProduct_Code() {return product_code;}
 		public String getName() {return name;}

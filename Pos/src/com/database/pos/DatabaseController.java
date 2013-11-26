@@ -47,9 +47,9 @@ public class DatabaseController {
 	 * @param price
 	 */
 	public void insertProduct(String productCode, String name, int quantity, int price, String type, String date,
-			String barcode, String picture, String lastedit, String status, String stage)
+			String barcode, String picture, String lastedit, String status, String stage,int cost)
 	{
-		db.InsertData(productCode, name, quantity, price,type,date,barcode,picture,lastedit,status,stage);
+		db.InsertData(productCode, name, quantity, price,type,date,barcode,picture,lastedit,status,stage,cost);
 	}
 	
 	/**
@@ -92,13 +92,11 @@ public class DatabaseController {
 		if (isHasYet(Product_Code))
 		{
 			int quantity = (Integer.parseInt(db.SelectData(Product_Code)[3]));
-			if (quantity+diff >= 0) 
-			{
+
 				db.UpdateQuantity(Product_Code, quantity+diff);
 				return (Integer.parseInt(db.SelectData(Product_Code)[3]));
-			}
+
 			
-			return -1;
 		}
 		return -2;
 	}

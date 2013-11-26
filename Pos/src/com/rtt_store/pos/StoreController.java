@@ -64,10 +64,10 @@ public class StoreController {
 	 * @return 1 if success, -1 if this product code has already
 	 */
 	public int addProduct(String productCode, String name, int quantity, int price, String type, String date,
-			String barcode, String picture, String lastedit, String status, String stage)
+			String barcode, String picture, String lastedit, String status, String stage,int cost)
 	{
 		if (dbCT.isHasYet(productCode)) return -1;
-			dbCT.insertProduct(productCode, name, quantity, price,type,date,barcode,picture,lastedit,status,stage);
+			dbCT.insertProduct(productCode, name, quantity, price,type,date,barcode,picture,lastedit,status,stage,cost);
 			updateInventory();
 			return 1;
 	}
@@ -134,14 +134,14 @@ public class StoreController {
 	public void addQuantity(String Product_Code, int diff)
 	{
 		int newQuantity = dbCT.addQuantity(Product_Code, diff);
-		if (newQuantity >= 0) {
+//		if (newQuantity >= 0) {
 			updateInventory();
 			System.out.println(Product_Code + " Quantity is " + newQuantity);
-		}
-		else if (newQuantity == -1)
-			System.out.println("new Quantity < 0");
-		else if (newQuantity == -2)
-			System.out.println(Product_Code + " not found");
+//		}
+//		else if (newQuantity == -1)
+//			System.out.println("new Quantity < 0");
+//		else if (newQuantity == -2)
+//			System.out.println(Product_Code + " not found");
 	}
 	
 	public boolean isHasYet(String product_code)

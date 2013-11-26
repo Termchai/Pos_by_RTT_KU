@@ -58,7 +58,6 @@ public class Inventory_editItem extends Activity{
 					int oldQuan = p.getQuantity();
 					final int diff = Integer.parseInt(quantityTextEdit.getText().toString());
 					int newQuan = oldQuan+diff;
-					if (newQuan < 0) throw new Exception();
 					AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
 							Inventory_editItem.this);
 					

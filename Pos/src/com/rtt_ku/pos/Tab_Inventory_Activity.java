@@ -60,8 +60,8 @@ public class Tab_Inventory_Activity extends Activity{
         DatabaseSaleRecord DbSr = new DatabaseSaleRecord(this);
         DbSr.getWritableDatabase();
         sCT = new StoreController(myDb,DbSr);
+        sCT.updateInventory();
         
-        System.out.println(DbSr.SelectAllData());
         
         
         productList = sCT.getProductList();
@@ -73,6 +73,7 @@ public class Tab_Inventory_Activity extends Activity{
         list_item = (ListView)findViewById(R.id.inventory_listView);
 
         // adapter of list item.
+        System.out.println(productList);
 		list_item.setAdapter(new InventoryAdapter(productList,this));
 		
 		//add function on click at add button.
