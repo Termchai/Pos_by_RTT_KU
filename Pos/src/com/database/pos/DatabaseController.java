@@ -112,5 +112,10 @@ public class DatabaseController {
 		}
 	}
 	
+	public void setDescription(String Product_Code,String name, String type, int price, String barcode)
+	{
+		db.UpdateDescription(Product_Code, name, type, price, barcode);
+	}
+	
 	
 }

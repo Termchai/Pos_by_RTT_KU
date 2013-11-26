@@ -232,6 +232,30 @@ public class Database extends SQLiteOpenHelper {
 		 }
 	}
 	
+	public long UpdateDescription(String Product_Code,String name, String type, int price, String barcode) {
+		// TODO Auto-generated method stub
+		 try {
+			SQLiteDatabase db;
+	    		db = this.getWritableDatabase(); // Write Data
+
+	           ContentValues Val = new ContentValues();
+	           Val.put("Name", name);
+	           Val.put("Type", type);
+	           Val.put("Price", price);
+	           Val.put("Barcode", barcode);
+	    
+	           long rows = db.update(DATABASE_NAME, Val, " Product_Code = ?",
+	                   new String[] { String.valueOf(Product_Code) });
+
+			db.close();
+			return rows; // return rows updated.
+
+		 } catch (Exception e) {
+		    return -1;
+		 }
+	}
+	
+	
 	// Delete Data
 	public long DeleteData(String Product_Code) {
 		// TODO Auto-generated method stub

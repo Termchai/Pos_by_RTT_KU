@@ -48,7 +48,18 @@ public class ProductItem_Edit extends Activity{
 			
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
+				
+				String product_code_text = id.getText().toString();
+				String name_text = name.getText().toString();
+				String type_text = type.getText().toString();
+				int price_text = Integer.parseInt(price.getText().toString());
+				String barcode_text = barcode.getText().toString();
+				sCT.setDescription(product_code_text, name_text, type_text, price_text, barcode_text);
+				
+				
+				Intent intent = new Intent(v.getContext(), ProductItem_Info.class);
+				intent.putExtra("pc", p.getProduct_Code());
+				startActivity(intent);
 			}
 		});
 		

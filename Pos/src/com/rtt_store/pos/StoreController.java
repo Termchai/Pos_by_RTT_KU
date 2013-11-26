@@ -167,4 +167,9 @@ public class StoreController {
 		return srCT.getListSaleRecord();
 	}
 	
+	public void setDescription(String Product_Code,String name, String type, int price, String barcode)
+	{
+		dbCT.setDescription(Product_Code, name, type, price, barcode);
+	}
+	
 }

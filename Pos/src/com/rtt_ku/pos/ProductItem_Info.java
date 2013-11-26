@@ -37,10 +37,12 @@ public class ProductItem_Info extends Activity {
 		// view matching
 		TextView id = (TextView)findViewById(R.id.product_itemId);
 		TextView name = (TextView)findViewById(R.id.product_item_name);
-		TextView cost = (TextView)findViewById(R.id.product_itemCost);
+		TextView type = (TextView)findViewById(R.id.product_item_type);
 		TextView price = (TextView)findViewById(R.id.product_itemPrice);
+		TextView barcode = (TextView)findViewById(R.id.product_itemBarcode);
+
 				
-		setTextView(id,name,cost,price,p);
+		setTextView(id,name,type,price,barcode,p);
 			
 		editButton.setOnClickListener(new OnClickListener() {
 			
@@ -64,10 +66,11 @@ public class ProductItem_Info extends Activity {
 		});
 	}
 
-	private void setTextView(TextView id, TextView name, TextView cost,TextView price, Product p) {
+	private void setTextView(TextView id, TextView name, TextView type,TextView price,TextView barcode, Product p) {
 		id.setText(p.getProduct_Code());
 		name.setText(p.getName());
-		// cost.setText(p.getCost());
+		type.setText(p.getType());
 		price.setText(p.getPrice()+"");
+		barcode.setText(p.getBarcode());
 	}
 }
