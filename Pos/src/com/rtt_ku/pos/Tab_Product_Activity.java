@@ -63,12 +63,21 @@ public class Tab_Product_Activity extends Activity{
 			}
         });
 		
+		addButton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				startActivity(new Intent(v.getContext(),Product_Edit.class));
+			}
+		});
+		
 		editButton.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				startActivity(new Intent(v.getContext(), Product_Edit.class));
+				startActivity(new Intent(v.getContext(), Product_AddItem.class));
 			}
 		});
 	}

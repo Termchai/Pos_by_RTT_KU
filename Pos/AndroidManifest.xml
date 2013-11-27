@@ -36,6 +36,9 @@
         <activity android:name="Inventory_Edit"></activity>
         <activity android:name="Product_Edit"></activity>
         <activity android:name="Sale_Report"></activity>
+        <activity android:name="com.rtt_ku.pos.Product_AddItem"></activity>
+        <activity android:name="com.rtt_ku.pos.Product_AddItemDes"></activity>
+        <activity android:name="Poppy"></activity>
     </application>
 
 </manifest>

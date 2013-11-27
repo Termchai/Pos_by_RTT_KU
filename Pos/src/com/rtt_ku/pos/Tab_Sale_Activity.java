@@ -59,6 +59,9 @@ public class Tab_Sale_Activity extends Activity{
 	private Database myDb;
 	private Button report_button;
 	
+	private Dialog dialog; 
+	private Dialog reportDialog;
+	
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.sale_tab);
@@ -198,7 +201,8 @@ public class Tab_Sale_Activity extends Activity{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				startActivity(new Intent(v.getContext(), Sale_Report.class));
+				reportDialog = new Dialog(context);
+				reportDialog.setContentView(R.layout.sale_report);
 			}
 		});
 		
@@ -259,7 +263,7 @@ public class Tab_Sale_Activity extends Activity{
 //					}).show();
 //	        	}
 	        	
-	        	final Dialog dialog = new Dialog(context);
+	        	dialog = new Dialog(context);
 	        	dialog.setContentView(R.layout.sale_dialog);
 	        	
 	        	final Product product =  productList.get(position);
