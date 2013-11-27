@@ -12,23 +12,31 @@ import android.widget.EditText;
 
 public class Product_AddItemDes extends Activity{
 	
+	Button okButton;
+	Button cancelButton;
+	EditText id;
+	EditText name;
+	EditText type;
+	EditText price;
+	EditText barcode;
+	
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.product_add_item);
 		
-		Button okButton = (Button)findViewById(R.id.product_addDes_okButton);
-		Button cancelButton = (Button)findViewById(R.id.product_addDes_cancelButton);
+		okButton = (Button)findViewById(R.id.product_addDes_okButton);
+		cancelButton = (Button)findViewById(R.id.product_addDes_cancelButton);
+		id = (EditText)findViewById(R.id.product_add_productEditText);
+		name = (EditText)findViewById(R.id.product_add_nameEditText);
+		type = (EditText)findViewById(R.id.product_add_typeEditText);
+		price = (EditText)findViewById(R.id.product_add_priceEditText);
+		barcode = (EditText)findViewById(R.id.product_add_barcodeEditText);
 		
 		okButton.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				EditText id = (EditText)findViewById(R.id.product_add_productEditText);
-				EditText name = (EditText)findViewById(R.id.product_add_nameEditText);
-				EditText type = (EditText)findViewById(R.id.product_add_typeEditText);
-				EditText price = (EditText)findViewById(R.id.product_add_priceEditText);
-				EditText barcode = (EditText)findViewById(R.id.product_add_barcodeEditText);
 				
 				id.setEnabled(false);
 			}
