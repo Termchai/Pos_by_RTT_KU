@@ -67,7 +67,6 @@ public class Tab_Inventory_Activity extends Activity{
         productList = sCT.getProductList();
 		
 		// view matching
-		addButton = (Button) findViewById(R.id.button_add);
 		removeButton = (Button) findViewById(R.id.set_quantity_ok_button);
 		editButton = (Button) findViewById(R.id.Inventort_Tab_Edit_Button);
         list_item = (ListView)findViewById(R.id.inventory_listView);
@@ -75,18 +74,6 @@ public class Tab_Inventory_Activity extends Activity{
         // adapter of list item.
         System.out.println(productList);
 		list_item.setAdapter(new ProductAdapter(productList,this));
-		
-		//add function on click at add button.
-//		Intent intent = new Intent(Tab_Inventory_Activity.this, Check_product_Activity.class);
-//		addButton.setOnClickListener(new OnClickChangeView(Tab_Inventory_Activity.this, intent));
-		addButton.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				startActivity(new Intent(v.getContext(), Check_product_Activity.class));
-			}
-		});
 		
 		editButton.setOnClickListener(new OnClickListener() {
 			

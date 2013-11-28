@@ -80,6 +80,15 @@ public class Tab_Product_Activity extends Activity{
 				startActivity(new Intent(v.getContext(), Product_Edit.class));
 			}
 		});
+		
+		removeButton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				startActivity(new Intent(v.getContext(), Remove_Activity.class));
+			}
+		});
 	}
 
 	public View getView(){

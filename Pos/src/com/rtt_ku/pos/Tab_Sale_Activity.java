@@ -290,6 +290,7 @@ public class Tab_Sale_Activity extends Activity{
 	        	Button dialogEditButton = (Button)dialog.findViewById(R.id.saleDialog_editButton);
 	        	
 	        	name.setText(product.getName());
+	        	quantity.setText("1");
 	        	
 	        	dialogOkButton.setOnClickListener(new OnClickListener() {
 					// input only quantity
