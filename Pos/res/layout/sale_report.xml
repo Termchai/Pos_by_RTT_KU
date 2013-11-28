@@ -11,10 +11,10 @@
         android:text="Daily" />
 
     <Button
-        android:id="@+id/sale_report_weeklyButton"
+        android:id="@+id/sale_report_monthlyButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Weekly" />
+        android:text="Monthly" />
 
     <Button
         android:id="@+id/sale_report_yearButton"

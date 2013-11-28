@@ -211,7 +211,7 @@ public class Tab_Sale_Activity extends Activity{
 				reportDialog.setTitle("Report");
 				
 				reportDaily = (Button)reportDialog.findViewById(R.id.sale_repot_dailybutton);
-				reportWeekly  = (Button)reportDialog.findViewById(R.id.sale_report_weeklyButton);
+				reportWeekly  = (Button)reportDialog.findViewById(R.id.sale_report_monthlyButton);
 				reportYear = (Button)reportDialog.findViewById(R.id.sale_report_yearButton);
 				reportBack = (Button) reportDialog.findViewById(R.id.sale_report_backButton);
 				
