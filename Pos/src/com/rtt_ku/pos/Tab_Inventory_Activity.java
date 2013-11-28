@@ -122,7 +122,7 @@ public class Tab_Inventory_Activity extends Activity{
 		
 	}
 	public View getView () {
-        View view = LayoutInflater.from(getApplicationContext()).inflate(R.layout.large_item_layout, null);
+        View view = LayoutInflater.from(getApplicationContext()).inflate(R.layout.product_item, null);
         return view;
 	}
 		

@@ -498,6 +498,7 @@ public class Tab_Sale_Activity extends Activity{
 					view = LayoutInflater.from(getApplicationContext()).inflate(R.layout.large_item_layout, null);
 					holder = new Holder();
 					
+					holder.code = (TextView) view.findViewById(R.id.large_item_layout_product_code);
 					holder.title = (TextView) view.findViewById(R.id.large_text_item);
 					holder.quantity = (TextView) view.findViewById(R.id.large_text_quantity); 
 					holder.price = (TextView) view.findViewById(R.id.large_text_price);
@@ -516,7 +517,8 @@ public class Tab_Sale_Activity extends Activity{
 				String product_code = p.getProduct_Code();
 				int product_quantity = basket.getMapQuan().get(p);
 				int product_price = basket.getMapPrice().get(p);
-				holder.title.setText(product_name + " <" + product_code + "> ");
+				holder.code.setText( " <" + product_code + "> ");
+				holder.title.setText(product_name);
 				holder.quantity.setText(product_quantity +  " item(s)");
 				holder.price.setText(product_price+"");
 				return view;
@@ -525,6 +527,7 @@ public class Tab_Sale_Activity extends Activity{
 			// hold text view in each list of item. 
 			class Holder{
 				
+				public TextView code;
 				public TextView title;
 				public TextView quantity;
 				public TextView price;

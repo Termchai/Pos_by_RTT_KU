@@ -83,7 +83,7 @@ public class Tab_Product_Activity extends Activity{
 	}
 
 	public View getView(){
-		View view = LayoutInflater.from(getApplicationContext()).inflate(R.layout.product_item, null);
+		View view = LayoutInflater.from(getApplicationContext()).inflate(R.layout.large_item_layout, null);
         return view;
 	}
 }
