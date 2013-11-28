@@ -17,8 +17,7 @@ import android.widget.Toast;
 public class ProductItem_Edit extends Activity{
 
     public static StoreController sCT;
-    private Button okButton;
-    private Button cancelButton; 
+    private Button okButton,cancelButton,scanButton;
     private EditText id,name,type,price,barcode;
     
 	public void onCreate(Bundle savedInstanceState) {
@@ -36,6 +35,7 @@ public class ProductItem_Edit extends Activity{
 		
 		okButton = (Button)findViewById(R.id.product_info_okButton);
 		cancelButton = (Button)findViewById(R.id.product_info_cancelButton);
+		scanButton = (Button)findViewById(R.id.product_info_scanButton);
 		id = (EditText)findViewById(R.id.product_id_editText);
 		name = (EditText)findViewById(R.id.product_name_editText);
 		type = (EditText)findViewById(R.id.product_type_editText);
@@ -73,7 +73,43 @@ public class ProductItem_Edit extends Activity{
 				startActivity(intent);
 			}
 		});
+		
+		scanButton.setOnClickListener(new OnClickListener() {
+ 
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                try {
+                    //กำหนด intent ในการเรียกใช้ Barcode Scanner
+                    Intent intent = new Intent("com.google.zxing.client.android.SCAN");
+                    //ส่ง Mode ในการ Scan ให้กับ โปรแกรม Barcode Scanner
+                    intent.putExtra("SCAN_MODE", "BAR_CODE_MODE");
+                    //เริ่ม Activity จาก intent ที่กำหนด โดยกำหนด requestCode เป็น 0
+                    startActivityForResult(intent, 0);
+                } catch (Exception e) {
+                    // TODO: handle exception
+                    //ถ้าไม่ได้ลงโปรแกรม Barcode Scanner ไว้จะแสดงข้อความ Please Install Barcode Scanner
+                    Toast.makeText(getBaseContext(),"Please Install Barcode Scanner",Toast.LENGTH_SHORT).show();
+                }
+ 
+            }
+        });
 	}
+	
+	protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        // TODO Auto-generated method stub
+        if (requestCode == 0) //ทำการตรวจสอบว่า requestCode ตรงกับที่ Barcode Scanner คืนค่ามาหรือไม่
+        {
+            if (resultCode == RESULT_OK) //ถ้า Barcode Scanner ทำงานสมบูรณ์
+            {
+                    //รับข้อมูลจาก Barcode Scanner ที่ได้จากการสแกน
+                    String contents = intent.getStringExtra("SCAN_RESULT");
+                    //รับรูปแบบจาก Barcode Scanner ที่ได้จากการสแกน ว่าเป็นชนิดใด
+                    String format = intent.getStringExtra("SCAN_RESULT_FORMAT");
+                    Toast.makeText(getBaseContext(),contents,Toast.LENGTH_SHORT).show();
+                    barcode.setText(contents);
+            }
+        }
+    }
 	
 	private void setEditText(Product p){
 		id.setText(p.getProduct_Code());

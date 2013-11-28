@@ -68,7 +68,7 @@ public class Tab_Product_Activity extends Activity{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				startActivity(new Intent(v.getContext(),Product_Edit.class));
+				startActivity(new Intent(v.getContext(),Product_AddItem.class));
 			}
 		});
 		
@@ -77,7 +77,7 @@ public class Tab_Product_Activity extends Activity{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				startActivity(new Intent(v.getContext(), Product_AddItem.class));
+				startActivity(new Intent(v.getContext(), Product_Edit.class));
 			}
 		});
 	}
