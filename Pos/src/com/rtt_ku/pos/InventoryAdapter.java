@@ -14,10 +14,10 @@ public class InventoryAdapter extends BaseAdapter{
 
 	private Holder holder;
 	private ArrayList<Product> list;
-	private Tab_Inventory_Activity ac;
+	private Tab_Product_Activity ac;
 	
 	
-	public InventoryAdapter(ArrayList<Product> list,Tab_Inventory_Activity ac){
+	public InventoryAdapter(ArrayList<Product> list,Tab_Product_Activity ac){
 		this.list = list;
 		this.ac = ac;
 	}

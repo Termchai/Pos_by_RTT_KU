@@ -74,7 +74,7 @@ public class Tab_Inventory_Activity extends Activity{
 
         // adapter of list item.
         System.out.println(productList);
-		list_item.setAdapter(new InventoryAdapter(productList,this));
+		list_item.setAdapter(new ProductAdapter(productList,this));
 		
 		//add function on click at add button.
 //		Intent intent = new Intent(Tab_Inventory_Activity.this, Check_product_Activity.class);

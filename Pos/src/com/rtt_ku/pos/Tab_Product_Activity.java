@@ -47,7 +47,7 @@ public class Tab_Product_Activity extends Activity{
 	     
 		ListView listview = (ListView)findViewById(R.id.product_listView);
 		
-		listview.setAdapter(new ProductAdapter(productList,this));
+		listview.setAdapter(new InventoryAdapter(productList,this));
 		
 		listview.setOnItemClickListener(new OnItemClickListener() {
 

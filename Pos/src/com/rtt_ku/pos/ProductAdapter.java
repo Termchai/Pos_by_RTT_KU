@@ -14,9 +14,9 @@ public class ProductAdapter extends BaseAdapter{
 	
 	private Holder holder;
 	private ArrayList<Product> list;
-	private Tab_Product_Activity pa;
+	private Tab_Inventory_Activity pa;
 	
-	public ProductAdapter(ArrayList<Product> list,Tab_Product_Activity pa){
+	public ProductAdapter(ArrayList<Product> list,Tab_Inventory_Activity pa){
 		this.list = list;
 		this.pa = pa;
 	}
