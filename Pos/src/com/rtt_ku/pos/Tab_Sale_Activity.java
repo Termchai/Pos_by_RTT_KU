@@ -53,14 +53,18 @@ public class Tab_Sale_Activity extends Activity{
 	private SaleItemAdapter saleAdapter;
 	private TextView total_text;
 	private EditText cash;
-	private Button ok_button;
-	private Button reset_button;
+	private Button ok_button,reset_button;
 	private MyAdapter adapter;
 	private Database myDb;
 	private Button report_button;
 	
 	private Dialog dialog; 
 	private Dialog reportDialog;
+	
+	private Button reportDaily;
+	private Button reportWeekly;
+	private Button reportYear;
+	private Button reportBack;
 	
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -203,6 +207,16 @@ public class Tab_Sale_Activity extends Activity{
 				// TODO Auto-generated method stub
 				reportDialog = new Dialog(context);
 				reportDialog.setContentView(R.layout.sale_report);
+				
+				reportDialog.setTitle("Report");
+				
+				reportDaily = (Button)reportDialog.findViewById(R.id.sale_repot_dailybutton);
+				reportWeekly  = (Button)reportDialog.findViewById(R.id.sale_report_weeklyButton);
+				reportYear = (Button)reportDialog.findViewById(R.id.sale_report_yearButton);
+				reportBack = (Button) reportDialog.findViewById(R.id.sale_report_backButton);
+				
+				setReportAction();
+				reportDialog.show();
 			}
 		});
 		
@@ -521,5 +535,41 @@ public class Tab_Sale_Activity extends Activity{
 	        View view = LayoutInflater.from(getApplicationContext()).inflate(R.layout.item_layout, null);
 	        return view;
 		}
+	    
+	    public void setReportAction(){
+	    	reportDaily.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					startActivity(new Intent(v.getContext(), Sale_ReportDaily_ChooseDate.class));
+				}
+			});
+	    	
+	    	reportWeekly.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					
+				}
+			});
+	    	
+	    	reportYear.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					
+				}
+			});
+	    	
+	    	reportBack.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					
+				}
+			});
+	    }
 }
 
