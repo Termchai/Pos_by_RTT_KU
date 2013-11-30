@@ -53,6 +53,10 @@ public class Sale_ReportDaily_ChooseDate extends Activity{
 		});
 		
 	}
+	
+	
+	
+	
 
 	private void okListener() {
 		okButton.setOnClickListener(new OnClickListener() {
@@ -61,6 +65,7 @@ public class Sale_ReportDaily_ChooseDate extends Activity{
 			public void onClick(View v) {
 				
 				Toast.makeText(v.getContext(),String.valueOf(daySpn.getSelectedItem())+" "+String.valueOf(monthSpn.getSelectedItem()), Toast.LENGTH_SHORT).show();
+				startActivity(new Intent(v.getContext(), Sale_Report_DailyListView.class));
 			}
 		});
 		

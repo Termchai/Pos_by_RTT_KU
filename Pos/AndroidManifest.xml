@@ -40,6 +40,11 @@
         <activity android:name="com.rtt_ku.pos.Product_AddItemDes"></activity>
         <activity android:name="Poppy"></activity>
         <activity android:name="Sale_ReportDaily_ChooseDate"></activity>
+        <activity android:name="Sale_ReportMonthly_ChooseDate"></activity>
+        <activity android:name="Sale_Report_MonthlyListView"></activity>
+        <activity android:name="Sale_ReportYearly_ChooseDate"></activity>
+        <activity android:name="Sale_Report_YearlyListView"></activity>
+        <activity android:name="Sale_Report_DailyListView"></activity>
     </application>
 
 </manifest>

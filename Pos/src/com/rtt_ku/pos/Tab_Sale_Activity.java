@@ -553,7 +553,7 @@ public class Tab_Sale_Activity extends Activity{
 				
 				@Override
 				public void onClick(View v) {
-					
+					startActivity(new Intent(v.getContext(), Sale_ReportMonthly_ChooseDate.class));
 				}
 			});
 	    	
@@ -562,7 +562,7 @@ public class Tab_Sale_Activity extends Activity{
 				@Override
 				public void onClick(View v) {
 					// TODO Auto-generated method stub
-					
+					startActivity(new Intent(v.getContext(), Sale_ReportYearly_ChooseDate.class));
 				}
 			});
 	    	
