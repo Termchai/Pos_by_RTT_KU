@@ -19,6 +19,7 @@ import android.app.AlertDialog;
 import android.app.TabActivity;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
@@ -29,6 +30,7 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TabHost;
+import android.widget.TabHost.OnTabChangeListener;
 import android.widget.TabHost.TabSpec;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -38,7 +40,7 @@ import android.widget.Toast;
  * @author rtt
  *
  */
-public class main_activity extends TabActivity {
+public class main_activity extends TabActivity implements OnTabChangeListener{
 	
 	private TabHost myTabHost;
     @Override
@@ -80,4 +82,15 @@ public class main_activity extends TabActivity {
         //Set default tab
 //        myTabHost.setCurrentTab(1);
     }
+	@Override
+	public void onTabChanged(String tabId) {
+		// TODO Auto-generated method stub
+		for(int i=0;i<myTabHost.getTabWidget().getChildCount();i++)
+		{
+			myTabHost.getTabWidget().getChildAt(i).setBackgroundColor(R.drawable.greenbutton);
+		}
+
+		myTabHost.getTabWidget().getChildAt(myTabHost.getCurrentTab()).setBackgroundColor(Color.parseColor("#C35817"));
+	}
+	
 }

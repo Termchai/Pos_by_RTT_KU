@@ -63,7 +63,8 @@ public class Add_Activity extends Activity {
 				
 				// when click add button
 				insertProduct(product_code, name, quantity, price,"","","","","","","",0);
-				startActivity(new Intent(Add_Activity.this, main_activity.class));
+//				startActivity(new Intent(Add_Activity.this, main_activity.class));
+				onBackPressed();
 				}
 				else 
 				{
@@ -99,5 +100,11 @@ public class Add_Activity extends Activity {
 		int temp = sCT.addProduct(productCode, name, quantity, price,type,date,barcode,picture,lastedit,status,stage,cost);
 //		if (temp == 1) Toast.makeText(Add_Activity.this,"added <" + productCode + "> " + name + " Complete.", Toast.LENGTH_SHORT).show();
 		if (temp == -1) Toast.makeText(Add_Activity.this, productCode + " is already exist.", Toast.LENGTH_SHORT).show();
+	}
+	
+	@Override
+	public void onBackPressed(){
+		super.onBackPressed();
+		super.onBackPressed();
 	}
 }

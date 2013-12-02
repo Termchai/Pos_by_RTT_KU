@@ -57,7 +57,7 @@ public class Product_AddItemDes extends Activity{
 				int price_text = Integer.parseInt(price.getText().toString());
 				String barcode_text = barcode.getText().toString();
 				sCT.addProduct(product_code, name_text, 0, price_text, type_text, "", barcode_text, "", "", "", "", 0);
-				
+				onBackPressed();
 			}
 		});
 		
@@ -70,5 +70,14 @@ public class Product_AddItemDes extends Activity{
 			}
 		});
 	}
+	
+	@Override
+	public void onBackPressed(){
+		Intent intent = new Intent(this, main_activity.class);
+		startActivity(intent);
+		finish();
+		super.onBackPressed();
+	}
+	
 	
 }

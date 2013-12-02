@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/tab1"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent" 
+    android:background="@drawable/background">
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -24,7 +25,7 @@
                 android:id="@+id/Inventort_Tab_Edit_Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/light_grey_button"
+                android:background="@drawable/greenbutton"
                 android:paddingRight="100dp"
                 android:text="Add quantity"
                 android:textColor="#FFFFFF" />

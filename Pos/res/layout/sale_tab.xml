@@ -7,12 +7,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical" >
+        android:orientation="vertical"
+        android:background="@drawable/background">
 
         <ListView
             android:id="@+id/inventory_listView"
             android:layout_width="fill_parent"
-            android:layout_height="190dp" >
+            android:layout_height="190dp" 
+            android:background="@drawable/sale_item_listview">
 
         </ListView>
         
@@ -22,20 +24,27 @@
             android:background="@drawable/grey_button">
             
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent"
+            android:gravity="right" >
 
             <ListView
                 android:id="@+id/listView2"
                 android:layout_width="160dp"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent"
+                android:background="@drawable/sale_item_listview" >
 
             </ListView>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@drawable/sale_cash"
+                android:gravity="right"
                 android:orientation="vertical" >
+
                 <TextView
                     android:id="@+id/sale_report_productTextView"
                     android:layout_width="wrap_content"
@@ -48,31 +57,44 @@
                     android:layout_height="wrap_content" >
                     <requestFocus />
                 </EditText>
+
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
-                    <Button
-                        android:id="@+id/productItem_add_button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="OK"
-                        android:textColor="#FFFFFF"
-          			    android:background="@drawable/greenbutton" />
-                    <Button
-                        android:id="@+id/productItem_edit_button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Reset"
-                        android:textColor="#FFFFFF"
-						android:background="@drawable/light_grey_button" />
-                </LinearLayout>
-
-                <Button
-                    android:id="@+id/sale_report_button"
-                    style="?android:attr/buttonStyleSmall"
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Report" />
+                    android:orientation="vertical" >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="clip_horizontal" >
+
+                        <Button
+                            android:id="@+id/productItem_add_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/greenbutton"
+                            android:text="OK"
+                            android:textColor="#FFFFFF" />
+
+                        <Button
+                            android:id="@+id/productItem_edit_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/light_grey_button"
+                            android:text="Reset"
+                            android:textColor="#FFFFFF" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/sale_report_button"
+                        style="?android:attr/buttonStyleSmall"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/light_grey_button"
+                        android:textColor="#FFFFFF"
+                        android:text="Report" />
+
+                </LinearLayout>
 
             </LinearLayout>
         </LinearLayout>

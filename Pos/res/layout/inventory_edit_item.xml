@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="@drawable/background"  >
 
     <TextView
         android:id="@+id/textView6"
@@ -145,6 +146,8 @@
             android:id="@+id/inventoryEdit_ok_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/greenbutton"
+            android:textColor="#FFFFFF"
             android:text="OK" />
 
         <Button
@@ -157,6 +160,8 @@
             android:id="@+id/inventoryEdit_remove_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/light_grey_button"
+            android:textColor="#FFFFFF"
             android:text="Remove" />
 
     </LinearLayout>
