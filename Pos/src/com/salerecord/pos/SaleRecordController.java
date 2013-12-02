@@ -2,6 +2,8 @@ package com.salerecord.pos;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 
 import Inventory.Product;
 import Sale.Basket;
@@ -61,5 +63,14 @@ public class SaleRecordController {
 		// TODO Auto-generated method stub
 		return dbSr.SelectAllData();
 	}
+//	public ArrayList<Wan> getDaily()
+//	{
+//		Set<Wan> set = new HashSet<Wan>();
+//		ArrayList<Wan> list = getListSaleRecord();
+//		for (int i=0; i<list.size(); i++)
+//		{
+//			
+//		}
+//	}
 
 }
