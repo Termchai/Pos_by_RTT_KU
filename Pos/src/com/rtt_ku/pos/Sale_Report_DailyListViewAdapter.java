@@ -46,7 +46,7 @@ public class Sale_Report_DailyListViewAdapter extends BaseAdapter{
 			view = sRD.getView();
 			holder = new Holder();
 			
-			holder.title = (TextView) view.findViewById(R.id.textView1);
+			holder.title = (TextView) view.findViewById(R.id.testnaeiei);
 			view.setTag(holder);
 		}
 		else {
