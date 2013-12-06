@@ -13,7 +13,7 @@ package com.salerecord.pos;
 			
 			for (int j=0; j<temp.length; j++)
 			{
-				sum += Integer.parseInt(temp[j].split(" ")[1]) * Integer.parseInt(temp[j].split(" ")[0]);
+				sum += Integer.parseInt(temp[j].split(" ")[1]) * Integer.parseInt(temp[j].split(" ")[2]);
 			}
 			return sum;
 		}
