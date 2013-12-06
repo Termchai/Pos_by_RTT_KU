@@ -6,4 +6,15 @@ package com.salerecord.pos;
 		{
 			return hour + " " + min + " " + basket;
 		}
+		public double getTotal()
+		{
+			double sum = 0;
+			String[] temp = basket.split(":");
+			
+			for (int j=0; j<temp.length; j++)
+			{
+				sum += Integer.parseInt(temp[j].split(" ")[1]) * Integer.parseInt(temp[j].split(" ")[0]);
+			}
+			return sum;
+		}
 	}

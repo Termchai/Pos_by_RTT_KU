@@ -12,4 +12,6 @@ public class Profile {
 		this.min = min;
 	}
 	
+
+	
 }

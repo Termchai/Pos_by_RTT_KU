@@ -4,18 +4,23 @@ import java.util.ArrayList;
 
 import com.database.pos.Database;
 import com.rtt_store.pos.StoreController;
+import com.salerecord.pos.DailyRecord;
 import com.salerecord.pos.DatabaseSaleRecord;
+import com.salerecord.pos.Record;
 
 import Inventory.Product;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.text.format.Time;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class Sale_Report_DailyListView extends Activity {
 	public static ListView listView;
-	ArrayList<Product> list = new ArrayList<Product>();
+	ArrayList<Record> list;
 	
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -27,8 +32,22 @@ public class Sale_Report_DailyListView extends Activity {
         DatabaseSaleRecord DbSr = new DatabaseSaleRecord(this);
         DbSr.getReadableDatabase();
 		StoreController sCT = new StoreController(myDb,DbSr);
+		
+		
+		Intent intend = getIntent();
+		final int day = Integer.parseInt(intend.getExtras().getString("day"));
+		final int month = Integer.parseInt(intend.getExtras().getString("month"))-1;
+		final int year = Integer.parseInt(intend.getExtras().getString("year"));
+		
+		Toast.makeText(this,day + " " + month + " " + year, Toast.LENGTH_SHORT).show();
 
-		listView.setAdapter(new Sale_Report_DailyListViewAdapter(list, this));
+		
+		
+		Time time = new Time();
+		time.set(day, month, year);
+		list = new DailyRecord(this, time).SelectAllData();
+
+		listView.setAdapter(new Sale_Report_DailyListViewAdapter(list, this, time));
 	}
 
 	public View getView() {

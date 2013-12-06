@@ -9,6 +9,7 @@ import com.rtt_store.pos.StoreController;
 import com.salerecord.pos.DatabaseSaleRecord;
 import com.salerecord.pos.Wan;
 
+import Inventory.Product;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -83,8 +84,16 @@ public class Sale_ReportDaily_ChooseDate extends Activity{
 			@Override
 			public void onClick(View v) {
 				
-				Toast.makeText(v.getContext(),String.valueOf(daySpn.getSelectedItem())+" "+String.valueOf(monthSpn.getSelectedItem()), Toast.LENGTH_SHORT).show();
-				startActivity(new Intent(v.getContext(), Sale_Report_DailyListView.class));
+				Intent intent = new Intent(v.getContext(), Sale_Report_DailyListView.class);
+				intent.putExtra("day",String.valueOf(daySpn.getSelectedItem()));
+				intent.putExtra("month",String.valueOf(monthSpn.getSelectedItem()));
+				intent.putExtra("year",String.valueOf(yearSpn.getSelectedItem()));
+
+				startActivity(intent);
+				
+				
+//				Toast.makeText(v.getContext(),String.valueOf(daySpn.getSelectedItem())+" "+String.valueOf(monthSpn.getSelectedItem()), Toast.LENGTH_SHORT).show();
+//				startActivity(new Intent(v.getContext(), Sale_Report_DailyListView.class));
 			}
 		});
 		

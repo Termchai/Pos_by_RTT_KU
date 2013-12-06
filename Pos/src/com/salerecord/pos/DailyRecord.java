@@ -106,5 +106,17 @@ public class DailyRecord extends SQLiteOpenHelper {
 		 }
 
 	}
+	
+	public double getTotal()
+	{
+		double sum = 0;
+		ArrayList<Record> list = SelectAllData();
+		for (int i=0; i<list.size(); i++)
+		{
+			Record r = list.get(i);
+			sum += r.getTotal();
+		}
+		return sum;
+	}
 
 }
