@@ -47,7 +47,7 @@ public class Sale_Report_DailyListView extends Activity {
 		final int month = Integer.parseInt(intend.getExtras().getString("month"))-1;
 		final int year = Integer.parseInt(intend.getExtras().getString("year"));
 		
-		Toast.makeText(this,day + " " + month + " " + year, Toast.LENGTH_SHORT).show();
+		Toast.makeText(this,day + " " + month + " " + year+" kok", Toast.LENGTH_SHORT).show();
 
 		
 		
