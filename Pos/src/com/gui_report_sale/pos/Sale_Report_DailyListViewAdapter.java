@@ -54,7 +54,7 @@ public class Sale_Report_DailyListViewAdapter extends BaseAdapter{
 			holder.date = (TextView) view.findViewById(R.id.sale_report_daily_lineitem_date);
 			holder.timee = (TextView) view.findViewById(R.id.sale_report_daily_lineitem_timee);
 			holder.total = (TextView) view.findViewById(R.id.sale_report_daily_lineitem_totalprice);
-
+			holder.idBill = (TextView) view.findViewById(R.id.sale_report_daily_lineitem_idBill);
 			view.setTag(holder);
 		}
 		else {
@@ -68,11 +68,12 @@ public class Sale_Report_DailyListViewAdapter extends BaseAdapter{
 		holder.date.setText(date);
 		holder.timee.setText(timee);
 		holder.total.setText(total);
+		holder.idBill.setText(r.id);
 		return view;
 	}
 	
 	// hold text view in each list of item. 
 	class Holder{
-		public TextView total,date,timee;
+		public TextView total,date,timee,idBill;
 	}
 }

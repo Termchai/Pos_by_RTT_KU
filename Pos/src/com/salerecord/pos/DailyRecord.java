@@ -90,7 +90,17 @@ public class DailyRecord extends SQLiteOpenHelper {
 			 	    if (cursor.moveToFirst()) {
 			 	        do {
 			 	        	Record cMember = new Record();
-			 	        	cMember.id = cursor.getString(0);
+			 	        	
+			 	        	String temp = cursor.getString(0);
+			 	        	while(temp.length() < 3)
+			 	        		temp = 0 + temp;
+			 	        	String tempDay = time.monthDay+"";
+			 	        	while (tempDay.length() < 2)
+			 	        		tempDay = 0 + tempDay;
+			 	        	String tempMonth = time.month+1+"";
+			 	        	while(tempMonth.length() < 2)
+			 	        		tempMonth = 0 + tempMonth;
+			 	        	cMember.id = tempDay+tempMonth+time.year+temp;
 			 	        	cMember.hour = cursor.getString(1);
 			 	        	cMember.min = cursor.getString(2);
 			 	        	cMember.basket = cursor.getString(3);

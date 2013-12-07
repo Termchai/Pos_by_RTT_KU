@@ -76,6 +76,7 @@ public class Sale_Report_MonthlyListView extends Activity {
 				intent.putExtra("month",r.month+"");
 				intent.putExtra("year", r.year+"");
 				intent.putExtra("time", r.hour + ":" + r.min);
+				intent.putExtra("idBill", r.id);
 				intent.putExtra("position", position+"");
 				
 				startActivity(intent);

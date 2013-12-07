@@ -69,6 +69,7 @@ public class Sale_Report_DailyListView extends Activity {
 //				Product p = sCT.getProductList().get(position);
 				intent.putExtra("date", day+"/"+month+"/"+year);
 				intent.putExtra("time", r.hour + ":" + r.min);
+				intent.putExtra("idBill", r.id);
 				intent.putExtra("position", position+"");
 				
 				startActivity(intent);

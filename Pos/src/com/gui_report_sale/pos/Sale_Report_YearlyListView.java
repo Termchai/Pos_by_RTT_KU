@@ -74,7 +74,9 @@ public class Sale_Report_YearlyListView extends Activity {
 				intent.putExtra("year", r.year);
 				intent.putExtra("time", r.hour + ":" + r.min);
 				intent.putExtra("position", position+"");
+				intent.putExtra("idBill", r.id);
 				
+
 				startActivity(intent);
 			}
         });

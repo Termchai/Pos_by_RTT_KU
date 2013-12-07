@@ -23,10 +23,11 @@ public class Sale_Report_YearlyBill extends Activity{
 	
 	ListView listView;
 	ArrayList<String> list;
-	String year,timeStr;
+	String year,timeStr,idBill;
 	TextView time_textView;
 	TextView date_textView;
 	TextView totalPrice;
+	TextView idBill_textview;
 	int position;
 	
 	public void onCreate(Bundle savedInstanceState) {
@@ -43,11 +44,13 @@ public class Sale_Report_YearlyBill extends Activity{
 		time_textView = (TextView)findViewById(R.id.sale_report_time);
 		date_textView = (TextView)findViewById(R.id.sale_report_date);
 		totalPrice = (TextView)findViewById(R.id.report_bill_totalprice);
+		idBill_textview = (TextView)findViewById(R.id.sale_report_idBill);
 		
 		Intent intend = getIntent();
 		year = intend.getExtras().getString("year");
 		timeStr = intend.getExtras().getString("time");
 		position = Integer.parseInt(intend.getExtras().getString("position"));
+		idBill = intend.getExtras().getString("idBill");
 		
 		ArrayList<Wan> wans = sCT.getWans();
 		final ArrayList<Record> list2 = new ArrayList<Record>();
@@ -67,6 +70,8 @@ public class Sale_Report_YearlyBill extends Activity{
 		String[] temp = r.basket.split(":");
 		list = new ArrayList<String>();
 		time_textView.setText(timeStr);
+		idBill_textview.setText(idBill);
+		
 		
 		
 		
