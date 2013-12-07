@@ -2,8 +2,9 @@ package com.rtt_ku.pos;
 
 import java.util.ArrayList;
 
+import com.gui_report_sale.pos.Sale_Report;
 import com.rtt_ku.pos.R;
-import com.salerecord.pos.DatabaseSaleRecord;
+import com.salerecord.pos.SaleRecordDateDatabase;
 import com.salerecord.pos.Profile;
 import com.salerecord.pos.SaleRecordController;
 import com.salerecord.pos.Wan;
@@ -19,7 +20,7 @@ public class SaleReportAdapter extends BaseAdapter{
 
 	private ArrayList<Profile> list;
 	private Sale_Report sr;
-	private DatabaseSaleRecord dbSr;
+	private SaleRecordDateDatabase dbSr;
 	private ArrayList<String> record;
 	
 	public SaleReportAdapter(ArrayList<Profile> profiles,Sale_Report sr){

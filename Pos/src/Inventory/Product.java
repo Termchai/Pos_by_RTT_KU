@@ -1,7 +1,6 @@
 package Inventory;
 
-import com.database.pos.Database;
-import com.rtt_ku.pos.main_activity2;
+import com.database.pos.InventoryDatabase;
 
 public class Product {
 	

@@ -4,18 +4,18 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import Inventory.Product;
-import Sale.Basket;
+import Sale.Sale;
 /**
  * control database
  * @author Termchai
  *
  */
-public class DatabaseController {
-	Database db;
-	DatabaseReader dbR;
-	public DatabaseController(Database db) {
+public class InventoryDatabaseController {
+	InventoryDatabase db;
+	InventoryDatabaseReader dbR;
+	public InventoryDatabaseController(InventoryDatabase db) {
 		this.db=db;
-		dbR = new DatabaseReader(db);
+		dbR = new InventoryDatabaseReader(db);
 	}
 	
 	/**
@@ -24,7 +24,7 @@ public class DatabaseController {
 	 */
 	public ArrayList<Product> getAllProduct()
 	{
-		return dbR.getData();
+		return dbR.readInventoryDatabase();
 	}
 	
 	
@@ -101,7 +101,7 @@ public class DatabaseController {
 		return -2;
 	}
 	
-	public void confirmSale(Basket basket)
+	public void confirmSale(Sale basket)
 	{
 		ArrayList<Product> list = basket.getList();
 		HashMap<Product,Integer> map = basket.getMapQuan();

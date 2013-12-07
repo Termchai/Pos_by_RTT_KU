@@ -1,4 +1,4 @@
-package com.rtt_ku.pos;
+package com.gui_report_sale.pos;
 
 import java.util.ArrayList;
 
@@ -9,7 +9,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.rtt_ku.pos.InventoryAdapter.Holder;
+import com.rtt_ku.pos.R;
+import com.rtt_ku.pos.R.id;
 import com.salerecord.pos.Record;
 
 public class Sale_Report_DailyListViewAdapter extends BaseAdapter{

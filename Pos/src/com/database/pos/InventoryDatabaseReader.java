@@ -13,10 +13,10 @@ import android.database.sqlite.SQLiteOpenHelper;
  * @author Termchai
  *
  */
-public class DatabaseReader {
+public class InventoryDatabaseReader {
 	SQLiteDatabase db;
-	Database myDb;
-	public DatabaseReader(Database dbTemp)
+	InventoryDatabase myDb;
+	public InventoryDatabaseReader(InventoryDatabase dbTemp)
 	{
 		this.myDb = dbTemp;
 	}
@@ -24,7 +24,7 @@ public class DatabaseReader {
 	 * 
 	 * @return arraylist of object product
 	 */
-	public ArrayList<Product> getData()
+	public ArrayList<Product> readInventoryDatabase()
 	{
 		ArrayList<Product> list;
 		db = myDb.getReadableDatabase();

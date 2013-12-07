@@ -1,6 +1,6 @@
 package com.rtt_ku.pos;
 
-import com.database.pos.Database;
+import com.database.pos.InventoryDatabase;
 import com.rtt_store.pos.StoreController;
 
 import android.app.Activity;
@@ -29,7 +29,7 @@ public class Check_product_Activity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.product_id_layout);
 
-		Database myDb = new Database(this);
+		InventoryDatabase myDb = new InventoryDatabase(this);
 		myDb.getWritableDatabase();
 		sCT = new StoreController(myDb);
 		;

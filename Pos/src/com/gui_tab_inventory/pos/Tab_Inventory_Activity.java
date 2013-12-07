@@ -1,14 +1,16 @@
-package com.rtt_ku.pos;
+package com.gui_tab_inventory.pos;
 
 import java.util.ArrayList;
 import java.util.Date;
 
-import com.database.pos.Database;
-import com.database.pos.DatabaseReader;
-import com.rtt_ku.pos.main_activity2.MyAdapter;
-import com.rtt_ku.pos.main_activity2.MyAdapter.Holder;
+import com.database.pos.InventoryDatabase;
+import com.database.pos.InventoryDatabaseReader;
+import com.rtt_ku.pos.R;
+import com.rtt_ku.pos.Remove_Activity;
+import com.rtt_ku.pos.R.id;
+import com.rtt_ku.pos.R.layout;
 import com.rtt_store.pos.StoreController;
-import com.salerecord.pos.DatabaseSaleRecord;
+import com.salerecord.pos.SaleRecordDateDatabase;
 
 import Inventory.Product;
 import android.app.Activity;
@@ -37,7 +39,7 @@ public class Tab_Inventory_Activity extends Activity{
 			"Jackfruit", "Mango", "Olive", "Pear", "Sugar-apple" };
 	
 	//	SQLiteDatabase db;
-	DatabaseReader databaseReader;
+	InventoryDatabaseReader databaseReader;
 	// list item
 	ArrayList<Product> productList = new ArrayList<Product>();
     public static StoreController sCT;
@@ -53,11 +55,11 @@ public class Tab_Inventory_Activity extends Activity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.inventory_tab);
 
-        Database myDb = new Database(this);
+        InventoryDatabase myDb = new InventoryDatabase(this);
         myDb.getWritableDatabase();
         Time now = new Time();
         now.setToNow();
-        DatabaseSaleRecord DbSr = new DatabaseSaleRecord(this);
+        SaleRecordDateDatabase DbSr = new SaleRecordDateDatabase(this);
         DbSr.getWritableDatabase();
         sCT = new StoreController(myDb,DbSr);
         sCT.updateInventory();

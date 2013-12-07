@@ -1,6 +1,10 @@
-package com.rtt_ku.pos;
+package com.gui_report_sale.pos;
 
 import java.util.ArrayList;
+
+import com.rtt_ku.pos.R;
+import com.rtt_ku.pos.R.id;
+import com.rtt_ku.pos.R.layout;
 
 import android.app.Activity;
 import android.content.Intent;

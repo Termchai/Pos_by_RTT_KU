@@ -11,7 +11,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-public class DatabaseSaleRecord extends SQLiteOpenHelper {
+public class SaleRecordDateDatabase extends SQLiteOpenHelper {
 	
     // Database Version
     private static final int DATABASE_VERSION = 1;
@@ -22,7 +22,7 @@ public class DatabaseSaleRecord extends SQLiteOpenHelper {
     // Table Name
     private static final String TABLE_SALE = "sales";
 
-	public DatabaseSaleRecord(Context context) {
+	public SaleRecordDateDatabase(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
 		// TODO Auto-generated constructor stub
 	}

@@ -5,15 +5,15 @@ import java.util.ArrayList;
 import Inventory.AbstractInventory;
 import Inventory.InventoryController;
 import Inventory.Product;
-import Sale.Basket;
-import Sale.SaleController;
+import Sale.Sale;
+import Sale.SaleFactory;
 
 import android.text.format.Time;
 
-import com.database.pos.Database;
-import com.database.pos.DatabaseController;
+import com.database.pos.InventoryDatabase;
+import com.database.pos.InventoryDatabaseController;
 import com.salerecord.pos.DailyRecord;
-import com.salerecord.pos.DatabaseSaleRecord;
+import com.salerecord.pos.SaleRecordDateDatabase;
 import com.salerecord.pos.SaleRecordController;
 import com.salerecord.pos.Wan;
 /**
@@ -22,36 +22,36 @@ import com.salerecord.pos.Wan;
  * @author Termchai
  */
 public class StoreController {
-	DatabaseController dbCT;
+	InventoryDatabaseController dbCT;
 	InventoryController inCT;
-	SaleController saleCT;
+	SaleFactory saleCT;
 	SaleRecordController srCT;
-	public StoreController(Database db) {
-		dbCT = new DatabaseController(db);
+	public StoreController(InventoryDatabase db) {
+		dbCT = new InventoryDatabaseController(db);
 		inCT = new InventoryController();
-		saleCT = new SaleController();
+		saleCT = new SaleFactory();
 		updateInventory();
 //		inCT.printList();
 		
 		
 	}
 	
-	public StoreController(Database db, DatabaseSaleRecord dbSr) {
-		dbCT = new DatabaseController(db);
+	public StoreController(InventoryDatabase db, SaleRecordDateDatabase dbSr) {
+		dbCT = new InventoryDatabaseController(db);
 		srCT = new SaleRecordController(dbSr);
 		inCT = new InventoryController();
-		saleCT = new SaleController();
+		saleCT = new SaleFactory();
 		updateInventory();
 	}
 
-	public void setDB(Database db)
+	public void setDB(InventoryDatabase db)
 	{
-		this.dbCT = new DatabaseController(db);
+		this.dbCT = new InventoryDatabaseController(db);
 	}
 	
-	public Basket newBasket()
+	public Sale newBasket()
 	{
-		return saleCT.newBasket();
+		return saleCT.createBasket();
 	}
 
 	
@@ -154,7 +154,7 @@ public class StoreController {
 		return inCT.getProduct(product_code);
 	}
 	
-	public void confirmSale(Basket basket,DailyRecord dr)
+	public void confirmSale(Sale basket,DailyRecord dr)
 	{
 		dbCT.confirmSale(basket);
 		srCT.insert(dr.getTIme());

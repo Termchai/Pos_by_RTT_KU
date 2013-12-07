@@ -1,6 +1,9 @@
-package com.rtt_ku.pos;
+package com.gui_tab_catalog.pos;
 
-import com.database.pos.Database;
+import com.database.pos.InventoryDatabase;
+import com.rtt_ku.pos.R;
+import com.rtt_ku.pos.R.id;
+import com.rtt_ku.pos.R.layout;
 import com.rtt_store.pos.StoreController;
 
 import Inventory.Product;
@@ -25,7 +28,7 @@ public class ProductItem_Edit extends Activity{
 		setContentView(R.layout.product_edit_item);
 		
 		// call Store Controller
-		Database myDb = new Database(this);
+		InventoryDatabase myDb = new InventoryDatabase(this);
 		myDb.getWritableDatabase();
 		sCT = new StoreController(myDb);
 		

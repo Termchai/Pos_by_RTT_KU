@@ -4,11 +4,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.database.pos.Database;
-import com.database.pos.DatabaseController;
-import com.database.pos.DatabaseReader;
-import com.rtt_ku.pos.Sale_Activity.MyAdapter;
-import com.rtt_ku.pos.Sale_Activity.MyAdapter.Holder;
+import com.database.pos.InventoryDatabase;
+import com.database.pos.InventoryDatabaseController;
+import com.database.pos.InventoryDatabaseReader;
+import com.gui_tab_catalog.pos.Tab_Product_Activity;
+import com.gui_tab_inventory.pos.Tab_Inventory_Activity;
+import com.gui_tab_sale.pos.Tab_Sale_Activity;
 import com.rtt_store.pos.StoreController;
 
 import Inventory.InventoryAll;

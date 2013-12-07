@@ -1,4 +1,7 @@
-package com.rtt_ku.pos;
+package com.gui_report_sale.pos;
+
+import com.rtt_ku.pos.R;
+import com.rtt_ku.pos.R.layout;
 
 import android.app.Activity;
 import android.os.Bundle;

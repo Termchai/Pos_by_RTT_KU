@@ -1,6 +1,9 @@
-package com.rtt_ku.pos;
-import com.database.pos.Database;
+package com.gui_tab_catalog.pos;
+import com.database.pos.InventoryDatabase;
 import com.rtt_ku.pos.R;
+import com.rtt_ku.pos.main_activity;
+import com.rtt_ku.pos.R.id;
+import com.rtt_ku.pos.R.layout;
 import com.rtt_store.pos.StoreController;
 
 import android.app.Activity;
@@ -22,7 +25,7 @@ public class Product_AddItem extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.product_addbutton);	
 		
-		Database myDb = new Database(this);
+		InventoryDatabase myDb = new InventoryDatabase(this);
 		myDb.getWritableDatabase();
 		sCT = new StoreController(myDb);
 		

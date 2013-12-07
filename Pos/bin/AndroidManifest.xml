@@ -24,27 +24,23 @@
         </activity>
         <activity android:name="Add_Activity"></activity>
         <activity android:name="Remove_Activity"></activity>
-        <activity android:name="Sale_Activity"></activity>
-        <activity android:name="Tab_Inventory_Activity"> </activity>
         <activity android:name="Check_product_Activity"></activity>
-        <activity android:name="Tab_Product_Activity"></activity>
-        <activity android:name="Tab_Sale_Activity"></activity>
-        <activity android:name="OnClickChangeView"></activity>
-        <activity android:name="Inventory_editItem"></activity>
-        <activity android:name="ProductItem_Info"></activity>
-        <activity android:name="ProductItem_Edit"></activity>
-        <activity android:name="Inventory_Edit"></activity>
-        <activity android:name="Product_Edit"></activity>
-        <activity android:name="Sale_Report"></activity>
-        <activity android:name="com.rtt_ku.pos.Product_AddItem"></activity>
-        <activity android:name="com.rtt_ku.pos.Product_AddItemDes"></activity>
-        <activity android:name="Poppy"></activity>
-        <activity android:name="Sale_ReportDaily_ChooseDate"></activity>
-        <activity android:name="Sale_ReportMonthly_ChooseDate"></activity>
-        <activity android:name="Sale_Report_MonthlyListView"></activity>
-        <activity android:name="Sale_ReportYearly_ChooseDate"></activity>
-        <activity android:name="Sale_Report_YearlyListView"></activity>
-        <activity android:name="Sale_Report_DailyListView"></activity>
+        <activity android:name="com.gui_tab_catalog.pos.Tab_Product_Activity"></activity>
+        <activity android:name="com.gui_tab_sale.pos.Tab_Sale_Activity"></activity>
+        <activity android:name="com.gui_tab_inventory.pos.Inventory_editItem"></activity>
+        <activity android:name="com.gui_tab_catalog.pos.ProductItem_Info"></activity>
+        <activity android:name="com.gui_tab_catalog.pos.ProductItem_Edit"></activity>
+        <activity android:name="com.gui_tab_inventory.pos.Inventory_Edit"></activity>
+        <activity android:name="com.gui_tab_catalog.pos.Product_Edit"></activity>
+        <activity android:name="com.gui_tab_catalog.pos.Product_AddItem"></activity>
+        <activity android:name="com.gui_tab_catalog.pos.Product_AddItemDes"></activity>
+        <activity android:name="com.gui_report_sale.pos.Sale_ReportDaily_ChooseDate"></activity>
+        <activity android:name="com.gui_report_sale.pos.Sale_ReportMonthly_ChooseDate"></activity>
+        <activity android:name="com.gui_report_sale.pos.Sale_Report_MonthlyListView"></activity>
+        <activity android:name="com.gui_report_sale.pos.Sale_ReportYearly_ChooseDate"></activity>
+        <activity android:name="com.gui_report_sale.pos.Sale_Report_YearlyListView"></activity>
+        <activity android:name="com.gui_report_sale.pos.Sale_Report_DailyListView"></activity>
+        <activity android:name="com.gui_tab_inventory.pos.Tab_Inventory_Activity"></activity>
     </application>
 
 </manifest>

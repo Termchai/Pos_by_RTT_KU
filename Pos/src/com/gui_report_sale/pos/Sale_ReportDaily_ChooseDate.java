@@ -1,12 +1,16 @@
-package com.rtt_ku.pos;
+package com.gui_report_sale.pos;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
-import com.database.pos.Database;
+import com.database.pos.InventoryDatabase;
+import com.rtt_ku.pos.R;
+import com.rtt_ku.pos.main_activity;
+import com.rtt_ku.pos.R.id;
+import com.rtt_ku.pos.R.layout;
 import com.rtt_store.pos.StoreController;
-import com.salerecord.pos.DatabaseSaleRecord;
+import com.salerecord.pos.SaleRecordDateDatabase;
 import com.salerecord.pos.Wan;
 
 import Inventory.Product;
@@ -33,9 +37,9 @@ public class Sale_ReportDaily_ChooseDate extends Activity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.sale_report_choose_daily);
 		
-        Database myDb = new Database(this);
+        InventoryDatabase myDb = new InventoryDatabase(this);
         myDb.getReadableDatabase();
-        DatabaseSaleRecord DbSr = new DatabaseSaleRecord(this);
+        SaleRecordDateDatabase DbSr = new SaleRecordDateDatabase(this);
         DbSr.getReadableDatabase();
 		sCT = new StoreController(myDb,DbSr);
 		

@@ -6,15 +6,15 @@ import java.util.HashSet;
 import java.util.Set;
 
 import Inventory.Product;
-import Sale.Basket;
+import Sale.Sale;
 import android.app.Activity;
 import android.text.format.Time;
 
 import com.rtt_ku.pos.main_activity;
 
 public class SaleRecordController {
-	DatabaseSaleRecord dbSr;
-	public SaleRecordController(DatabaseSaleRecord dbSr) {
+	SaleRecordDateDatabase dbSr;
+	public SaleRecordController(SaleRecordDateDatabase dbSr) {
 		this.dbSr = dbSr;
 	}
 	
@@ -36,7 +36,7 @@ public class SaleRecordController {
 		dbSr.InsertData(d, m, y);
 	}
 
-	public void confirmSale(Basket basket, DailyRecord dr) {
+	public void confirmSale(Sale basket, DailyRecord dr) {
 		Time now = new Time();
 		now.setToNow();
 		insert(now);
@@ -58,19 +58,9 @@ public class SaleRecordController {
 		
 	}
 	
-
 	public ArrayList<Wan> getListSaleRecord() {
 		// TODO Auto-generated method stub
 		return dbSr.SelectAllData();
 	}
-//	public ArrayList<Wan> getDaily()
-//	{
-//		Set<Wan> set = new HashSet<Wan>();
-//		ArrayList<Wan> list = getListSaleRecord();
-//		for (int i=0; i<list.size(); i++)
-//		{
-//			
-//		}
-//	}
 
 }

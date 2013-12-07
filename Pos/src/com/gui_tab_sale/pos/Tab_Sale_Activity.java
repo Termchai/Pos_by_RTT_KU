@@ -1,19 +1,26 @@
-package com.rtt_ku.pos;
+package com.gui_tab_sale.pos;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import com.database.pos.Database;
-import com.database.pos.DatabaseReader;
+import com.database.pos.InventoryDatabase;
+import com.database.pos.InventoryDatabaseReader;
+import com.gui_report_sale.pos.Sale_ReportDaily_ChooseDate;
+import com.gui_report_sale.pos.Sale_ReportMonthly_ChooseDate;
+import com.gui_report_sale.pos.Sale_ReportYearly_ChooseDate;
+import com.rtt_ku.pos.R;
+import com.rtt_ku.pos.R.id;
+import com.rtt_ku.pos.R.layout;
+import com.rtt_ku.pos.R.menu;
 //import com.rtt_ku.pos.Tab_Inventory_Activity.MyAdapter;
 //import com.rtt_ku.pos.Tab_Inventory_Activity.MyAdapter.Holder;
 import com.rtt_store.pos.StoreController;
 import com.salerecord.pos.DailyRecord;
-import com.salerecord.pos.DatabaseSaleRecord;
+import com.salerecord.pos.SaleRecordDateDatabase;
 
 import Inventory.Product;
-import Sale.Basket;
+import Sale.Sale;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -40,7 +47,7 @@ import android.widget.Toast;
 public class Tab_Sale_Activity extends Activity{
 
 	//	SQLiteDatabase db;
-	DatabaseReader databaseReader;
+	InventoryDatabaseReader databaseReader;
 	// list item
 	ArrayList<Product> productList = new ArrayList<Product>();
     public static StoreController sCT;
@@ -49,13 +56,13 @@ public class Tab_Sale_Activity extends Activity{
 	private ArrayAdapter<String> listAdapter;
 	private ListView list_item;
 	private ListView list_sale_item;
-	private Basket basket;
+	private Sale basket;
 	private SaleItemAdapter saleAdapter;
 	private TextView total_text;
 	private EditText cash;
 	private Button ok_button,reset_button;
 	private MyAdapter adapter;
-	private Database myDb;
+	private InventoryDatabase myDb;
 	private Button report_button;
 	
 	private Dialog dialog; 
@@ -70,9 +77,9 @@ public class Tab_Sale_Activity extends Activity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.sale_tab);
 		
-        myDb = new Database(this);
+        myDb = new InventoryDatabase(this);
         myDb.getWritableDatabase();
-        DatabaseSaleRecord DbSr = new DatabaseSaleRecord(this);
+        SaleRecordDateDatabase DbSr = new SaleRecordDateDatabase(this);
         DbSr.getWritableDatabase();
         sCT = new StoreController(myDb,DbSr);
         productList = sCT.getProductList();

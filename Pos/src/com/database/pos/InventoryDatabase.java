@@ -13,12 +13,12 @@ import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-public class Database extends SQLiteOpenHelper {
+public class InventoryDatabase extends SQLiteOpenHelper {
 
 	private static final String DATABASE_NAME = "Product";
 	private static final String PRODUCT_CODE = "Product_Code";
 
-	public Database(Context context) {
+	public InventoryDatabase(Context context) {
 		super(context, "mydatabase", null, 1);
 		// TODO Auto-generated constructor stub
 	}

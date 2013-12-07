@@ -1,6 +1,6 @@
 package com.rtt_ku.pos;
 
-import com.database.pos.Database;
+import com.database.pos.InventoryDatabase;
 import com.rtt_store.pos.StoreController;
 
 import android.app.Activity;
@@ -25,7 +25,7 @@ public class Remove_Activity extends Activity{
 	    Button okButton = (Button)findViewById(R.id.OK_button);
 		Button cancelButton = (Button)findViewById(R.id.cancel_button);
 		
-        Database myDb = new Database(this);
+        InventoryDatabase myDb = new InventoryDatabase(this);
         myDb.getWritableDatabase();
 		final StoreController sCT = new StoreController(myDb);
 		
