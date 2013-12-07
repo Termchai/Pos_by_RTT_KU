@@ -1,7 +1,7 @@
 package com.salerecord.pos;
 
 	public class Record {
-		public String id,hour, min, basket;
+		public String id,day,month,year,hour, min, basket;
 		public String toString()
 		{
 			return hour + " " + min + " " + basket;

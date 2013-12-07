@@ -94,6 +94,9 @@ public class DailyRecord extends SQLiteOpenHelper {
 			 	        	cMember.hour = cursor.getString(1);
 			 	        	cMember.min = cursor.getString(2);
 			 	        	cMember.basket = cursor.getString(3);
+			 	        	cMember.day = time.monthDay+"";
+			 	        	cMember.month = time.month+"";
+			 	        	cMember.year = time.year+"";
 			 	        	MemberList.add(cMember);
 			 	        } while (cursor.moveToNext());
 			 	    }

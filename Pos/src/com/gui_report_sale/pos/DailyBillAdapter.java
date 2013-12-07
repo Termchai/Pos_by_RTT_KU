@@ -16,14 +16,14 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-public class BillAdapter extends BaseAdapter{
+public class DailyBillAdapter extends BaseAdapter{
 
 	private Holder holder;
 	private ArrayList<String> list;
-	private Sale_Report_Bill b;
+	private Sale_Report_DailyBill b;
 	
 	
-	public BillAdapter(ArrayList<String> list,Sale_Report_Bill b){
+	public DailyBillAdapter(ArrayList<String> list,Sale_Report_DailyBill b){
 		this.list = list;
 		this.b = b;
 	}

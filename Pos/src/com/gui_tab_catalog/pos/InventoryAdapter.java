@@ -52,6 +52,7 @@ public class InventoryAdapter extends BaseAdapter{
 			holder.title = (TextView) view.findViewById(R.id.large_text_item);
 			holder.quantity = (TextView) view.findViewById(R.id.large_text_quantity); 
 			holder.price = (TextView) view.findViewById(R.id.large_text_price);
+			holder.product_code = (TextView) view.findViewById(R.id.large_item_layout_product_code);
 			view.setTag(holder);
 		}
 		else {
@@ -62,7 +63,8 @@ public class InventoryAdapter extends BaseAdapter{
 		String product_code = p.getProduct_Code();
 		int product_quantity = p.getQuantity();
 		int product_price = p.getPrice();
-		holder.title.setText(list.get(position).getName() + " <" + product_code + "> ");
+		holder.product_code.setText("<"+product_code+">");
+		holder.title.setText(list.get(position).getName());
 		holder.quantity.setText(product_quantity +  " item(s)");
 		holder.price.setText(product_price+"");
 		return view;
@@ -73,6 +75,7 @@ public class InventoryAdapter extends BaseAdapter{
 		public TextView title;
 		public TextView quantity;
 		public TextView price;
+		public TextView product_code;
 	}
 }
 

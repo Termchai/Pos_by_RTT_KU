@@ -2,29 +2,26 @@ package com.gui_report_sale.pos;
 
 import java.util.ArrayList;
 
-import Inventory.Product;
-import android.text.format.Time;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.gui_report_sale.pos.Sale_Report_MonthlyListViewAdapter.Holder;
 import com.rtt_ku.pos.R;
-import com.rtt_ku.pos.R.id;
 import com.salerecord.pos.Record;
 
-public class Sale_Report_DailyListViewAdapter extends BaseAdapter{
-
+public class Sale_Report_YearlyListViewAdapter extends BaseAdapter{
+	
 	private Holder holder;
 	private ArrayList<Record> list;
-	private Sale_Report_DailyListView sRD;
-	private Time time;
+	private Sale_Report_YearlyListView sRD;
+
 	
 	
-	public Sale_Report_DailyListViewAdapter(ArrayList<Record> list,Sale_Report_DailyListView sRD,Time time){
+	public Sale_Report_YearlyListViewAdapter(ArrayList<Record> list,Sale_Report_YearlyListView sRD){
 		this.list = list;
 		this.sRD = sRD;
-		this.time = time;
 	}
 	@Override
 	public int getCount() {
@@ -62,7 +59,7 @@ public class Sale_Report_DailyListViewAdapter extends BaseAdapter{
 		}
 		Record r = list.get(position);
 		System.out.println(position);
-		String date = time.monthDay + "/" + (time.month+1) + "/" + time.year;
+		String date = r.day + "/" + (Integer.parseInt(r.month)+1) + "/" + r.year;
 		String timee = r.hour + ":" + r.min;
 		String total = r.getTotal()+"";
 		holder.date.setText(date);
@@ -75,4 +72,5 @@ public class Sale_Report_DailyListViewAdapter extends BaseAdapter{
 	class Holder{
 		public TextView total,date,timee;
 	}
+
 }

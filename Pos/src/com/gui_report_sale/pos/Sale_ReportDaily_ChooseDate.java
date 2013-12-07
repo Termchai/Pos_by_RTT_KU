@@ -90,7 +90,7 @@ public class Sale_ReportDaily_ChooseDate extends Activity{
 				
 				Intent intent = new Intent(v.getContext(), Sale_Report_DailyListView.class);
 				intent.putExtra("day",String.valueOf(daySpn.getSelectedItem()));
-				intent.putExtra("month",String.valueOf(monthSpn.getSelectedItem()));
+				intent.putExtra("month",Integer.parseInt(String.valueOf(monthSpn.getSelectedItem()))+"");
 				intent.putExtra("year",String.valueOf(yearSpn.getSelectedItem()));
 				
 				

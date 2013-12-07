@@ -45,6 +45,7 @@ public class Inventory_editItem extends Activity{
 		
 		// find view
 		final EditText quantityTextEdit = (EditText) findViewById(R.id.inventoryEdit_quantity_edittext);
+		final EditText costTextEdit = (EditText) findViewById(R.id.inventoryEdit_cost_edittext);
 		TextView product_code_textview = (TextView)findViewById(R.id.inventoryEdit_productcode_textview);
 		TextView name_textview = (TextView)findViewById(R.id.inventoryEdit_name_textview);
 		TextView old_quantity_textview = (TextView)findViewById(R.id.inventoryEdit_oldquantity_textview);
@@ -78,7 +79,7 @@ public class Inventory_editItem extends Activity{
 							.setPositiveButton("Yes",new DialogInterface.OnClickListener() {
 								public void onClick(DialogInterface dialog,int id) {
 									sCT.addQuantity(product_code,diff);
-									iRC.addInventoryRecord(product_code, diff, sCT.getProduct(product_code).getCost());
+									iRC.addInventoryRecord(product_code, diff, Integer.parseInt(costTextEdit.getText().toString()));
 //									iRC.addInventoryRecord(product_code,diff,null);
 									startActivity(new Intent(v.getContext(), main_activity.class));
 								}

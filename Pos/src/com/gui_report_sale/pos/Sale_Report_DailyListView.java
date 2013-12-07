@@ -64,7 +64,7 @@ public class Sale_Report_DailyListView extends Activity {
 			public void onItemClick(AdapterView<?> arg0, View view, int position,
 					long id) {
 				// TODO Auto-generated method stub
-				Intent intent = new Intent(view.getContext(), Sale_Report_Bill.class);
+				Intent intent = new Intent(view.getContext(), Sale_Report_DailyBill.class);
 				Record r = list.get(position);
 //				Product p = sCT.getProductList().get(position);
 				intent.putExtra("date", day+"/"+month+"/"+year);

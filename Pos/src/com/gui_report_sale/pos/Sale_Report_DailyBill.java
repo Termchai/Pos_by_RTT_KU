@@ -17,7 +17,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Sale_Report_Bill extends Activity{
+public class Sale_Report_DailyBill extends Activity{
 	
 	ListView listView;
 	ArrayList<String> list;
@@ -48,11 +48,11 @@ public class Sale_Report_Bill extends Activity{
 		String[] temp = r.basket.split(":");
 		list = new ArrayList<String>();
 		time_textView.setText(timeStr);
-		date_textView.setText(date);
+		date_textView.setText(Integer.parseInt(tempDate[0])+"/"+ (Integer.parseInt(tempDate[1])+1)+"/"+Integer.parseInt(tempDate[2]));
 		totalPrice.setText(r.getTotal()+"");
 		for (String tempp : temp)
 			list.add(tempp);
-		listView.setAdapter(new BillAdapter(list,this));
+		listView.setAdapter(new DailyBillAdapter(list,this));
 	}
 
 	public View getView(){

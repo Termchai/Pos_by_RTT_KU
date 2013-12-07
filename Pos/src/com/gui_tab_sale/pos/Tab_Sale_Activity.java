@@ -220,7 +220,6 @@ public class Tab_Sale_Activity extends Activity{
 				reportDaily = (Button)reportDialog.findViewById(R.id.sale_repot_dailybutton);
 				reportWeekly  = (Button)reportDialog.findViewById(R.id.sale_report_monthlyButton);
 				reportYear = (Button)reportDialog.findViewById(R.id.sale_report_yearButton);
-				reportBack = (Button) reportDialog.findViewById(R.id.sale_report_backButton);
 				
 				setReportAction();
 				reportDialog.show();
@@ -348,7 +347,8 @@ public class Tab_Sale_Activity extends Activity{
 			        	final EditText price = (EditText)dialogDiscount.findViewById(R.id.sale_dialog_priceEditText);
 			        	Button okButton = (Button)dialogDiscount.findViewById(R.id.sale_dialog_okButton);
 			        	Button cancelButton = (Button)dialogDiscount.findViewById(R.id.sale_dialog_cancelButton);
-			        	
+			        	quan.setText("1");
+			        	price.setText(product.getPrice()+"");
 			        	nameItem.setText(product.getName());
 			        	// edit price,quantity
 			        	okButton.setOnClickListener(new OnClickListener() {
@@ -570,15 +570,6 @@ public class Tab_Sale_Activity extends Activity{
 				public void onClick(View v) {
 					// TODO Auto-generated method stub
 					startActivity(new Intent(v.getContext(), Sale_ReportYearly_ChooseDate.class));
-				}
-			});
-	    	
-	    	reportBack.setOnClickListener(new OnClickListener() {
-				
-				@Override
-				public void onClick(View v) {
-					// TODO Auto-generated method stub
-					
 				}
 			});
 	    }
