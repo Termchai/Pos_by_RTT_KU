@@ -41,7 +41,7 @@ import android.widget.Toast;
  * @author rtt
  *
  */
-public class main_activity extends TabActivity implements OnTabChangeListener{
+public class main_activity extends TabActivity{
 	
 	private TabHost myTabHost;
     @Override
@@ -80,18 +80,12 @@ public class main_activity extends TabActivity implements OnTabChangeListener{
         myTabHost.addTab(tabSpec2);
         myTabHost.addTab(tabSpec3);
         
+        for(int i=0;i<myTabHost.getTabWidget().getChildCount();i++) 
+        {
+            TextView tv = (TextView) myTabHost.getTabWidget().getChildAt(i).findViewById(android.R.id.title);
+            tv.setTextColor(Color.parseColor("#4CC417"));
+        }
         //Set default tab
 //        myTabHost.setCurrentTab(1);
     }
-	@Override
-	public void onTabChanged(String tabId) {
-		// TODO Auto-generated method stub
-		for(int i=0;i<myTabHost.getTabWidget().getChildCount();i++)
-		{
-			myTabHost.getTabWidget().getChildAt(i).setBackgroundColor(R.drawable.greenbutton);
-		}
-
-		myTabHost.getTabWidget().getChildAt(myTabHost.getCurrentTab()).setBackgroundColor(Color.parseColor("#C35817"));
-	}
-	
 }

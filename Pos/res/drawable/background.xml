@@ -5,9 +5,9 @@
   
   <!-- Specify a gradient for the background -->
   <gradient
-      android:angle="45"
-      android:startColor="#FFFFFF"
-      android:endColor="#E0FFFF" />
+      android:angle="270"
+      android:startColor="#504A4B"
+      android:endColor="#848482"/>
   
   
   <!-- Specify the margins that all content inside the drawable must adhere to -->

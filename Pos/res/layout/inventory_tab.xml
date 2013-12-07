@@ -14,7 +14,8 @@
         <ListView
             android:id="@+id/inventory_listView"
             android:layout_width="fill_parent"
-            android:layout_height="390dp" >
+            android:layout_height="390dp"
+            android:background="@drawable/sale_item_listview" >
         </ListView>
 
         <LinearLayout
@@ -37,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:text="Remove"
                 android:textColor="#FFFFFF"
-                android:background="@drawable/light_grey_button" />
+                android:background="@drawable/red_button" />
 
         </LinearLayout>
 

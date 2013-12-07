@@ -68,14 +68,6 @@ public class Sale_Report_DailyListViewAdapter extends BaseAdapter{
 		holder.date.setText(date);
 		holder.timee.setText(timee);
 		holder.total.setText(total);
-//		Product p = list.get(position);
-//		String product_name = p.getName();
-//		String product_code = p.getProduct_Code();
-//		int product_quantity = p.getQuantity();
-//		int product_price = p.getPrice();
-//		holder.title.setText(list.get(position).getName() + " <" + product_code + "> ");
-//		holder.quantity.setText(product_quantity +  " item(s)");
-//		holder.price.setText(product_price+"");
 		return view;
 	}
 	

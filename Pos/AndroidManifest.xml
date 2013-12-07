@@ -41,6 +41,7 @@
         <activity android:name="com.gui_report_sale.pos.Sale_Report_YearlyListView"></activity>
         <activity android:name="com.gui_report_sale.pos.Sale_Report_DailyListView"></activity>
         <activity android:name="com.gui_tab_inventory.pos.Tab_Inventory_Activity"></activity>
+        <activity android:name="com.gui_report_sale.pos.Sale_Report_Bill"></activity>
     </application>
 
 </manifest>

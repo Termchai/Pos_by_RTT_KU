@@ -90,6 +90,7 @@ public class DailyRecord extends SQLiteOpenHelper {
 			 	    if (cursor.moveToFirst()) {
 			 	        do {
 			 	        	Record cMember = new Record();
+			 	        	cMember.id = cursor.getString(0);
 			 	        	cMember.hour = cursor.getString(1);
 			 	        	cMember.min = cursor.getString(2);
 			 	        	cMember.basket = cursor.getString(3);
