@@ -1,6 +1,7 @@
 package com.rtt_store.pos;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import Inventory.AbstractInventory;
 import Inventory.InventoryController;
@@ -106,6 +107,23 @@ public class StoreController {
 	public ArrayList<Product> getProductList()
 	{
 		return inCT.getProductList();
+	}
+	
+	public ArrayList<Product> getProductListByPartial(String keyword)
+	{
+		ArrayList<Product>list = getProductList();
+		ArrayList<Product>ans = new ArrayList<Product>();
+		Iterator<Product> it = list.iterator();
+		keyword = keyword.toLowerCase();
+		while(it.hasNext())
+		{
+			Product p = it.next();
+			if (p.getName().toLowerCase().contains(keyword) || p.getProduct_Code().toLowerCase().contains(keyword))
+			{
+				ans.add(p);
+			}
+		}
+		return ans;
 	}
 	
 	/**

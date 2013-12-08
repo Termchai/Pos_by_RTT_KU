@@ -115,8 +115,6 @@ public class Product_AddItemDes extends Activity{
 	
 	@Override
 	public void onBackPressed(){
-		Intent intent = new Intent(this, main_activity.class);
-		startActivity(intent);
 		finish();
 		super.onBackPressed();
 	}

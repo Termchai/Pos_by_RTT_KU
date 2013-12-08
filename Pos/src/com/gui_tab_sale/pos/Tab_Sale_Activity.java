@@ -9,6 +9,8 @@ import com.database.pos.InventoryDatabaseReader;
 import com.gui_report_sale.pos.Sale_ReportDaily_ChooseDate;
 import com.gui_report_sale.pos.Sale_ReportMonthly_ChooseDate;
 import com.gui_report_sale.pos.Sale_ReportYearly_ChooseDate;
+import com.gui_tab_catalog.pos.InventoryAdapter;
+import com.gui_tab_catalog.pos.Tab_Product_Activity;
 import com.rtt_ku.pos.R;
 import com.rtt_ku.pos.R.id;
 import com.rtt_ku.pos.R.layout;
@@ -28,6 +30,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.text.format.Time;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -64,6 +68,7 @@ public class Tab_Sale_Activity extends Activity{
 	private MyAdapter adapter;
 	private InventoryDatabase myDb;
 	private Button report_button;
+	private EditText editText;
 	
 	private Dialog dialog; 
 	private Dialog reportDialog;
@@ -93,12 +98,13 @@ public class Tab_Sale_Activity extends Activity{
 		ok_button = (Button)findViewById(R.id.productItem_add_button);
 		reset_button =(Button)findViewById(R.id.productItem_edit_button);
 		report_button = (Button)findViewById(R.id.sale_report_button);
+		editText = (EditText)findViewById(R.id.sale_editText);
+		
+		editText.setHint("search");
 		
 		// adapter of list item.
-		adapter = new MyAdapter();
 		saleAdapter = new SaleItemAdapter();
 		
-		list_item.setAdapter(adapter);
 		list_sale_item.setAdapter(saleAdapter);
 		 
 		ok_button.setOnClickListener(new OnClickListener() {
@@ -226,6 +232,25 @@ public class Tab_Sale_Activity extends Activity{
 			}
 		});
 		
+		editText.addTextChangedListener(new TextWatcher() {
+			
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before, int count) {
+				// TODO Auto-generated method stub
+				String text = editText.getText().toString();
+				
+				productList = sCT.getProductListByPartial(text);
+		    	adapter = new MyAdapter();
+				list_item.setAdapter(adapter);
+			}
+			
+			@Override
+			public void beforeTextChanged(CharSequence s, int start, int count,
+					int after) {}
+			
+			@Override
+			public void afterTextChanged(Editable s) {}
+		});
 		list_item.setOnItemClickListener(new OnItemClickListener() {
 
 	        @Override
@@ -312,7 +337,7 @@ public class Tab_Sale_Activity extends Activity{
 								basket.addProduct(product, quan);
 								saleAdapter.notifyDataSetChanged();
 					        	total_text.setText(basket.getTotalPrice()+"");
-
+					        	editText.setText("");
 							}
 						}catch(Exception e) {
 							
@@ -360,16 +385,13 @@ public class Tab_Sale_Activity extends Activity{
 								try
 								{
 									int tempQuan = Integer.parseInt(quan.getText().toString());
-									if (tempQuan <= product.getQuantity())
-									{
 										
 										basket.addProduct(product, tempQuan);
 										basket.setPrice(product, Integer.parseInt(price.getText().toString()));
 										
-										
 										saleAdapter.notifyDataSetChanged();
 										total_text.setText(basket.getTotalPrice()+"");
-									}
+										editText.setText("");
 								}catch(Exception e) {
 									
 								}
@@ -572,6 +594,14 @@ public class Tab_Sale_Activity extends Activity{
 					startActivity(new Intent(v.getContext(), Sale_ReportYearly_ChooseDate.class));
 				}
 			});
+	    }
+	    
+	    @Override
+	    public void onResume(){
+	    	productList = sCT.getProductList(); 
+	    	adapter = new MyAdapter();
+			list_item.setAdapter(adapter);
+			super.onResume();
 	    }
 }
 

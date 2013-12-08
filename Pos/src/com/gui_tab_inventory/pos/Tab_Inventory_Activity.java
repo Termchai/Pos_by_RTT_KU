@@ -5,6 +5,8 @@ import java.util.Date;
 
 import com.database.pos.InventoryDatabase;
 import com.database.pos.InventoryDatabaseReader;
+import com.gui_tab_catalog.pos.InventoryAdapter;
+import com.gui_tab_catalog.pos.Tab_Product_Activity;
 import com.rtt_ku.pos.R;
 import com.rtt_ku.pos.Remove_Activity;
 import com.rtt_ku.pos.R.id;
@@ -17,6 +19,8 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.text.format.Time;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -27,6 +31,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -48,7 +53,7 @@ public class Tab_Inventory_Activity extends Activity{
 	private ListView list_item;
 	private Button removeButton;
 	private Button editButton;
-	
+	private EditText editText;
 	private Button addButton;
 	
 	public void onCreate(Bundle savedInstanceState) {
@@ -71,12 +76,32 @@ public class Tab_Inventory_Activity extends Activity{
 		// view matching
 		removeButton = (Button) findViewById(R.id.set_quantity_ok_button);
 		editButton = (Button) findViewById(R.id.Inventort_Tab_Edit_Button);
+		editText = (EditText) findViewById(R.id.inventory_editText);
         list_item = (ListView)findViewById(R.id.inventory_listView);
 
         // adapter of list item.
         System.out.println(productList);
-		list_item.setAdapter(new ProductAdapter(productList,this));
 		
+        editText.setHint("search");
+        
+        editText.addTextChangedListener(new TextWatcher() {
+			
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before, int count) {
+				// TODO Auto-generated method stub
+				String text = editText.getText().toString();
+				productList = sCT.getProductListByPartial(text);
+				list_item.setAdapter(new ProductAdapter(productList,Tab_Inventory_Activity.this));
+			}
+			
+			@Override
+			public void beforeTextChanged(CharSequence s, int start, int count,
+					int after) {}
+			
+			@Override
+			public void afterTextChanged(Editable s) {}
+		});
+        
 		editButton.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -110,6 +135,14 @@ public class Tab_Inventory_Activity extends Activity{
         });
 		
 	}
+	
+	@Override
+	public void onResume(){
+		productList = sCT.getProductList();
+		list_item.setAdapter(new ProductAdapter(productList,this));
+		super.onResume();
+	}
+	
 	public View getView () {
         View view = LayoutInflater.from(getApplicationContext()).inflate(R.layout.product_item, null);
         return view;

@@ -30,13 +30,25 @@
             android:layout_height="match_parent"
             android:gravity="right" >
 
-            <ListView
-                android:id="@+id/listView2"
-                android:layout_width="300dp"
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:background="@drawable/sale_item_listview" >
+                android:orientation="vertical" >
 
-            </ListView>
+                <EditText
+                    android:id="@+id/sale_editText"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10" />
+
+                <ListView
+                    android:id="@+id/listView2"
+                    android:layout_width="300dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/sale_item_listview" >
+                </ListView>
+
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"

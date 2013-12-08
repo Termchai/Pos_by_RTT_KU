@@ -64,4 +64,10 @@ public class Product_AddItem extends Activity {
 			}
 		});
 	}
+	
+	@Override
+	public void onResume(){
+		checkEditText.setText("");
+		super.onResume();
+	}
 }
