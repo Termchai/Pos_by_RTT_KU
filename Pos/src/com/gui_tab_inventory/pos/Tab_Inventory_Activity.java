@@ -55,6 +55,7 @@ public class Tab_Inventory_Activity extends Activity{
 	private Button editButton;
 	private EditText editText;
 	private Button addButton;
+	private Button reportButton;
 	
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -78,6 +79,7 @@ public class Tab_Inventory_Activity extends Activity{
 		editButton = (Button) findViewById(R.id.Inventort_Tab_Edit_Button);
 		editText = (EditText) findViewById(R.id.inventory_editText);
         list_item = (ListView)findViewById(R.id.inventory_listView);
+        reportButton = (Button)findViewById(R.id.Inventort_Tab_reportButton);
 
         // adapter of list item.
         System.out.println(productList);
@@ -100,6 +102,15 @@ public class Tab_Inventory_Activity extends Activity{
 			
 			@Override
 			public void afterTextChanged(Editable s) {}
+		});
+        
+        reportButton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				startActivity(new Intent(v.getContext(), Inventory_Report.class));
+			}
 		});
         
 		editButton.setOnClickListener(new OnClickListener() {
