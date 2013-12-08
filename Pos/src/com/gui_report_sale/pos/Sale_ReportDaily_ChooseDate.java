@@ -64,17 +64,6 @@ public class Sale_ReportDaily_ChooseDate extends Activity{
 	
 	private void addButton(){
 		okListener();
-		cancelListener();
-	}
-	private void cancelListener() {
-		cancelButton.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				startActivity(new Intent(v.getContext(), main_activity.class));
-			}
-		});
-		
 	}
 	
 	

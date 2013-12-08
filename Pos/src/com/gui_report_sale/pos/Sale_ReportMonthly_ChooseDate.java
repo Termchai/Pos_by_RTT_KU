@@ -62,15 +62,6 @@ public class Sale_ReportMonthly_ChooseDate extends Activity{
 				
 			}
 		});
-		
-		cancelButton.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				
-			}
-		});
 	}
 	
 	
