@@ -5,6 +5,7 @@ import java.util.Date;
 
 import com.database.pos.InventoryDatabase;
 import com.database.pos.InventoryDatabaseReader;
+import com.gui_report_inventory.pos.Inventory_Report;
 import com.gui_tab_catalog.pos.InventoryAdapter;
 import com.gui_tab_catalog.pos.Tab_Product_Activity;
 import com.rtt_ku.pos.R;

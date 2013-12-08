@@ -1,10 +1,13 @@
 package com.inventory_record.pos;
 
 
+import java.util.ArrayList;
 import java.util.Date;
 
+import Inventory.Product;
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.text.format.Time;
@@ -81,6 +84,70 @@ public class InventoryRecord extends SQLiteOpenHelper {
 		    return -1;
 		 }
 
+	}
+	
+
+
+	public ArrayList<InventoryInput> SelectAllData() {
+		// TODO Auto-generated method stub
+		
+		 try {
+			 ArrayList<InventoryInput> MemberList = new ArrayList<InventoryInput>();
+			 
+			 SQLiteDatabase db;
+			 db = this.getReadableDatabase(); // Read Data
+				
+			 String strSQL = "SELECT  * FROM " + TABLE_MEMBER;
+			 Cursor cursor = db.rawQuery(strSQL, null);
+			 
+			 	if(cursor != null)
+			 	{
+			 	    if (cursor.moveToFirst()) {
+			 	        do {
+			 	        	String day = cursor.getString(1);
+			 	        	String month = cursor.getString(2);
+			 	        	String year = cursor.getString(3);
+			 	        	String hour = cursor.getString(4);
+			 	        	String min = cursor.getString(5);
+			 	        	String product_code = cursor.getString(6);
+			 	        	String quantity = cursor.getString(7);
+			 	        	String cost = cursor.getString(8);
+
+			 	        	InventoryInput cMember = new InventoryInput();
+			 	        	cMember.day = day;
+			 	        	cMember.month = Integer.parseInt(month)+1+"";
+			 	        	cMember.year = year;
+			 	        	cMember.hour = hour;
+			 	        	cMember.min = min;
+			 	        	cMember.product_code = product_code;
+			 	        	cMember.quantity = quantity;
+			 	        	cMember.cost = cost;
+			 	        	MemberList.add(cMember);
+			 	        } while (cursor.moveToNext());
+			 	    }
+			 	}
+			 	cursor.close();
+				db.close();
+				return MemberList;
+				
+		 } catch (Exception e) {
+		    return null;
+		 }
+
+	}
+	
+	public ArrayList<InventoryInput> selectAllDataByPartial(String keyword)
+	{
+		ArrayList<InventoryInput> list,ans;
+		list = SelectAllData();
+		ans = new ArrayList<InventoryInput>();
+		for (int i=0; i<list.size(); i++)
+		{
+			InventoryInput input = list.get(i);
+			if (input.product_code.toLowerCase().contains(keyword))
+				ans.add(input);
+		}
+		return ans;
 	}
 
 }

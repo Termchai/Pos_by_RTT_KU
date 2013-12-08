@@ -44,7 +44,7 @@
         <activity android:name="com.gui_report_sale.pos.Sale_Report_DailyBill"></activity>
         <activity android:name="com.gui_report_sale.pos.Sale_Report_MonthlyBill"></activity>
         <activity android:name="com.gui_report_sale.pos.Sale_Report_YearlyBill"></activity>
-        <activity android:name="com.gui_tab_inventory.pos.Inventory_Report"></activity>
+        <activity android:name="com.gui_report_inventory.pos.Inventory_Report"></activity>
     </application>
 
 </manifest>

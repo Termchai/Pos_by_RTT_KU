@@ -1,4 +1,4 @@
-package com.gui_tab_inventory.pos;
+package com.gui_report_inventory.pos;
 
 import java.util.ArrayList;
 
@@ -9,19 +9,20 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.gui_tab_catalog.pos.Tab_Product_Activity;
+import com.inventory_record.pos.InventoryInput;
 import com.inventory_record.pos.InventoryRecord;
 import com.rtt_ku.pos.R;
 
 public class Inventory_ReportAdapter extends BaseAdapter{
 
 	private Holder holder;
-	private ArrayList<InventoryRecord> list;
-	private Inventory_Report ac;
+	private ArrayList<InventoryInput> list;
+	private Inventory_Report ir;
 	
 	
-	public Inventory_ReportAdapter(ArrayList<InventoryRecord> list,Inventory_Report ac){
+	public Inventory_ReportAdapter(ArrayList<InventoryInput> list,Inventory_Report ir){
 		this.list = list;
-		this.ac = ac;
+		this.ir = ir;
 	}
 	@Override
 	public int getCount() {
@@ -45,7 +46,7 @@ public class Inventory_ReportAdapter extends BaseAdapter{
 	public View getView(int position, View view, ViewGroup parent) {
 		// TODO Auto-generated method stub
 		if(view == null){
-			view = ac.getView();
+			view = ir.getView();
 			holder = new Holder();
 			
 			holder.date = (TextView) view.findViewById(R.id.inventory_report_dateTextView);
@@ -58,15 +59,17 @@ public class Inventory_ReportAdapter extends BaseAdapter{
 		else {
 			holder = (Holder) view.getTag();
 		}
-//		Product p = list.get(position);
-//		String product_name = p.getName();
-//		String product_code = p.getProduct_Code();
-//		int product_quantity = p.getQuantity();
-//		int product_price = p.getPrice();
-//		holder.product_code.setText("<"+product_code+">");
-//		holder.title.setText(list.get(position).getName());
-//		holder.quantity.setText(product_quantity +  " item(s)");
-//		holder.price.setText(product_price+"");
+		
+		InventoryInput input = list.get(position);
+//		System.out.println(list);
+//		System.out.println(input);
+//		System.out.println("testttttttttttttttttttttttttttttttttttttt");
+		holder.date.setText(input.day + "/" + input.month + "/" + input.year);
+		holder.time.setText(input.hour+":"+input.min);
+		holder.product.setText(input.product_code);
+		holder.quantity.setText(input.quantity);
+		holder.cost.setText(input.cost);
+		
 		return view;
 	}
 	
