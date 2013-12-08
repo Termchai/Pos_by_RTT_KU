@@ -35,25 +35,39 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:gravity="right" >
 
         <Button
             android:id="@+id/product_addButton"
-            android:layout_width="wrap_content"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:background="@drawable/greenbutton"
             android:textColor="#FFFFFF"
             android:text="Add" />
 
+        <LinearLayout
+            android:layout_width="4dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+        </LinearLayout>
+
         <Button
             android:id="@+id/product_removeButton"
-            android:layout_width="wrap_content"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
+            android:background="@drawable/red_button"
             android:text="Remove" />
+
+        <LinearLayout
+            android:layout_width="4dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+        </LinearLayout>
 
         <Button
             android:id="@+id/product_editButton"
-            android:layout_width="wrap_content"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:background="@drawable/light_grey_button"
             android:textColor="#FFFFFF"

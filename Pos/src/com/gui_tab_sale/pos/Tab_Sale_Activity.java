@@ -101,6 +101,7 @@ public class Tab_Sale_Activity extends Activity{
 		editText = (EditText)findViewById(R.id.sale_editText);
 		
 		editText.setHint("search");
+		cash.setHint("input cash");
 		
 		// adapter of list item.
 		saleAdapter = new SaleItemAdapter();

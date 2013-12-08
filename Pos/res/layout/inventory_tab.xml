@@ -20,39 +20,53 @@
             <requestFocus />
         </EditText>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+        </LinearLayout>
+
         <ListView
             android:id="@+id/inventory_listView"
             android:layout_width="fill_parent"
-            android:layout_height="390dp"
-            android:background="@drawable/sale_item_listview" >
+            android:layout_height="390dp">
         </ListView>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:gravity="right" >
 
             <Button
                 android:id="@+id/Inventort_Tab_Edit_Button"
-                android:layout_width="wrap_content"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/greenbutton"
-                android:paddingRight="100dp"
-                android:text="Add quantity"
+                android:text="Add"
                 android:textColor="#FFFFFF" />
 
+            <LinearLayout
+                android:layout_width="4dp"
+                android:layout_height="match_parent" >
+            </LinearLayout>
+
             <Button
-                android:paddingRight="100dp"
                 android:id="@+id/set_quantity_ok_button"
-                android:layout_width="wrap_content"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:text="Remove"
                 android:textColor="#FFFFFF"
                 android:background="@drawable/red_button" />
 
+            <LinearLayout
+                android:layout_width="4dp"
+                android:layout_height="match_parent" >
+            </LinearLayout>
+
             <Button
                 android:id="@+id/Inventort_Tab_reportButton"
-                android:layout_width="wrap_content"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
+                android:background="@drawable/report_button"
                 android:text="Report" />
 
         </LinearLayout>
