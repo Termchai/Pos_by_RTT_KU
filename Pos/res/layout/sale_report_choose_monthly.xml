@@ -32,12 +32,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="OK" />
-
-        <Button
-            android:id="@+id/report_monthly_cancelButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Cancel" />
     </LinearLayout>
 
 </LinearLayout>

@@ -11,13 +11,13 @@ import android.widget.TextView;
 import com.rtt_ku.pos.R;
 import com.rtt_ku.pos.R.id;
 
-public class ProductAdapter extends BaseAdapter{
+public class InventoryAdapter extends BaseAdapter{
 	
 	private Holder holder;
 	private ArrayList<Product> list;
 	private Tab_Inventory_Activity pa;
 	
-	public ProductAdapter(ArrayList<Product> list,Tab_Inventory_Activity pa){
+	public InventoryAdapter(ArrayList<Product> list,Tab_Inventory_Activity pa){
 		this.list = list;
 		this.pa = pa;
 	}

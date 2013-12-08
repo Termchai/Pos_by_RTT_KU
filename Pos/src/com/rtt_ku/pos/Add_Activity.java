@@ -25,7 +25,6 @@ public class Add_Activity extends Activity {
 		
 		// view matching
 		Button okButton = (Button)findViewById(R.id.OK_button);
-		Button cancelButton = (Button)findViewById(R.id.cancel_button);
 		
         InventoryDatabase myDb = new InventoryDatabase(this);
         myDb.getWritableDatabase();
@@ -74,17 +73,6 @@ public class Add_Activity extends Activity {
 			
 		});
 		
-		// add function on click at cancel button.
-		cancelButton.setOnClickListener(new OnClickListener(){
-
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				//setContentView(R.layout.activity_main);
-				startActivity(new Intent(Add_Activity.this, main_activity.class));
-			}
-			
-		});
 	}
 	
 	/**

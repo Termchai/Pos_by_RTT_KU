@@ -6,7 +6,7 @@ import java.util.Date;
 import com.database.pos.InventoryDatabase;
 import com.database.pos.InventoryDatabaseReader;
 import com.gui_report_inventory.pos.Inventory_Report;
-import com.gui_tab_catalog.pos.InventoryAdapter;
+import com.gui_tab_catalog.pos.ProductAdapter;
 import com.gui_tab_catalog.pos.Tab_Product_Activity;
 import com.rtt_ku.pos.R;
 import com.rtt_ku.pos.Remove_Activity;
@@ -94,7 +94,7 @@ public class Tab_Inventory_Activity extends Activity{
 				// TODO Auto-generated method stub
 				String text = editText.getText().toString();
 				productList = sCT.getProductListByPartial(text);
-				list_item.setAdapter(new ProductAdapter(productList,Tab_Inventory_Activity.this));
+				list_item.setAdapter(new InventoryAdapter(productList,Tab_Inventory_Activity.this));
 			}
 			
 			@Override
@@ -151,7 +151,7 @@ public class Tab_Inventory_Activity extends Activity{
 	@Override
 	public void onResume(){
 		productList = sCT.getProductList();
-		list_item.setAdapter(new ProductAdapter(productList,this));
+		list_item.setAdapter(new InventoryAdapter(productList,this));
 		super.onResume();
 	}
 	

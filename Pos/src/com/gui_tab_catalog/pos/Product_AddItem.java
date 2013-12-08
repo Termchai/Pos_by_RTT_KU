@@ -30,7 +30,6 @@ public class Product_AddItem extends Activity {
 		sCT = new StoreController(myDb);
 		
 		okButton = (Button)findViewById(R.id.product_add_okButton);
-		cancelButton  = (Button)findViewById(R.id.product_add_cancelButton);
 		checkEditText = (EditText)findViewById(R.id.product_findId_editText);
 		okButton.setOnClickListener(new OnClickListener() {
 			
@@ -55,14 +54,6 @@ public class Product_AddItem extends Activity {
 			}
 		});
 		
-		cancelButton.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				startActivity(new Intent(v.getContext(),main_activity.class));
-			}
-		});
 	}
 	
 	@Override

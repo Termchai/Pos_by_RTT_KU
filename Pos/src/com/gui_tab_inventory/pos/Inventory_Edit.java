@@ -30,7 +30,6 @@ public class Inventory_Edit extends Activity{
 		sCT = new StoreController(myDb);
 		
 		Button okButton = (Button)findViewById(R.id.inventory_edit_okButton);
-		Button cancelButton = (Button)findViewById(R.id.inventory_edit_cancelButton);
 		
 		okButton.setOnClickListener(new OnClickListener() {
 			
@@ -65,13 +64,5 @@ public class Inventory_Edit extends Activity{
 			}
 		});
 		
-		cancelButton.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				startActivity(new Intent(v.getContext(), main_activity.class));
-			}
-		});
 	}
 }

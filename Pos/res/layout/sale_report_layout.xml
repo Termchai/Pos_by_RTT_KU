@@ -10,10 +10,4 @@
         android:layout_height="386dp" >
     </ListView>
 
-    <Button
-        android:id="@+id/sale_report_cancelbutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Back" />
-
 </LinearLayout>

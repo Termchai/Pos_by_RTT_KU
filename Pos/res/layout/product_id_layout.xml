@@ -33,14 +33,6 @@
             android:text="OK"
             android:textColor="#FFFFFF"
             android:background="@drawable/greenbutton"/>
-
-        <Button
-            android:id="@+id/productItem_edit_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Cancel"
-            android:textColor="#FFFFFF"
-            android:background="@drawable/light_grey_button" />
     </LinearLayout>
 
     <TextView

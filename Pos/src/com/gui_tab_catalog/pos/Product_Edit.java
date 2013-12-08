@@ -34,7 +34,6 @@ public class Product_Edit extends Activity{
 		//view matching
 		productCode = (EditText)findViewById(R.id.inventory_editEditText);
 		Button okButton = (Button)findViewById(R.id.inventory_edit_okButton);
-		Button cancelButton = (Button)findViewById(R.id.inventory_edit_cancelButton);
 		
 		okButton.setOnClickListener(new OnClickListener() {
 			
@@ -45,14 +44,6 @@ public class Product_Edit extends Activity{
 				Intent intent = new Intent(v.getContext(), ProductItem_Edit.class);
 				intent.putExtra("pc", product_code);
 				startActivity(intent);
-			}
-		});
-		cancelButton.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				startActivity(new Intent(v.getContext(), main_activity.class));
 			}
 		});
 	}

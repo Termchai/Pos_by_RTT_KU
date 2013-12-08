@@ -9,7 +9,7 @@ import com.database.pos.InventoryDatabaseReader;
 import com.gui_report_sale.pos.Sale_ReportDaily_ChooseDate;
 import com.gui_report_sale.pos.Sale_ReportMonthly_ChooseDate;
 import com.gui_report_sale.pos.Sale_ReportYearly_ChooseDate;
-import com.gui_tab_catalog.pos.InventoryAdapter;
+import com.gui_tab_catalog.pos.ProductAdapter;
 import com.gui_tab_catalog.pos.Tab_Product_Activity;
 import com.rtt_ku.pos.R;
 import com.rtt_ku.pos.R.id;
@@ -317,7 +317,6 @@ public class Tab_Sale_Activity extends Activity{
 	        	TextView name = (TextView)dialog.findViewById(R.id.sale_dialogtextView);
 	        	final EditText quantity = (EditText) dialog.findViewById(R.id.saleDialog_editText);
 	        	Button dialogOkButton = (Button) dialog.findViewById(R.id.saleDialog_okButton);
-	        	Button dialogCancelButton = (Button)dialog.findViewById(R.id.saleDialog_cancelButton);
 	        	Button dialogEditButton = (Button)dialog.findViewById(R.id.saleDialog_editButton);
 	        	
 	        	name.setText(product.getName());
@@ -347,14 +346,6 @@ public class Tab_Sale_Activity extends Activity{
 					}
 				});
 	        	
-	        	dialogCancelButton.setOnClickListener(new OnClickListener() {
-					
-					@Override
-					public void onClick(View v) {
-						// TODO Auto-generated method stub
-						dialog.dismiss();
-					}
-				});
 	        	
 	        	dialogEditButton.setOnClickListener(new OnClickListener() {
 					
@@ -371,7 +362,6 @@ public class Tab_Sale_Activity extends Activity{
 			        	final EditText quan = (EditText)dialogDiscount.findViewById(R.id.sale_dialog_quantityEditText);
 			        	final EditText price = (EditText)dialogDiscount.findViewById(R.id.sale_dialog_priceEditText);
 			        	Button okButton = (Button)dialogDiscount.findViewById(R.id.sale_dialog_okButton);
-			        	Button cancelButton = (Button)dialogDiscount.findViewById(R.id.sale_dialog_cancelButton);
 			        	quan.setText("1");
 			        	price.setText(product.getPrice()+"");
 			        	nameItem.setText(product.getName());
@@ -396,15 +386,6 @@ public class Tab_Sale_Activity extends Activity{
 									
 								}
 								dialog.dismiss();
-								dialogDiscount.dismiss();
-							}
-						});
-			        	
-			        	cancelButton.setOnClickListener(new OnClickListener() {
-							
-							@Override
-							public void onClick(View v) {
-								// TODO Auto-generated method stub
 								dialogDiscount.dismiss();
 							}
 						});

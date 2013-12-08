@@ -109,7 +109,7 @@ public class Tab_Product_Activity extends Activity{
 				// TODO Auto-generated method stub
 				String text = editText.getText().toString();
 				productList = sCT.getProductListByPartial(text);
-				listview.setAdapter(new InventoryAdapter(productList,Tab_Product_Activity.this));
+				listview.setAdapter(new ProductAdapter(productList,Tab_Product_Activity.this));
 				
 			}
 
@@ -127,7 +127,7 @@ public class Tab_Product_Activity extends Activity{
 	@Override
 	public void onResume(){
 		productList = sCT.getProductList();
-		listview.setAdapter(new InventoryAdapter(productList,this));
+		listview.setAdapter(new ProductAdapter(productList,this));
 		super.onResume();
 	}
 	

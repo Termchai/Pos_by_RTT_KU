@@ -13,14 +13,14 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-public class InventoryAdapter extends BaseAdapter{
+public class ProductAdapter extends BaseAdapter{
 
 	private Holder holder;
 	private ArrayList<Product> list;
 	private Tab_Product_Activity ac;
 	
 	
-	public InventoryAdapter(ArrayList<Product> list,Tab_Product_Activity ac){
+	public ProductAdapter(ArrayList<Product> list,Tab_Product_Activity ac){
 		this.list = list;
 		this.ac = ac;
 	}

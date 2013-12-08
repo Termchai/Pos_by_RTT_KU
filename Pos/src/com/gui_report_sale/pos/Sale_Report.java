@@ -33,7 +33,6 @@ public class Sale_Report extends Activity{
 		setContentView(R.layout.sale_report_layout);
 		
 		//view matching
-		Button cancelButton = (Button)findViewById(R.id.sale_report_cancelbutton);
 		listView = (ListView)findViewById(R.id.sale_report_listView);
 		
 		//set adapter here
@@ -75,14 +74,6 @@ public class Sale_Report extends Activity{
 		
 		listView.setAdapter(new SaleReportAdapter(profiles, this));
 		
-		cancelButton.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				startActivity(new Intent(v.getContext(), main_activity.class));
-			}
-		});
 	}
 	
 	public View getView () {

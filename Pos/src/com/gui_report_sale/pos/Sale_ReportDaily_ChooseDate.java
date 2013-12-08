@@ -57,7 +57,6 @@ public class Sale_ReportDaily_ChooseDate extends Activity{
 
 	private void initWidget(){
 		okButton = (Button)findViewById(R.id.report_daily_okButton);
-		cancelButton = (Button)findViewById(R.id.report_daily_cancelButton);
 		daySpn = (Spinner)findViewById(R.id.report_dailySpinner_day);
 		monthSpn = (Spinner)findViewById(R.id.report_dailySpinner_month);
 		yearSpn = (Spinner)findViewById(R.id.report_dailySpinner_year);

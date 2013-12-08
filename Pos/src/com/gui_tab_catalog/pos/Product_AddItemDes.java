@@ -41,7 +41,6 @@ public class Product_AddItemDes extends Activity{
 		product_code = (String)b.get("product_code");
 		
 		okButton = (Button)findViewById(R.id.product_addDes_okButton);
-		cancelButton = (Button)findViewById(R.id.product_addDes_cancelButton);
 		scanButton = (Button)findViewById(R.id.product_addDes_scanButton);
 		id = (EditText)findViewById(R.id.product_add_productEditText);
 		name = (EditText)findViewById(R.id.product_add_nameEditText);
@@ -67,14 +66,6 @@ public class Product_AddItemDes extends Activity{
 			}
 		});
 		
-		cancelButton.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				startActivity(new Intent(v.getContext(), main_activity.class));
-			}
-		});
 		
 		scanButton.setOnClickListener(new OnClickListener() {
 			

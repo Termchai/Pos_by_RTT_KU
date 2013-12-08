@@ -177,12 +177,6 @@
             android:text="OK" />
 
         <Button
-            android:id="@+id/inventoryEdit_cancel_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Cancel" />
-
-        <Button
             android:id="@+id/inventoryEdit_remove_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

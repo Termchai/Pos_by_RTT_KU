@@ -25,7 +25,6 @@ public class ProductItem_Info extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.product_iteminfo);
 		
-		Button cancelButton = (Button)findViewById(R.id.productItem_cancel_button);
 		Button editButton = (Button)findViewById(R.id.productItem_edit_button);
 		
 		// call Store Controller
@@ -59,15 +58,6 @@ public class ProductItem_Info extends Activity {
 			}
 		});
 		
-		cancelButton.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				
-				startActivity(new Intent(v.getContext(), main_activity.class));
-			}
-		});
 	}
 
 	private void setTextView(TextView id, TextView name, TextView type,TextView price,TextView barcode, Product p) {

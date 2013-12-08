@@ -50,7 +50,6 @@ public class Inventory_editItem extends Activity{
 		TextView name_textview = (TextView)findViewById(R.id.inventoryEdit_name_textview);
 		TextView old_quantity_textview = (TextView)findViewById(R.id.inventoryEdit_oldquantity_textview);
 		Button okButton = (Button)findViewById(R.id.inventoryEdit_ok_button);
-		Button cancelButton = (Button)findViewById(R.id.inventoryEdit_cancel_button);
 		Button removeButton = (Button)findViewById(R.id.inventoryEdit_remove_button);
 
 		
@@ -105,15 +104,6 @@ public class Inventory_editItem extends Activity{
 						}
 					}).show();
 				}
-			}
-		});
-		
-		cancelButton.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				startActivity(new Intent(v.getContext(), main_activity.class));
 			}
 		});
 		

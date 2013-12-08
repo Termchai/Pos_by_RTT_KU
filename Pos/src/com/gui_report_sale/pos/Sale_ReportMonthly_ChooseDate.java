@@ -147,7 +147,6 @@ public class Sale_ReportMonthly_ChooseDate extends Activity{
 	
 	private void initWidget(){
 		okButton = (Button) findViewById(R.id.report_monthly_okButton);
-		cancelButton =(Button) findViewById(R.id.report_monthly_cancelButton);
 		monthSpn = (Spinner) findViewById(R.id.report_monthlySpinner_month);
 		yearSpn = (Spinner) findViewById(R.id.report_monthlySpinner_year);
 	}

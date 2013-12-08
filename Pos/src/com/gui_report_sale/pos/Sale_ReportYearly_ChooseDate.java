@@ -103,7 +103,6 @@ public class Sale_ReportYearly_ChooseDate extends Activity{
 	private void initWidget(){
 		
 		okButton = (Button) findViewById(R.id.report_yearly_okButton);
-		cancelButton = (Button) findViewById(R.id.report_yearly_cancelButton);
 		yearSpn = (Spinner) findViewById(R.id.report_yearlySpinner_year);
 	}
 }

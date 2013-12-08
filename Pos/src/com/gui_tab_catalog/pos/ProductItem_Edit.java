@@ -37,7 +37,6 @@ public class ProductItem_Edit extends Activity{
 		final Product p = sCT.getProduct(product_code);
 		
 		okButton = (Button)findViewById(R.id.product_info_okButton);
-		cancelButton = (Button)findViewById(R.id.product_info_cancelButton);
 		scanButton = (Button)findViewById(R.id.product_info_scanButton);
 		id = (EditText)findViewById(R.id.product_id_editText);
 		name = (EditText)findViewById(R.id.product_name_editText);
@@ -66,16 +65,6 @@ public class ProductItem_Edit extends Activity{
 			}
 		});
 		
-		cancelButton.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				Intent intent = new Intent(v.getContext(), ProductItem_Info.class);
-				intent.putExtra("pc", p.getProduct_Code());
-				startActivity(intent);
-			}
-		});
 		
 		scanButton.setOnClickListener(new OnClickListener() {
  
