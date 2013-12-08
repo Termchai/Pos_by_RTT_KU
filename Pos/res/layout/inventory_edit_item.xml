@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/background"  >
+    android:background="@drawable/background"
+    android:orientation="vertical" >
 
     <TextView
         android:id="@+id/textView6"
@@ -11,6 +11,7 @@
         android:layout_height="60dp"
         android:gravity="center"
         android:text="Change Quantity"
+        android:textColor="@color/text_color"
         android:textSize="40dp" />
 
     <LinearLayout
@@ -22,6 +23,7 @@
             android:layout_width="200dp"
             android:layout_height="35dp"
             android:text="Product Code"
+            android:textColor="@color/text_color"
             android:textSize="25dp" />
 
         <TextView
@@ -29,6 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:text=":   "
+            android:textColor="@color/text_color"
             android:textSize="25dp" />
 
         <TextView
@@ -36,8 +39,8 @@
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:text="TextView"
+            android:textColor="@color/text_color"
             android:textSize="25dp" />
-
     </LinearLayout>
 
     <LinearLayout
@@ -49,6 +52,7 @@
             android:layout_width="200dp"
             android:layout_height="35dp"
             android:text="Name"
+            android:textColor="@color/text_color"
             android:textSize="25dp" />
 
         <TextView
@@ -56,6 +60,7 @@
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:text=":   "
+            android:textColor="@color/text_color"
             android:textSize="25dp" />
 
         <TextView
@@ -63,14 +68,13 @@
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:text="TextView"
+            android:textColor="@color/text_color"
             android:textSize="25dp" />
-
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
-
     </LinearLayout>
 
     <LinearLayout
@@ -89,6 +93,7 @@
             android:layout_width="200dp"
             android:layout_height="35dp"
             android:text="Old quantity"
+            android:textColor="@color/text_color"
             android:textSize="25dp" />
 
         <TextView
@@ -96,6 +101,7 @@
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:text=":   "
+            android:textColor="@color/text_color"
             android:textSize="25dp" />
 
         <TextView
@@ -103,8 +109,8 @@
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:text="TextView"
+            android:textColor="@color/text_color"
             android:textSize="25dp" />
-
     </LinearLayout>
 
     <LinearLayout
@@ -115,22 +121,23 @@
             android:id="@+id/sale_report_costTextView"
             android:layout_width="200dp"
             android:layout_height="35dp"
-            android:textSize="25dp"
-            android:text="Cost" />
+            android:text="Cost"
+            android:textColor="@color/text_color"
+            android:textSize="25dp" />
 
         <TextView
             android:id="@+id/inventory_report_productTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="25dp"
-            android:text=":   " />
+            android:text=":   "
+            android:textColor="@color/text_color"
+            android:textSize="25dp" />
 
         <EditText
             android:id="@+id/inventoryEdit_cost_edittext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10" />
-
     </LinearLayout>
 
     <LinearLayout
@@ -142,6 +149,7 @@
             android:layout_width="200dp"
             android:layout_height="35dp"
             android:text="Add quantity"
+            android:textColor="@color/text_color"
             android:textSize="25dp" />
 
         <TextView
@@ -149,6 +157,7 @@
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:text=":   "
+            android:textColor="@color/text_color"
             android:textSize="25dp" />
 
         <EditText
@@ -161,7 +170,6 @@
 
             <requestFocus />
         </EditText>
-
     </LinearLayout>
 
     <LinearLayout
@@ -174,17 +182,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/greenbutton"
-            android:textColor="#FFFFFF"
-            android:text="OK" />
+            android:text="OK"
+            android:textColor="@color/text_button_color"/>
 
         <Button
             android:id="@+id/inventoryEdit_remove_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/light_grey_button"
-            android:textColor="#FFFFFF"
-            android:text="Remove" />
-
+            android:textColor="@color/text_button_color"
+            android:text="Remove"/>
     </LinearLayout>
 
 </LinearLayout>

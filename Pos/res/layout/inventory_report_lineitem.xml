@@ -12,14 +12,15 @@
             android:id="@+id/inventory_report_dateTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textColor="@color/text_color" />
 
         <TextView
             android:id="@+id/inventory_report_timeTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView" />
-
+            android:text="TextView"
+            android:textColor="@color/text_color" />
     </LinearLayout>
 
     <LinearLayout
@@ -30,20 +31,22 @@
             android:id="@+id/inventory_report_productTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Large Text"/>
+            android:text="Large Text"
+            android:textColor="@color/text_color" />
 
         <TextView
             android:id="@+id/inventory_report_quantityTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Large Text" />
+            android:text="Large Text"
+            android:textColor="@color/text_color" />
 
         <TextView
             android:id="@+id/inventory_report_costTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Large Text" />
-
+            android:text="Large Text"
+            android:textColor="@color/text_color" />
     </LinearLayout>
 
 </LinearLayout>

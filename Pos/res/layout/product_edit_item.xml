@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/background"  >
+    android:background="@drawable/background"
+    android:orientation="vertical" >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,7 +13,8 @@
             android:id="@+id/sale_report_productTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Product Code" />
+            android:text="Product Code"
+            android:textColor="@color/text_color" />
 
         <EditText
             android:id="@+id/product_id_editText"
@@ -24,7 +25,6 @@
 
             <requestFocus />
         </EditText>
-
     </LinearLayout>
 
     <LinearLayout
@@ -35,7 +35,8 @@
             android:id="@+id/sale_report_priceTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Name" />
+            android:text="Name"
+            android:textColor="@color/text_color" />
 
         <EditText
             android:id="@+id/product_name_editText"
@@ -43,13 +44,11 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10" />
-
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
-
     </LinearLayout>
 
     <LinearLayout
@@ -60,7 +59,8 @@
             android:id="@+id/sale_report_dateTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Type" />
+            android:text="Type"
+            android:textColor="@color/text_color" />
 
         <EditText
             android:id="@+id/product_type_editText"
@@ -68,7 +68,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10" />
-
     </LinearLayout>
 
     <LinearLayout
@@ -79,7 +78,8 @@
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Price" />
+            android:text="Price"
+            android:textColor="@color/text_color" />
 
         <EditText
             android:id="@+id/product_price_editText"
@@ -87,7 +87,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10" />
-
     </LinearLayout>
 
     <LinearLayout
@@ -98,7 +97,8 @@
             android:id="@+id/TextView01"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Barcode" />
+            android:text="Barcode"
+            android:textColor="@color/text_color" />
 
         <EditText
             android:id="@+id/product_barcode_editText"
@@ -112,8 +112,8 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:background="@drawable/light_grey_button"
+            android:textColor="@color/text_button_color"
             android:text="Scan" />
-
     </LinearLayout>
 
     <LinearLayout
@@ -128,7 +128,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/greenbutton"
             android:text="OK"
-            android:textColor="#FFFFFF" />
+            android:textColor="@color/text_button_color" />
     </LinearLayout>
 
 </LinearLayout>

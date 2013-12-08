@@ -6,8 +6,8 @@
   <!-- Specify a gradient for the background -->
   <gradient
       android:angle="270"
-      android:startColor="#504A4B"
-      android:endColor="#848482"/>
+      android:startColor="#5C5858"
+      android:endColor="#34282C"/>
   
   
   <!-- Specify the margins that all content inside the drawable must adhere to -->

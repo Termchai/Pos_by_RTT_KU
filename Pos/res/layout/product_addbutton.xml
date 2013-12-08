@@ -9,7 +9,8 @@
         android:id="@+id/sale_report_productTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enter Product Code" />
+        android:text="Enter Product Code"
+        android:textColor="@color/text_color" />
 
     <EditText
         android:id="@+id/product_findId_editText"
@@ -30,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/greenbutton"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/text_button_color"
             android:text="OK" />
 
     </LinearLayout>

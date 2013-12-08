@@ -42,7 +42,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/greenbutton"
                 android:text="Add"
-                android:textColor="#FFFFFF" />
+            	android:textColor="@color/text_button_color"/>
 
             <LinearLayout
                 android:layout_width="4dp"
@@ -54,7 +54,7 @@
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:text="Remove"
-                android:textColor="#FFFFFF"
+          	  	android:textColor="@color/text_button_color"
                 android:background="@drawable/red_button" />
 
             <LinearLayout
@@ -67,6 +67,7 @@
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/report_button"
+            	android:textColor="@color/text_button_color"
                 android:text="Report" />
 
         </LinearLayout>
