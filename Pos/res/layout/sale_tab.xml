@@ -4,25 +4,24 @@
     android:id="@+id/tab2"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@drawable/background">
+        android:background="@drawable/background"
+        android:orientation="vertical" >
 
         <ListView
             android:id="@+id/inventory_listView"
             android:layout_width="fill_parent"
-            android:layout_height="190dp" 
-            android:background="@drawable/sale_item_listview">
-
+            android:layout_height="190dp"
+            android:background="@drawable/sale_item_listview" >
         </ListView>
-        
-        <LinearLayout 
+
+        <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="5dp"
-            android:background="@drawable/grey_button">
-            
+            android:background="@drawable/grey_button" >
         </LinearLayout>
 
         <LinearLayout
@@ -47,7 +46,6 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/sale_item_listview" >
                 </ListView>
-
             </LinearLayout>
 
             <LinearLayout
@@ -62,20 +60,23 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Total Price"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/text_color" />
 
                 <TextView
                     android:id="@+id/sale_report_productTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0.0"
-                    android:textColor="@color/text_color" 
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/text_color" />
+
                 <EditText
                     android:id="@+id/set_quantity_editText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/edittext_background" >
+
                     <requestFocus />
                 </EditText>
 
@@ -101,7 +102,7 @@
                             android:layout_height="wrap_content"
                             android:background="@drawable/greenbutton"
                             android:text="OK"
-                            android:textColor="#FFFFFF" />
+                            android:textColor="@color/text_button_color" />
 
                         <LinearLayout
                             android:layout_width="4dp"
@@ -114,8 +115,7 @@
                             android:layout_height="wrap_content"
                             android:background="@drawable/light_grey_button"
                             android:text="Reset"
-                            android:textColor="#FFFFFF" />
-
+                            android:textColor="@color/text_button_color" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -130,12 +130,11 @@
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/light_grey_button"
-                        android:textColor="#FFFFFF"
-                        android:text="Report" />
-
+                        android:text="Report"
+                        android:textColor="@color/text_button_color" />
                 </LinearLayout>
-
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
+
 </LinearLayout>

@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     android:background="@drawable/background"
+    android:gravity="center"
     android:orientation="vertical" >
 
     <Button
@@ -11,7 +11,8 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:background="@drawable/greenbutton"
-        android:text="Daily" />
+        android:text="Daily"
+        android:textColor="@color/text_button_color" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,7 +25,8 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:background="@drawable/greenbutton"
-        android:text="Monthly" />
+        android:text="Monthly"
+        android:textColor="@color/text_button_color" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,6 +39,7 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:background="@drawable/greenbutton"
-        android:text="Yearly" />
+        android:text="Yearly"
+        android:textColor="@color/text_button_color" />
 
 </LinearLayout>
