@@ -61,7 +61,7 @@
         <Button
             android:id="@+id/sale_dialog_okButton"
             style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:background="@drawable/greenbutton"
             android:textColor="@color/text_button_color"

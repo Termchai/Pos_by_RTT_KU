@@ -42,7 +42,7 @@
         <Button
             android:id="@+id/saleDialog_okButton"
             style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:background="@drawable/greenbutton"
             android:textColor="@color/text_button_color"
@@ -51,7 +51,7 @@
         <Button
             android:id="@+id/saleDialog_editButton"
             style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:background="@drawable/light_grey_button"
             android:textColor="@color/text_button_color"
