@@ -10,11 +10,12 @@
 
         <TextView
             android:id="@+id/sale_report_productTextView"
-            android:layout_width="120dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_weight=".33"
             android:text="ProCode"
-            android:textColor="@color/text_color"
-            android:textSize="20sp" />
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/text_color"/>
 
         <LinearLayout
             android:layout_width="3dp"
@@ -24,11 +25,12 @@
 
         <TextView
             android:id="@+id/sale_report_quantityTextView"
-            android:layout_width="120dp"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight=".33"
             android:text="Quan"
             android:textColor="@color/text_color"
-            android:textSize="20sp" />
+            android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <LinearLayout
             android:layout_width="3dp"
@@ -38,11 +40,13 @@
 
         <TextView
             android:id="@+id/sale_report_priceTextView"
-            android:layout_width="120dp"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight=".33"
             android:text="Price"
             android:textColor="@color/text_color"
-            android:textSize="20sp" />
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
     </LinearLayout>
 
 </LinearLayout>

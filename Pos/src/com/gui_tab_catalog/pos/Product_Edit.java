@@ -1,6 +1,7 @@
 package com.gui_tab_catalog.pos;
 
 import com.database.pos.InventoryDatabase;
+import com.gui_tab_inventory.pos.Inventory_Edit;
 import com.rtt_ku.pos.R;
 import com.rtt_ku.pos.main_activity;
 import com.rtt_ku.pos.R.id;
@@ -9,6 +10,8 @@ import com.rtt_store.pos.StoreController;
 
 import Inventory.Product;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -49,9 +52,27 @@ public class Product_Edit extends Activity{
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				String product_code = productCode.getText().toString();
-				Intent intent = new Intent(v.getContext(), ProductItem_Edit.class);
-				intent.putExtra("pc", product_code);
-				startActivity(intent);
+				
+				if (sCT.isHasYet(product_code))
+				{
+					Intent intent = new Intent(v.getContext(), ProductItem_Edit.class);
+					intent.putExtra("pc", product_code);
+					startActivity(intent);
+				}
+				else
+				{
+					final AlertDialog.Builder dialog_not = new AlertDialog.Builder(Product_Edit.this);
+					
+					dialog_not.setTitle("Warning!!!");
+					dialog_not.setMessage("Product <" + product_code + "> dose not exist");
+						dialog_not.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+	
+						@Override
+						public void onClick(DialogInterface arg0, int arg1) {
+							
+						}
+					}).show();
+				}
 			}
 		});
 	}

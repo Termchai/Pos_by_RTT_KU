@@ -105,14 +105,14 @@ public class Tab_Inventory_Activity extends Activity {
 		});
 
 		// add function on click at remove button.
-		removeButton.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				startActivity(new Intent(Tab_Inventory_Activity.this,
-						Remove_Activity.class));
-			}
-		});
+//		removeButton.setOnClickListener(new OnClickListener() {
+//
+//			@Override
+//			public void onClick(View v) {
+//				startActivity(new Intent(Tab_Inventory_Activity.this,
+//						Remove_Activity.class));
+//			}
+//		});
 
 		list_item.setOnItemClickListener(new OnItemClickListener() {
 

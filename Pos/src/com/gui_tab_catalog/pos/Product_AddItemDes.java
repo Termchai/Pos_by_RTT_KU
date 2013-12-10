@@ -8,6 +8,8 @@ import com.rtt_ku.pos.R.layout;
 import com.rtt_store.pos.StoreController;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -60,14 +62,31 @@ public class Product_AddItemDes extends Activity {
 
 			@Override
 			public void onClick(View v) {
+				try
+				{
+					String name_text = name.getText().toString();
+					String type_text = type.getText().toString();
+					int price_text = Integer.parseInt(price.getText().toString());
+					String barcode_text = barcode.getText().toString();
+					if (name_text.equals("")) throw new Exception();
+					sCT.addProduct(product_code, name_text, 0, price_text,
+							type_text, "", barcode_text, "", "", "", "", 0);
+					onBackPressed();
+				}catch(Exception e)
+				{
+					final AlertDialog.Builder dialog_not = new AlertDialog.Builder(Product_AddItemDes.this);
+					
+					dialog_not.setTitle("Warning!!!");
+					dialog_not.setMessage("Plese check your name and price description");
+						dialog_not.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+	
+						@Override
+						public void onClick(DialogInterface arg0, int arg1) {
+							
+						}
+					}).show();
+				}
 
-				String name_text = name.getText().toString();
-				String type_text = type.getText().toString();
-				int price_text = Integer.parseInt(price.getText().toString());
-				String barcode_text = barcode.getText().toString();
-				sCT.addProduct(product_code, name_text, 0, price_text,
-						type_text, "", barcode_text, "", "", "", "", 0);
-				onBackPressed();
 			}
 		});
 

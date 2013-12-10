@@ -19,6 +19,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
@@ -30,6 +31,7 @@ import android.widget.AdapterView.OnItemClickListener;
 public class Sale_Report_MonthlyListView extends Activity {
 
 	public static ListView listView;
+//	public static TextView type,date,income;
 	public Sale_Report_MonthlyListView sr;
 	private Intent intend;
 	private int month; 
@@ -51,7 +53,7 @@ public class Sale_Report_MonthlyListView extends Activity {
 		
 		intend = getIntent();
 		getInformation();
-		
+//		double sum = 0;
 		ArrayList<Wan> wans = sCT.getWans();
 		list = new ArrayList<Record>();
 		for (int i=0; i<wans.size(); i++)
@@ -62,9 +64,10 @@ public class Sale_Report_MonthlyListView extends Activity {
 				Time time = new Time();
 				time.set(Integer.parseInt(tempWan.getDay()), Integer.parseInt(tempWan.getMonth()), Integer.parseInt(tempWan.getYear()));
 				list.addAll(new DailyRecord(this, time).SelectAllData());
+//				sum += new DailyRecord(this, time).getTotal();
 			}
 		}
-
+//		income.setText("Total income : " +sum+"");
 		listView.setAdapter(new Sale_Report_MonthlyListViewAdapter(list, this));
 		
 		addButton();
@@ -73,6 +76,14 @@ public class Sale_Report_MonthlyListView extends Activity {
 	// view matching.
 	private void initWidget() {
 		listView = (ListView)findViewById(R.id.sale_report_daily_listView);
+//		type = (TextView)findViewById(R.id.sale_report_layout_type);
+//		date = (TextView)findViewById(R.id.sale_report_layout_date);
+//		income = (TextView)findViewById(R.id.sale_report_layout_income);
+		
+//		type.setText("Monthly");
+//		date.setText("Yr : " + year + " Mn : " + month);
+		
+
 	}
 
 	// add function on click.
@@ -92,6 +103,7 @@ public class Sale_Report_MonthlyListView extends Activity {
 				intent.putExtra("time", r.hour + ":" + r.min);
 				intent.putExtra("idBill", r.id);
 				intent.putExtra("position", position+"");
+				
 				
 				startActivity(intent);
 			}

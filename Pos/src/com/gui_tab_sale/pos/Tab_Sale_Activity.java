@@ -11,6 +11,7 @@ import com.gui_report_sale.pos.Sale_ReportMonthly_ChooseDate;
 import com.gui_report_sale.pos.Sale_ReportYearly_ChooseDate;
 import com.gui_tab_catalog.pos.ProductAdapter;
 import com.gui_tab_catalog.pos.Tab_Product_Activity;
+import com.gui_tab_inventory.pos.Inventory_editItem;
 import com.rtt_ku.pos.R;
 import com.rtt_ku.pos.R.id;
 import com.rtt_ku.pos.R.layout;
@@ -75,6 +76,7 @@ public class Tab_Sale_Activity extends Activity {
 	private InventoryDatabase myDb;
 	private Button report_button;
 	private EditText editText;
+	private Button scanButton;
 
 	private Dialog dialog;
 	private Dialog reportDialog;
@@ -118,8 +120,36 @@ public class Tab_Sale_Activity extends Activity {
 		addResetButton();
 		addReportButton();
 		addOnClickListItem();
+		addScanButton();
 	}
 	
+	private void addScanButton() {
+		scanButton.setOnClickListener(new OnClickListener() {
+
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				try {
+					// กำหนด intent ในการเรียกใช้ Barcode Scanner
+					Intent intent = new Intent(
+							"com.google.zxing.client.android.SCAN");
+					// ส่ง Mode ในการ Scan ให้กับ โปรแกรม Barcode Scanner
+					intent.putExtra("SCAN_MODE", "BAR_CODE_MODE");
+					// เริ่ม Activity จาก intent ที่กำหนด โดยกำหนด requestCode
+					// เป็น 0
+					startActivityForResult(intent, 0);
+				} catch (Exception e) {
+					// TODO: handle exception
+					// ถ้าไม่ได้ลงโปรแกรม Barcode Scanner ไว้จะแสดงข้อความ
+					// Please Install Barcode Scanner
+					Toast.makeText(getBaseContext(),
+							"Please Install Barcode Scanner",
+							Toast.LENGTH_SHORT).show();
+				}
+
+			}
+		});
+	}
+
 	// add find by partial on editText.
 	private void addFindByPartial() {
 		editText.addTextChangedListener(new TextWatcher() {
@@ -186,8 +216,23 @@ public class Tab_Sale_Activity extends Activity {
 								total_text.setText(basket.getTotalPrice() + "");
 								editText.setText("");
 							}
+							else
+								throw new Exception();
 						} catch (Exception e) {
+							final AlertDialog.Builder dialog_not = new AlertDialog.Builder(
+									Tab_Sale_Activity.this);
 
+							dialog_not.setTitle("Warning!!!");
+							dialog_not.setMessage("Plese enter amount of Qauntity");
+							dialog_not.setPositiveButton("OK",
+									new DialogInterface.OnClickListener() {
+
+										@Override
+										public void onClick(DialogInterface arg0,
+												int arg1) {
+											// TODO Auto-generated method stub
+										}
+									}).show();
 						}
 						dialog.dismiss();
 
@@ -225,9 +270,15 @@ public class Tab_Sale_Activity extends Activity {
 								// TODO Auto-generated method stub
 
 								try {
+									
 									int tempQuan = Integer.parseInt(quan
 											.getText().toString());
-
+									
+									if (tempQuan < 0 || Integer.parseInt(price.getText().toString()) < 0)
+									{
+										throw new Exception();
+									}
+									
 									basket.addProduct(product, tempQuan);
 									basket.setPrice(product, Integer
 											.parseInt(price.getText()
@@ -238,7 +289,20 @@ public class Tab_Sale_Activity extends Activity {
 											+ "");
 									editText.setText("");
 								} catch (Exception e) {
+									final AlertDialog.Builder dialog_not = new AlertDialog.Builder(
+											Tab_Sale_Activity.this);
 
+									dialog_not.setTitle("Warning!!!");
+									dialog_not.setMessage("Plese enter amount of Quantity and overide price");
+									dialog_not.setPositiveButton("OK",
+											new DialogInterface.OnClickListener() {
+
+												@Override
+												public void onClick(DialogInterface arg0,
+														int arg1) {
+													// TODO Auto-generated method stub
+												}
+											}).show();
 								}
 								dialog.dismiss();
 								dialogDiscount.dismiss();
@@ -410,6 +474,7 @@ public class Tab_Sale_Activity extends Activity {
 		reset_button = (Button) findViewById(R.id.productItem_edit_button);
 		report_button = (Button) findViewById(R.id.sale_report_button);
 		editText = (EditText) findViewById(R.id.sale_editText);
+		scanButton = (Button) findViewById(R.id.sale_scan_button);
 	}
 
 	// update list item
@@ -600,6 +665,25 @@ public class Tab_Sale_Activity extends Activity {
 		});
 	}
 
+	protected void onActivityResult(int requestCode, int resultCode,
+			Intent intent) {
+		// TODO Auto-generated method stub
+		if (requestCode == 0) // ทำการตรวจสอบว่า requestCode ตรงกับที่ Barcode
+								// Scanner คืนค่ามาหรือไม่
+		{
+			if (resultCode == RESULT_OK) // ถ้า Barcode Scanner ทำงานสมบูรณ์
+			{
+				// รับข้อมูลจาก Barcode Scanner ที่ได้จากการสแกน
+				String contents = intent.getStringExtra("SCAN_RESULT");
+				// รับรูปแบบจาก Barcode Scanner ที่ได้จากการสแกน ว่าเป็นชนิดใด
+				String format = intent.getStringExtra("SCAN_RESULT_FORMAT");
+				Toast.makeText(getBaseContext(), contents, Toast.LENGTH_SHORT)
+						.show();
+				editText.setText(contents);
+			}
+		}
+	}
+	
 	@Override
 	public void onResume() {
 		productList = sCT.getProductList();

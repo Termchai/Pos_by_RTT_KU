@@ -70,7 +70,7 @@ public class ProductAdapter extends BaseAdapter{
 		int product_price = p.getPrice();
 		holder.product_code.setText("<"+product_code+">");
 		holder.title.setText(list.get(position).getName());
-		holder.quantity.setText(product_quantity +  " item(s)");
+		holder.quantity.setText(product_quantity+"");
 		holder.price.setText(product_price+"");
 		return view;
 	}

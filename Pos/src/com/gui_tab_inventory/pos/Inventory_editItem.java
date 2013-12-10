@@ -117,7 +117,7 @@ public class Inventory_editItem extends Activity {
 							Inventory_editItem.this);
 
 					dialog_not.setTitle("Warning!!!");
-					dialog_not.setMessage("Plese enter amount of Add Quantity");
+					dialog_not.setMessage("Plese enter amount of Add Quantity and Cost");
 					dialog_not.setPositiveButton("OK",
 							new DialogInterface.OnClickListener() {
 

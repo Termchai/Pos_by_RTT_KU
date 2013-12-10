@@ -63,7 +63,7 @@ public class InventoryAdapter extends BaseAdapter{
 		int product_quantity = p.getQuantity();
 		holder.product_code.setText(" <" + product_code + "> ");
 		holder.title.setText(list.get(position).getName());
-		holder.quantity.setText(product_quantity +  " item(s)");
+		holder.quantity.setText(product_quantity+"");
 		return view;
 	}
 	

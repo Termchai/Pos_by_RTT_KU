@@ -70,7 +70,7 @@ public class Inventory_ReportAdapter extends BaseAdapter{
 //		System.out.println("testttttttttttttttttttttttttttttttttttttt");
 		holder.date.setText(input.day + "/" + input.month + "/" + input.year);
 		holder.time.setText(input.hour+":"+input.min);
-		holder.product.setText(input.product_code);
+		holder.product.setText("<"+input.product_code+">");
 		holder.quantity.setText(input.quantity);
 		holder.cost.setText(input.cost);
 		

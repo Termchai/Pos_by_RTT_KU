@@ -10,17 +10,27 @@
 
         <TextView
             android:id="@+id/inventory_report_dateTextView"
-            android:layout_width="150dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="0.33"
             android:text="TextView"
             android:textColor="@color/text_color" />
 
         <TextView
             android:id="@+id/inventory_report_timeTextView"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="0.33"
             android:text="TextView"
             android:textColor="@color/text_color" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.33"
+            android:text="" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -29,27 +39,31 @@
 
         <TextView
             android:id="@+id/inventory_report_productTextView"
-            android:layout_width="150dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="0.33"
             android:text="Large Text"
-            android:textSize="25dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="@color/text_color" />
 
         <TextView
             android:id="@+id/inventory_report_quantityTextView"
-            android:layout_width="150dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="0.33"
             android:text="Large Text"
-            android:textSize="25dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="@color/text_color" />
 
         <TextView
             android:id="@+id/inventory_report_costTextView"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.33"
             android:text="Large Text"
-            android:textSize="25dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="@color/text_color" />
+
     </LinearLayout>
 
 </LinearLayout>

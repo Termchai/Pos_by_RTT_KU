@@ -1,5 +1,6 @@
 package com.gui_tab_catalog.pos;
 import com.database.pos.InventoryDatabase;
+import com.gui_tab_inventory.pos.Inventory_Edit;
 import com.rtt_ku.pos.R;
 import com.rtt_ku.pos.main_activity;
 import com.rtt_ku.pos.R.id;
@@ -7,6 +8,8 @@ import com.rtt_ku.pos.R.layout;
 import com.rtt_store.pos.StoreController;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -60,6 +63,20 @@ public class Product_AddItem extends Activity {
 					Intent intent = new Intent(v.getContext(), Product_AddItemDes.class);
 					intent.putExtra("product_code", product_code);
 					startActivity(intent);
+				}
+				else if (sCT.isHasYet(product_code))
+				{
+					final AlertDialog.Builder dialog_not = new AlertDialog.Builder(Product_AddItem.this);
+					
+					dialog_not.setTitle("Warning!!!");
+					dialog_not.setMessage("Product <" + product_code + "> already exist");
+						dialog_not.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+	
+						@Override
+						public void onClick(DialogInterface arg0, int arg1) {
+							
+						}
+					}).show();
 				}
 			}
 		});
