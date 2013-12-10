@@ -10,7 +10,11 @@ import android.widget.TextView;
 
 import com.rtt_ku.pos.R;
 import com.rtt_ku.pos.R.id;
-
+/**
+ * Adapter of inventory tab.
+ * @author Administrator
+ *
+ */
 public class InventoryAdapter extends BaseAdapter{
 	
 	private Holder holder;

@@ -18,13 +18,14 @@ import android.widget.Toast;
  */
 public class Add_Activity extends Activity {
 	 StoreController sCT ;
+	 private Button okButton;
 	 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.add_layout);
 		
 		// view matching
-		Button okButton = (Button)findViewById(R.id.OK_button);
+		okButton = (Button)findViewById(R.id.OK_button);
 		
         InventoryDatabase myDb = new InventoryDatabase(this);
         myDb.getWritableDatabase();
@@ -32,6 +33,12 @@ public class Add_Activity extends Activity {
         
 		
         // add function on click at OK button.
+		addButton();
+		
+	}
+	
+	// add funciton on click
+	private void addButton() {
 		okButton.setOnClickListener(new OnClickListener(){
 
 			@Override
@@ -72,9 +79,8 @@ public class Add_Activity extends Activity {
 			}
 			
 		});
-		
 	}
-	
+
 	/**
 	 * insert product on list view.
 	 * @param product_code  code of each product.

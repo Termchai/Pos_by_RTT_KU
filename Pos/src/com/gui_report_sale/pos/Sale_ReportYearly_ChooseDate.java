@@ -22,6 +22,11 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
+/**
+ * Choose date on report sale in yearly.
+ * @author rtt team
+ *
+ */
 public class Sale_ReportYearly_ChooseDate extends Activity{
 	
 	private Button okButton,cancelButton;
@@ -42,6 +47,7 @@ public class Sale_ReportYearly_ChooseDate extends Activity{
 		addButton();
 	}
 	
+	// add year to spinner.
 	private void addYear() {
 		ArrayList<Wan> wans = sCT.getWans();
 		ArrayList<String> mylistDay = new ArrayList();
@@ -62,17 +68,14 @@ public class Sale_ReportYearly_ChooseDate extends Activity{
 
 			@Override
 			public void onItemSelected(AdapterView<?> arg0, View arg1,
-					int arg2, long arg3) {
-				// TODO Auto-generated method stub
-			}
+					int arg2, long arg3) {}
 
 			@Override
-			public void onNothingSelected(AdapterView<?> arg0) {
-				// TODO Auto-generated method stub
-				
-			}
+			public void onNothingSelected(AdapterView<?> arg0) {}
 		});
 	}
+	
+	// add function on click.
 	private void addButton(){
 		okButton.setOnClickListener(new OnClickListener() {
 			
@@ -83,16 +86,15 @@ public class Sale_ReportYearly_ChooseDate extends Activity{
 				Intent intent = new Intent(v.getContext(), Sale_Report_YearlyListView.class);
 				intent.putExtra("year",String.valueOf(yearSpn.getSelectedItem()));
 				
-				
 				startActivity(intent);
-				
 				
 			}
 		});
 			
 	}
+	
+	// view matching.
 	private void initWidget(){
-		
 		okButton = (Button) findViewById(R.id.report_yearly_okButton);
 		yearSpn = (Spinner) findViewById(R.id.report_yearlySpinner_year);
 	}

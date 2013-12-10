@@ -18,6 +18,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+/**
+ * find product code to edit information from inventory tab.
+ * @author rtt team
+ *
+ */
 public class Inventory_Edit extends Activity{
 	StoreController sCT;
 	public void onCreate(Bundle savedInstanceState) {

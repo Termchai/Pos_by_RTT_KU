@@ -22,6 +22,11 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
+/**
+ * Choose date in report sale in monthly.
+ * @author rtt team
+ *
+ */
 public class Sale_ReportMonthly_ChooseDate extends Activity{
 
 	private Button okButton,cancelButton;
@@ -46,6 +51,7 @@ public class Sale_ReportMonthly_ChooseDate extends Activity{
 
 	}
 	
+	// add function on click.
 	private void addButton(){
 		okButton.setOnClickListener(new OnClickListener() {
 			
@@ -64,7 +70,7 @@ public class Sale_ReportMonthly_ChooseDate extends Activity{
 		});
 	}
 	
-	
+	// add month to spinner.
 	private void addMonth(final String year){
 		
 		ArrayList<Wan> wans = sCT.getWans();
@@ -102,6 +108,7 @@ public class Sale_ReportMonthly_ChooseDate extends Activity{
 		
 	}
 	
+	// add year to spinner.
 	private void addYear() {
 		ArrayList<Wan> wans = sCT.getWans();
 		ArrayList<String> mylistDay = new ArrayList();
@@ -136,6 +143,7 @@ public class Sale_ReportMonthly_ChooseDate extends Activity{
 		});
 	}
 	
+	// view matching.
 	private void initWidget(){
 		okButton = (Button) findViewById(R.id.report_monthly_okButton);
 		monthSpn = (Spinner) findViewById(R.id.report_monthlySpinner_month);

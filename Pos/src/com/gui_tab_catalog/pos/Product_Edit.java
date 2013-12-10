@@ -16,11 +16,17 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 
+/**
+ * find product code to edit.
+ * @author rtt team
+ *
+ */
 public class Product_Edit extends Activity{
 
 	public static StoreController sCT;
     private Product p; 
     private EditText productCode;
+    private Button okButton;
     
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -31,10 +37,12 @@ public class Product_Edit extends Activity{
 		myDb.getWritableDatabase();
 		sCT = new StoreController(myDb);
 		
-		//view matching
-		productCode = (EditText)findViewById(R.id.inventory_editEditText);
-		Button okButton = (Button)findViewById(R.id.inventory_edit_okButton);
-		
+		initWidget();
+		addButton();
+	}
+
+	// add function on click.
+	private void addButton() {
 		okButton.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -46,5 +54,11 @@ public class Product_Edit extends Activity{
 				startActivity(intent);
 			}
 		});
+	}
+
+	//view matching.
+	private void initWidget() {
+		productCode = (EditText)findViewById(R.id.inventory_editEditText);
+		okButton = (Button)findViewById(R.id.inventory_edit_okButton);
 	}
 }

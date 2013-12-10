@@ -1,9 +1,9 @@
-package com.rtt_ku.pos;
+package com.gui_report_sale.pos;
 
 import java.util.ArrayList;
 
-import com.gui_report_sale.pos.Sale_Report;
 import com.rtt_ku.pos.R;
+import com.rtt_ku.pos.R.id;
 import com.salerecord.pos.SaleRecordDateDatabase;
 import com.salerecord.pos.Profile;
 import com.salerecord.pos.SaleRecordController;
@@ -15,7 +15,11 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-
+/**
+ * Adapter of list view at sale report page.
+ * @author rtt team
+ *
+ */
 public class SaleReportAdapter extends BaseAdapter{
 
 	private ArrayList<Profile> list;

@@ -13,6 +13,11 @@ import com.rtt_ku.pos.R;
 import com.rtt_ku.pos.R.id;
 import com.salerecord.pos.Record;
 
+/**
+ * Adapter of daily page.
+ * @author rtt team
+ *
+ */
 public class Sale_Report_DailyListViewAdapter extends BaseAdapter{
 
 	private Holder holder;

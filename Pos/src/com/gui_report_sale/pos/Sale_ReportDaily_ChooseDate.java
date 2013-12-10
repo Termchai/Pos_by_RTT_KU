@@ -26,6 +26,11 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+/**
+ * Choose date of report sale in daily.
+ * @author rtt team
+ *
+ */
 public class Sale_ReportDaily_ChooseDate extends Activity{
 
 	
@@ -53,8 +58,7 @@ public class Sale_ReportDaily_ChooseDate extends Activity{
 		monthSpn.setEnabled(false);
 	}
 	
-	
-
+	// view matching.
 	private void initWidget(){
 		okButton = (Button)findViewById(R.id.report_daily_okButton);
 		daySpn = (Spinner)findViewById(R.id.report_dailySpinner_day);
@@ -62,14 +66,12 @@ public class Sale_ReportDaily_ChooseDate extends Activity{
 		yearSpn = (Spinner)findViewById(R.id.report_dailySpinner_year);
 	}
 	
+	//add function on click.
 	private void addButton(){
 		okListener();
 	}
-	
-	
-	
-	
 
+	// function on click at ok button.
 	private void okListener() {
 		okButton.setOnClickListener(new OnClickListener() {
 			
@@ -92,6 +94,7 @@ public class Sale_ReportDaily_ChooseDate extends Activity{
 		
 	}
 
+	// add day in spinner.
 	private void addDay(String year,String month){
 		ArrayList<Wan> wans = sCT.getWans();
 		ArrayList<String> mylistDay = new ArrayList();
@@ -113,6 +116,7 @@ public class Sale_ReportDaily_ChooseDate extends Activity{
 		daySpn.setAdapter(myAdapter);
 	}
 	
+	// add month in spinner.
 	private void addMonth(final String year){
 		
 		ArrayList<Wan> wans = sCT.getWans();
@@ -152,6 +156,7 @@ public class Sale_ReportDaily_ChooseDate extends Activity{
 		
 	}
 	
+	// add year in spinner.
 	private void addYear() {
 		ArrayList<Wan> wans = sCT.getWans();
 		ArrayList<String> mylistDay = new ArrayList();

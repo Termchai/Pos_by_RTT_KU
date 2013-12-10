@@ -16,16 +16,27 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
+/**
+ * Information of item.
+ * @author rtt team
+ *
+ */
 public class ProductItem_Info extends Activity {
 
     public static StoreController sCT;
     private Product p; 
-    
+    private Button editButton;
+    private TextView id;
+	private TextView name;
+	private TextView type;
+	private TextView price;
+	private TextView barcode;
+	
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.product_iteminfo);
 		
-		Button editButton = (Button)findViewById(R.id.productItem_edit_button);
+		editButton = (Button)findViewById(R.id.productItem_edit_button);
 		
 		// call Store Controller
 		InventoryDatabase myDb = new InventoryDatabase(this);
@@ -36,17 +47,14 @@ public class ProductItem_Info extends Activity {
 		String product_code = intent.getExtras().getString("pc");
 		p = sCT.getProduct(product_code);
 				
-				
-		// view matching
-		TextView id = (TextView)findViewById(R.id.product_itemId);
-		TextView name = (TextView)findViewById(R.id.product_item_name);
-		TextView type = (TextView)findViewById(R.id.product_item_type);
-		TextView price = (TextView)findViewById(R.id.product_itemPrice);
-		TextView barcode = (TextView)findViewById(R.id.product_itemBarcode);
+		initWidget();
+		setTextView(p);
+		addButton();
+		
+	}
 
-				
-		setTextView(id,name,type,price,barcode,p);
-			
+	// add function on click.
+	private void addButton() {	
 		editButton.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -57,10 +65,19 @@ public class ProductItem_Info extends Activity {
 				startActivity(intent);
 			}
 		});
-		
 	}
 
-	private void setTextView(TextView id, TextView name, TextView type,TextView price,TextView barcode, Product p) {
+	// view matching.
+	private void initWidget() {
+		id = (TextView)findViewById(R.id.product_itemId);
+		name = (TextView)findViewById(R.id.product_item_name);
+		type = (TextView)findViewById(R.id.product_item_type);
+		price = (TextView)findViewById(R.id.product_itemPrice);
+		barcode = (TextView)findViewById(R.id.product_itemBarcode);
+	}
+
+	// set text of item information.
+	private void setTextView(Product p) {
 		id.setText(p.getProduct_Code());
 		name.setText(p.getName());
 		type.setText(p.getType());

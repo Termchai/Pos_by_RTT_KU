@@ -9,7 +9,11 @@ import android.widget.TextView;
 
 import com.gui_report_sale.pos.DailyBillAdapter.Holder;
 import com.rtt_ku.pos.R;
-
+/**
+ * Adapter of listview in sale report on monthly page.
+ * @author rtt team
+ *
+ */
 public class MonthlyBillAdapter extends BaseAdapter{
 
 	private Holder holder;

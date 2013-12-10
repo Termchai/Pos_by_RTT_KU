@@ -12,7 +12,11 @@ import com.gui_tab_catalog.pos.Tab_Product_Activity;
 import com.inventory_record.pos.InventoryInput;
 import com.inventory_record.pos.InventoryRecord;
 import com.rtt_ku.pos.R;
-
+/**
+ * Adapter of  listview in inventory report page. 
+ * @author rtt team
+ *
+ */
 public class Inventory_ReportAdapter extends BaseAdapter{
 
 	private Holder holder;

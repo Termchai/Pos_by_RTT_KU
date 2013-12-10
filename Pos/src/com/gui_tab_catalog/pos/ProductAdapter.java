@@ -13,6 +13,11 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+/**
+ * adapter of listview in product catalog page.
+ * @author rtt team
+ *
+ */
 public class ProductAdapter extends BaseAdapter{
 
 	private Holder holder;

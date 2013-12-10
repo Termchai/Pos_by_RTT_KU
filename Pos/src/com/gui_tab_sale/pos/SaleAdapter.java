@@ -11,6 +11,11 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+/**
+ * Adapter of list view in sale tab.
+ * @author rtt team
+ *
+ */
 public class SaleAdapter extends BaseAdapter{
 	private Holder holder;
 	private ArrayList<Product> list;

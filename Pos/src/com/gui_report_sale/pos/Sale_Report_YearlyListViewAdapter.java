@@ -11,6 +11,11 @@ import com.gui_report_sale.pos.Sale_Report_MonthlyListViewAdapter.Holder;
 import com.rtt_ku.pos.R;
 import com.salerecord.pos.Record;
 
+/**
+ * Adapter of sale report in yearly.
+ * @author Administrator
+ *
+ */
 public class Sale_Report_YearlyListViewAdapter extends BaseAdapter{
 	
 	private Holder holder;

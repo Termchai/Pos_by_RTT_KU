@@ -19,16 +19,22 @@ import com.salerecord.pos.Record;
 import com.salerecord.pos.SaleRecordDateDatabase;
 import com.salerecord.pos.Wan;
 
+/**
+ * Bill of sale report in yearly.
+ * @author rtt team
+ *
+ */
 public class Sale_Report_YearlyBill extends Activity{
 	
-	ListView listView;
-	ArrayList<String> list;
-	String year,timeStr,idBill;
-	TextView time_textView;
-	TextView date_textView;
-	TextView totalPrice;
-	TextView idBill_textview;
-	int position;
+	private ListView listView;
+	private ArrayList<String> list;
+	private String year,timeStr,idBill;
+	private TextView time_textView;
+	private TextView date_textView;
+	private TextView totalPrice;
+	private TextView idBill_textview;
+	private int position;
+	private Intent intend;
 	
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -40,17 +46,10 @@ public class Sale_Report_YearlyBill extends Activity{
         DbSr.getReadableDatabase();
 		StoreController sCT = new StoreController(myDb,DbSr);
 
-		listView = (ListView)findViewById(R.id.report_bill_listView);
-		time_textView = (TextView)findViewById(R.id.sale_report_time);
-		date_textView = (TextView)findViewById(R.id.sale_report_date);
-		totalPrice = (TextView)findViewById(R.id.report_bill_totalprice);
-		idBill_textview = (TextView)findViewById(R.id.sale_report_idBill);
+		initWidget();
 		
-		Intent intend = getIntent();
-		year = intend.getExtras().getString("year");
-		timeStr = intend.getExtras().getString("time");
-		position = Integer.parseInt(intend.getExtras().getString("position"));
-		idBill = intend.getExtras().getString("idBill");
+		intend = getIntent();
+		getInformation();
 		
 		ArrayList<Wan> wans = sCT.getWans();
 		final ArrayList<Record> list2 = new ArrayList<Record>();
@@ -72,10 +71,6 @@ public class Sale_Report_YearlyBill extends Activity{
 		time_textView.setText(timeStr);
 		idBill_textview.setText(idBill);
 		
-		
-		
-		
-		
 		date_textView.setText(r.day+"/"+ (Integer.parseInt(r.month)+1)+"/"+Integer.parseInt(r.year));
 		totalPrice.setText(r.getTotal()+"");
 		for (String tempp : temp)
@@ -84,6 +79,24 @@ public class Sale_Report_YearlyBill extends Activity{
 		
 	}
 
+	// get date from another class.
+	private void getInformation() {
+		year = intend.getExtras().getString("year");
+		timeStr = intend.getExtras().getString("time");
+		position = Integer.parseInt(intend.getExtras().getString("position"));
+		idBill = intend.getExtras().getString("idBill");
+	}
+
+	// view matching.
+	private void initWidget() {
+		listView = (ListView)findViewById(R.id.report_bill_listView);
+		time_textView = (TextView)findViewById(R.id.sale_report_time);
+		date_textView = (TextView)findViewById(R.id.sale_report_date);
+		totalPrice = (TextView)findViewById(R.id.report_bill_totalprice);
+		idBill_textview = (TextView)findViewById(R.id.sale_report_idBill);
+	}
+
+	// send view to adapter.
 	public View getView(){
 		View view = LayoutInflater.from(getApplicationContext()).inflate(R.layout.sale_report_list, null);
         return view;

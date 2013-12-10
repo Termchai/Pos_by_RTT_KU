@@ -15,6 +15,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+/**
+ * add item in product catalog.
+ * @author rtt team
+ *
+ */
 public class Product_AddItem extends Activity {
 	
 	private Button okButton,cancelButton ;
@@ -29,8 +34,13 @@ public class Product_AddItem extends Activity {
 		myDb.getWritableDatabase();
 		sCT = new StoreController(myDb);
 		
-		okButton = (Button)findViewById(R.id.product_add_okButton);
-		checkEditText = (EditText)findViewById(R.id.product_findId_editText);
+		iniwidget();
+		addButton();
+		
+	}
+	
+	// add function on click.
+	private void addButton() {
 		okButton.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -53,9 +63,14 @@ public class Product_AddItem extends Activity {
 				}
 			}
 		});
-		
 	}
-	
+
+	// view matching.
+	private void iniwidget() {
+		okButton = (Button)findViewById(R.id.product_add_okButton);
+		checkEditText = (EditText)findViewById(R.id.product_findId_editText);
+	}
+
 	@Override
 	public void onResume(){
 		checkEditText.setText("");

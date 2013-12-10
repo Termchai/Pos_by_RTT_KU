@@ -11,7 +11,11 @@ import android.widget.TextView;
 import com.gui_report_sale.pos.Sale_Report_DailyListViewAdapter.Holder;
 import com.rtt_ku.pos.R;
 import com.salerecord.pos.Record;
-
+/**
+ * adapter of sale report in monthly.
+ * @author rtt team
+ *
+ */
 public class Sale_Report_MonthlyListViewAdapter extends BaseAdapter{
 	
 	private Holder holder;

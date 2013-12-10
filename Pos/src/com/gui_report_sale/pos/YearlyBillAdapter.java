@@ -10,6 +10,11 @@ import android.widget.TextView;
 import com.gui_report_sale.pos.MonthlyBillAdapter.Holder;
 import com.rtt_ku.pos.R;
 
+/**
+ * adapter of each bill in each year 
+ * @author Administrator
+ *
+ */
 public class YearlyBillAdapter extends BaseAdapter{
 
 	private Holder holder;

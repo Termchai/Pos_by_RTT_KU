@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import com.database.pos.InventoryDatabase;
 import com.rtt_ku.pos.R;
-import com.rtt_ku.pos.SaleReportAdapter;
 import com.rtt_ku.pos.main_activity;
 import com.rtt_ku.pos.R.id;
 import com.rtt_ku.pos.R.layout;

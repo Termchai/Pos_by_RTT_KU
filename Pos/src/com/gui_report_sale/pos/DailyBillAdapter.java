@@ -15,7 +15,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-
+/**
+ * adapter of listview in sale report on daily page.
+ * @author rtt team
+ *
+ */
 public class DailyBillAdapter extends BaseAdapter{
 
 	private Holder holder;
