@@ -11,14 +11,21 @@ import android.app.Activity;
 import android.text.format.Time;
 
 import com.rtt_ku.pos.main_activity;
-
+/**
+ * control SaleRecordDatabase and access to Daily Record
+ * @author RTT
+ *
+ */
 public class SaleRecordController {
 	SaleRecordDateDatabase dbSr;
 	public SaleRecordController(SaleRecordDateDatabase dbSr) {
 		this.dbSr = dbSr;
 	}
-	
-	public void insert (Time time)
+	/**
+	 * add date which have at least 1 sale to SaleRecordDateDatabase
+	 * @param time
+	 */
+	public void insertDay (Time time)
 	{
 		String d = time.monthDay+"";
 		String m = (time.month)+"";
@@ -36,10 +43,15 @@ public class SaleRecordController {
 		dbSr.InsertData(d, m, y);
 	}
 
+	/**
+	 * record sale to DailyRecord
+	 * @param basket
+	 * @param dr
+	 */
 	public void confirmSale(Sale basket, DailyRecord dr) {
 		Time now = new Time();
 		now.setToNow();
-		insert(now);
+		insertDay(now);
 		String temp = "";
 		ArrayList<Product> list = basket.getList();
 		HashMap<Product,Integer> mapQuan = basket.getMapQuan();

@@ -1,7 +1,11 @@
 package com.inventory_record.pos;
 
 import java.util.ArrayList;
-
+/**
+ * Control InventoryRecordDatabase
+ * @author RTT
+ *
+ */
 public class InventoryRecordController {
 	private static InventoryRecordController instance;
 	private static InventoryRecord iR;

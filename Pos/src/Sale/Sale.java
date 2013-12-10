@@ -7,7 +7,11 @@ import java.util.Map;
 import java.util.Set;
 
 import Inventory.Product;
-
+/**
+ * Sale for record product in basket(before sale), quantity, price(can be overide from database)
+ * @author RTT
+ *
+ */
 public class Sale {
 	HashMap<Product,Integer> map_Quan,map_Price;
 	ArrayList<Product> list;
@@ -19,7 +23,11 @@ public class Sale {
 //		list.add(new Product("123", "test1", 4, 1, "", "", "", "", "", "", ""));
 //		list.add(new Product("1234", "test2", 2, 10, "", "", "", "", "", "", ""));
 	}
-	
+	/**
+	 * add product to basket with original price(from database)
+	 * @param product
+	 * @param quantity
+	 */
 	public void addProduct(Product product, int quantity)
 	{
 		if (map_Quan.containsKey(product))
@@ -36,12 +44,19 @@ public class Sale {
 			list.add(product);
 		}
 	}
-	
+	/**
+	 * overide price
+	 * @param product
+	 * @param price
+	 */
 	public void setPrice (Product product, int price)
 	{
 		map_Price.put(product, price);
 	}
-	
+	/**
+	 * get total price of sale
+	 * @return
+	 */
 	public double getTotalPrice()
 	{
 		double total = 0;

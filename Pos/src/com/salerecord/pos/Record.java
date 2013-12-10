@@ -1,5 +1,12 @@
 package com.salerecord.pos;
 
+/**
+ * Object after read Database DailyRecord
+ * sorry for public atribute
+ * it have a lot for write method get,set
+ * @author RTT
+ *
+ */
 	public class Record {
 		public String id,day,month,year,hour, min, basket;
 		public String toString()

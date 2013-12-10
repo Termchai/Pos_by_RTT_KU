@@ -12,7 +12,12 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.text.format.Time;
 import android.util.Log;
-
+/**
+ * DailyRecord is Database for record sale each day
+ * 1 day it mean 1 Table
+ * @author RTT
+ *
+ */
 public class DailyRecord extends SQLiteOpenHelper {
 	
     // Database Version
@@ -25,6 +30,11 @@ public class DailyRecord extends SQLiteOpenHelper {
     private Time time;
  
 
+    /**
+     * get database from time (upon day, month, year)
+     * @param context
+     * @param time for get database table same date of time
+     */
 	public DailyRecord(Context context, Time time) {
 		super(context, ""+time.monthDay+"_"+(time.month)+"_"+time.year, null, DATABASE_VERSION);
 		DATABASE_NAME = ""+time.monthDay+"_"+(time.month)+"_"+time.year;
@@ -51,7 +61,14 @@ public class DailyRecord extends SQLiteOpenHelper {
 		// TODO Auto-generated method stub
 		
 	}
-	
+	/**
+	 * record sale to database
+	 * call 1 time it mean 1 bill
+	 * @param hour
+	 * @param min
+	 * @param basket list of product in sale
+	 * @return
+	 */
 	public long InsertData(String hour, String min, String basket) {
 		 try {
 			SQLiteDatabase db;
@@ -120,6 +137,7 @@ public class DailyRecord extends SQLiteOpenHelper {
 		 }
 
 	}
+	
 	
 	public double getTotal()
 	{

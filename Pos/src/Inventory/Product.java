@@ -1,7 +1,13 @@
 package Inventory;
 
 import com.database.pos.InventoryDatabase;
-
+/**
+ * Object Product after read Database InventoryDatabase
+ * sorry for public atribute
+ * it have a lot for write method get,set
+ * @author RTT
+ *
+ */
 public class Product {
 	
 	/*

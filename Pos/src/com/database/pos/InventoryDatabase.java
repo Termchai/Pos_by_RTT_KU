@@ -12,7 +12,13 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
-
+/**
+ * DATABASE
+ * keep detail of product
+ * ID(primary), product_code, name, price, quantity, type, barcode, blah blah
+ * @author RTT
+ *
+ */
 public class InventoryDatabase extends SQLiteOpenHelper {
 
 	private static final String DATABASE_NAME = "Product";

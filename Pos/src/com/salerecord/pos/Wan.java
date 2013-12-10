@@ -1,5 +1,11 @@
 package com.salerecord.pos;
-
+/**
+ * Object after read Database SaleRecordDateDatabase
+ * sorry for public atribute
+ * it have a lot for write method get,set
+ * @author RTT
+ *
+ */
 	public class Wan {
 		private String day, month, year;
 		public String getDay(){return day;}

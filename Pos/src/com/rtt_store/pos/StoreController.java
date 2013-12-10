@@ -18,7 +18,7 @@ import com.salerecord.pos.SaleRecordDateDatabase;
 import com.salerecord.pos.SaleRecordController;
 import com.salerecord.pos.Wan;
 /**
- * have all Controller (now have inventory and database)
+ * have all Controller 
  * have relation with GUI and can manage everything in store
  * @author Termchai
  */
@@ -44,11 +44,13 @@ public class StoreController {
 		saleCT = new SaleFactory();
 		updateInventory();
 	}
-
+	
+	
 	public void setDB(InventoryDatabase db)
 	{
 		this.dbCT = new InventoryDatabaseController(db);
 	}
+	
 	
 	public Sale newBasket()
 	{
@@ -108,7 +110,11 @@ public class StoreController {
 	{
 		return inCT.getProductList();
 	}
-	
+	/**
+	 * get all product which have name or product_code contain keyword
+	 * @param keyword
+	 * @return
+	 */
 	public ArrayList<Product> getProductListByPartial(String keyword)
 	{
 		ArrayList<Product>list = getProductList();
@@ -161,30 +167,55 @@ public class StoreController {
 //		else if (newQuantity == -2)
 //			System.out.println(Product_Code + " not found");
 	}
-	
+	/**
+	 * check this product_code has already in InventoryDatabase?
+	 * @param product_code
+	 * @return
+	 */
 	public boolean isHasYet(String product_code)
 	{
 		return dbCT.isHasYet(product_code);
 	}
-	
+	/**
+	 * get object Product by product_code
+	 * @param product_code
+	 * @return
+	 */
 	public Product getProduct(String product_code)
 	{
 		return inCT.getProduct(product_code);
 	}
 	
+	/**
+	 * make sale complete
+	 * @param basket
+	 * @param dr
+	 */
 	public void confirmSale(Sale basket,DailyRecord dr)
 	{
 		dbCT.confirmSale(basket);
-		srCT.insert(dr.getTIme());
+		srCT.insertDay(dr.getTIme());
 		srCT.confirmSale(basket,dr);
 
 	}
 	
+	/**
+	 * get day which have at leaste 1 sale
+	 * @return
+	 */
 	public ArrayList<Wan> getWans()
 	{
 		return srCT.getListSaleRecord();
 	}
 	
+	/**
+	 * update description of product
+	 * @param Product_Code which product should be update
+	 * @param name
+	 * @param type
+	 * @param price
+	 * @param barcode
+	 */
 	public void setDescription(String Product_Code,String name, String type, int price, String barcode)
 	{
 		dbCT.setDescription(Product_Code, name, type, price, barcode);

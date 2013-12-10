@@ -12,7 +12,17 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.text.format.Time;
 import android.util.Log;
-
+/**
+ * Record input of inventory
+ * keep date(day, month, year, hour, min), 
+ * product_code (which input to inventory), 
+ * cost, 
+ * quantity
+ * 
+ * 
+ * @author RTT
+ *
+ */
 public class InventoryRecord extends SQLiteOpenHelper {
 	
     // Database Version

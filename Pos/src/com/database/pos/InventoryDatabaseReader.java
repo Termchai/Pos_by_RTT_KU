@@ -20,10 +20,6 @@ public class InventoryDatabaseReader {
 	{
 		this.myDb = dbTemp;
 	}
-	/**
-	 * 
-	 * @return arraylist of object product
-	 */
 	public ArrayList<Product> readInventoryDatabase()
 	{
 		ArrayList<Product> list;

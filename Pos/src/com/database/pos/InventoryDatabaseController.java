@@ -101,6 +101,10 @@ public class InventoryDatabaseController {
 		return -2;
 	}
 	
+	/**
+	 * update quantity of product when have sale
+	 * @param basket list of product on sale
+	 */
 	public void confirmSale(Sale basket)
 	{
 		ArrayList<Product> list = basket.getList();
@@ -112,6 +116,14 @@ public class InventoryDatabaseController {
 		}
 	}
 	
+	/**
+	 * update description of product
+	 * @param Product_Code which product should be update
+	 * @param name
+	 * @param type
+	 * @param price
+	 * @param barcode
+	 */
 	public void setDescription(String Product_Code,String name, String type, int price, String barcode)
 	{
 		db.UpdateDescription(Product_Code, name, type, price, barcode);

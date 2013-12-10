@@ -10,7 +10,13 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
-
+/**
+ * Database for keep date at least 1 sale
+ * keep day, month, year only
+ * and then we can get Daily Record Table correct
+ * @author LocalTest
+ *
+ */
 public class SaleRecordDateDatabase extends SQLiteOpenHelper {
 	
     // Database Version
