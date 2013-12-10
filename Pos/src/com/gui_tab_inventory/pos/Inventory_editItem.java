@@ -99,9 +99,7 @@ public class Inventory_editItem extends Activity {
 															.getText()
 															.toString()));
 											// iRC.addInventoryRecord(product_code,diff,null);
-											startActivity(new Intent(v
-													.getContext(),
-													main_activity.class));
+											onBackPressed();
 										}
 									})
 							.setNegativeButton("No",

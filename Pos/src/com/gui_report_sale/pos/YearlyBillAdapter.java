@@ -67,8 +67,8 @@ public class YearlyBillAdapter extends BaseAdapter{
 		System.out.println(holder);
 		System.out.println(holder.product);
 		holder.product.setText("<"+temp[0]+">");
-		holder.quantity.setText(temp[1]+"");
-		holder.price.setText(temp[2]+"");
+		holder.quantity.setText(temp[2]+"");
+		holder.price.setText(temp[1]+"");
 //		holder.subTotal.setText((Integer.parseInt(temp[1]) * Integer.parseInt(temp[2]))+"");
 		
 		

@@ -66,6 +66,8 @@ public class Sale_Report_MonthlyListView extends Activity {
 		}
 
 		listView.setAdapter(new Sale_Report_MonthlyListViewAdapter(list, this));
+		
+		addButton();
 	}
 
 	// view matching.

@@ -18,32 +18,44 @@
             android:textColorHint="#000000"
             android:textColorLink="#000000" />
 
+        <LinearLayout
+            android:layout_width="3dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical" 
+            android:background="@drawable/border_color">
+        </LinearLayout>
+        
         <TextView
             android:id="@+id/large_text_item"
-            android:layout_width="170dp"
+            android:layout_width="198dp"
             android:layout_height="wrap_content"
             android:text="name"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@color/text_color"
-            android:textColorHint="#000000"
-            android:textColorLink="#000000" />
+            android:textColor="@color/text_color"/>
 
-        <TextView
-            android:id="@+id/sale_report_productTextView"
-            android:layout_width="28dp"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:textColor="@color/text_color" />
-
+        <LinearLayout
+            android:layout_width="3dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical" 
+            android:background="@drawable/border_color">
+        </LinearLayout>
+        
         <TextView
             android:id="@+id/large_text_quantity"
-            android:layout_width="151dp"
+            android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:text="TextView"
             android:textColor="@color/text_color"
             android:textColorHint="#000000"
             android:textColorLink="#000000" />
 
+        <LinearLayout
+            android:layout_width="3dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical" 
+            android:background="@drawable/border_color">
+        </LinearLayout>
+        
         <TextView
             android:id="@+id/large_text_price"
             android:layout_width="90dp"
@@ -61,5 +73,7 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="@color/text_color" />
     </LinearLayout>
+
+ 
 
 </LinearLayout>

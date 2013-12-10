@@ -166,7 +166,7 @@
             android:layout_height="50dp"
             android:layout_weight="1"
             android:ems="10"
-            android:gravity="center_vertical|right" >
+            android:gravity="right" >
 
             <requestFocus />
         </EditText>

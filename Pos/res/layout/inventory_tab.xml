@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/tab1"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" 
-    android:background="@drawable/background">
+    android:layout_height="match_parent"
+    android:background="@drawable/background" >
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -22,13 +22,62 @@
 
         <LinearLayout
             android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="@drawable/border_color" >
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/product_item_textview_productcode"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:text="Code"
+                android:textColor="@color/text_color"
+                android:textSize="25dp" />
+
+            <LinearLayout
+                android:layout_width="3dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/border_color" >
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="270dp"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:textColor="@color/text_color"
+                android:textSize="25dp" />
+
+            <LinearLayout
+                android:layout_width="3dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/border_color" >
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Quantity"
+                android:textColor="@color/text_color"
+                android:textSize="25dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="@drawable/border_color" >
         </LinearLayout>
 
         <ListView
             android:id="@+id/inventory_listView"
             android:layout_width="fill_parent"
-            android:layout_height="390dp">
+            android:layout_weight="0.75"
+            android:layout_height="match_parent" >
         </ListView>
 
         <LinearLayout
@@ -42,7 +91,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/greenbutton"
                 android:text="Add"
-            	android:textColor="@color/text_button_color"/>
+                android:textColor="@color/text_button_color" />
 
             <LinearLayout
                 android:layout_width="4dp"
@@ -53,9 +102,9 @@
                 android:id="@+id/set_quantity_ok_button"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
+                android:background="@drawable/red_button"
                 android:text="Remove"
-          	  	android:textColor="@color/text_button_color"
-                android:background="@drawable/red_button" />
+                android:textColor="@color/text_button_color" />
 
             <LinearLayout
                 android:layout_width="4dp"
@@ -67,11 +116,9 @@
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/report_button"
-            	android:textColor="@color/text_button_color"
-                android:text="Report" />
-
+                android:text="Report"
+                android:textColor="@color/text_button_color" />
         </LinearLayout>
-
     </LinearLayout>
 
 </LinearLayout>

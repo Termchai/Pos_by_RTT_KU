@@ -48,18 +48,86 @@
             android:textColor="@color/text_color" />
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@drawable/border_color" >
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/product_item_textview_productcode"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:textColor="@color/text_color"
+            android:text="Code" />
+
+        <LinearLayout
+            android:layout_width="3dp"
+            android:layout_height="match_parent" 
+            android:background="@drawable/border_color">
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:textColor="@color/text_color"
+            android:text="Quantity" />
+
+        <LinearLayout
+            android:layout_width="3dp"
+            android:layout_height="match_parent" 
+            android:background="@drawable/border_color">
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:textColor="@color/text_color"
+            android:text="Price" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@drawable/border_color" >
+    </LinearLayout>
+
     <ListView
         android:id="@+id/report_bill_listView"
         android:layout_width="match_parent"
         android:layout_height="380dp" >
     </ListView>
 
-    <TextView
-        android:id="@+id/report_bill_totalprice"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Large Text"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="@color/text_color" />
+        android:gravity="right" >
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_color"
+            android:text="Total Price :  " />
+
+        <TextView
+            android:id="@+id/report_bill_totalprice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Large Text"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/text_color" />
+
+    </LinearLayout>
 
 </LinearLayout>
