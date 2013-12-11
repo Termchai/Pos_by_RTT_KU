@@ -15,7 +15,7 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.rtt_ku.pos.main_activity"
-            android:label="@string/app_name" >
+            android:label="RTT POS" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

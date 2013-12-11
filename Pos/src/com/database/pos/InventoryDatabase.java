@@ -170,7 +170,7 @@ public class InventoryDatabase extends SQLiteOpenHelper {
 							/*
 							 * [0] ID
 							 * [1] Product_Code
-							 * [2] Name
+							 * [2] Namex
 							 * [3] Quantity
 							 * [4] Price
 							 * [5] Type

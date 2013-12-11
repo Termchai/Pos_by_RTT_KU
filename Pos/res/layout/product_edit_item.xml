@@ -11,14 +11,16 @@
 
         <TextView
             android:id="@+id/sale_report_productTextView"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="2"
             android:text="Product Code"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/text_color" />
 
         <EditText
             android:id="@+id/product_id_editText"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10" >
@@ -33,14 +35,16 @@
 
         <TextView
             android:id="@+id/sale_report_priceTextView"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="2"
             android:text="Name"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/text_color" />
 
         <EditText
             android:id="@+id/product_name_editText"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10" />
@@ -57,14 +61,16 @@
 
         <TextView
             android:id="@+id/sale_report_dateTextView"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="2"
             android:text="Type"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/text_color" />
 
         <EditText
             android:id="@+id/product_type_editText"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10" />
@@ -76,14 +82,16 @@
 
         <TextView
             android:id="@+id/textView6"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="2"
             android:text="Price"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/text_color" />
 
         <EditText
             android:id="@+id/product_price_editText"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10" />
@@ -95,25 +103,34 @@
 
         <TextView
             android:id="@+id/TextView01"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight=".39"
             android:text="Barcode"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/text_color" />
 
         <EditText
             android:id="@+id/product_barcode_editText"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight=".33"
             android:ems="10" />
 
         <Button
             android:id="@+id/product_info_scanButton"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_weight=".45"
             android:background="@drawable/light_grey_button"
-            android:textColor="@color/text_button_color"
-            android:text="Scan" />
+            android:text="Scan"
+            android:textColor="@color/text_button_color" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="5dp" >
     </LinearLayout>
 
     <LinearLayout

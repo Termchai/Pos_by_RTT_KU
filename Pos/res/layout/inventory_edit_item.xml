@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@drawable/background"
     android:orientation="vertical" >
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="fill_parent"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Change Quantity"
-        android:textColor="@color/text_color"
-        android:textSize="40dp" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/text_color" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,61 +20,31 @@
 
         <TextView
             android:id="@+id/sale_report_productTextView"
-            android:layout_width="200dp"
-            android:layout_height="35dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight=".50"
             android:text="Product Code"
-            android:textColor="@color/text_color"
-            android:textSize="25dp" />
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/text_color" />
 
         <TextView
             android:id="@+id/TextView02"
-            android:layout_width="wrap_content"
-            android:layout_height="35dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.70"
             android:text=":   "
-            android:textColor="@color/text_color"
-            android:textSize="25dp" />
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/text_color" />
 
         <TextView
             android:id="@+id/inventoryEdit_productcode_textview"
-            android:layout_width="wrap_content"
-            android:layout_height="35dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight=".33"
             android:text="TextView"
-            android:textColor="@color/text_color"
-            android:textSize="25dp" />
-    </LinearLayout>
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/text_color" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <TextView
-            android:id="@+id/sale_report_priceTextView"
-            android:layout_width="200dp"
-            android:layout_height="35dp"
-            android:text="Name"
-            android:textColor="@color/text_color"
-            android:textSize="25dp" />
-
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="wrap_content"
-            android:layout_height="35dp"
-            android:text=":   "
-            android:textColor="@color/text_color"
-            android:textSize="25dp" />
-
-        <TextView
-            android:id="@+id/inventoryEdit_name_textview"
-            android:layout_width="wrap_content"
-            android:layout_height="35dp"
-            android:text="TextView"
-            android:textColor="@color/text_color"
-            android:textSize="25dp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
     </LinearLayout>
 
     <LinearLayout
@@ -85,32 +55,73 @@
             android:id="@+id/sale_report_timeTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+        
+        <TextView
+            android:id="@+id/sale_report_priceTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5"
+            android:text="Name"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textSize="25dp" />
+            android:textColor="@color/text_color" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight=".7"
+            android:text=":   "
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/text_color" />
+
+        <TextView
+            android:id="@+id/inventoryEdit_name_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight=".33"
+            android:text="TextView"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/text_color" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
 
         <TextView
             android:id="@+id/sale_report_quantityTextView"
-            android:layout_width="200dp"
-            android:layout_height="35dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5"
             android:text="Old quantity"
-            android:textColor="@color/text_color"
-            android:textSize="25dp" />
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/text_color" />
 
         <TextView
             android:id="@+id/TextView03"
-            android:layout_width="wrap_content"
-            android:layout_height="35dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight=".7"
             android:text=":   "
-            android:textColor="@color/text_color"
-            android:textSize="25dp" />
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/text_color" />
 
         <TextView
             android:id="@+id/inventoryEdit_oldquantity_textview"
-            android:layout_width="wrap_content"
-            android:layout_height="35dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight=".33"
             android:text="TextView"
-            android:textColor="@color/text_color"
-            android:textSize="25dp" />
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/text_color" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -119,25 +130,29 @@
 
         <TextView
             android:id="@+id/sale_report_costTextView"
-            android:layout_width="200dp"
-            android:layout_height="35dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5"
             android:text="Cost"
-            android:textColor="@color/text_color"
-            android:textSize="25dp" />
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/text_color" />
 
         <TextView
             android:id="@+id/inventory_report_productTextView"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight=".7"
             android:text=":   "
-            android:textColor="@color/text_color"
-            android:textSize="25dp" />
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/text_color" />
 
         <EditText
             android:id="@+id/inventoryEdit_cost_edittext"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight=".33"
             android:ems="10" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -146,25 +161,27 @@
 
         <TextView
             android:id="@+id/textView7"
-            android:layout_width="200dp"
-            android:layout_height="35dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5"
             android:text="Add quantity"
-            android:textColor="@color/text_color"
-            android:textSize="25dp" />
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/text_color" />
 
         <TextView
             android:id="@+id/TextView04"
-            android:layout_width="wrap_content"
-            android:layout_height="35dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight=".7"
             android:text=":   "
-            android:textColor="@color/text_color"
-            android:textSize="25dp" />
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/text_color" />
 
         <EditText
             android:id="@+id/inventoryEdit_quantity_edittext"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight=".33"
             android:ems="10"
             android:gravity="right" >
 
@@ -174,24 +191,46 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="right" >
 
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight=".3"
+            android:text="" />
+
         <Button
             android:id="@+id/inventoryEdit_ok_button"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight=".3"
             android:background="@drawable/greenbutton"
             android:text="OK"
-            android:textColor="@color/text_button_color"/>
+            android:textColor="@color/text_button_color" />
+
+        <LinearLayout
+            android:layout_width="3dp"
+            android:layout_height="match_parent" >
+
+        </LinearLayout>
 
         <Button
             android:id="@+id/inventoryEdit_remove_button"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight=".3"
             android:background="@drawable/light_grey_button"
-            android:textColor="@color/text_button_color"
-            android:text="Remove"/>
+            android:text="Remove"
+            android:textColor="@color/text_button_color" />
+
     </LinearLayout>
 
 </LinearLayout>
