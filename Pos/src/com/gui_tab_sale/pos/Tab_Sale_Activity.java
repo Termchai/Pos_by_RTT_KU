@@ -134,7 +134,7 @@ public class Tab_Sale_Activity extends Activity {
 
 				dialog = new Dialog(context);
 				dialog.setContentView(R.layout.sale_item_dialogbox);
-				dialog.setTitle("KOK");
+				dialog.setTitle("Add Quantity");
 
 				TextView name = (TextView) dialog
 						.findViewById(R.id.sale_item_dialogbox_nameeeee);
