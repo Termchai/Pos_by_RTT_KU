@@ -48,7 +48,7 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/textView1"
+                android:id="@+id/sale_item_dialogbox_name"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight=".25"

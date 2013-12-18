@@ -44,6 +44,23 @@ public class Sale {
 			list.add(product);
 		}
 	}
+	public void addProduct(int position, int quantity)
+	{
+		Product product = list.get(position);
+		if (map_Quan.containsKey(product))
+		{
+			int quan = map_Quan.get(product) + quantity;
+			map_Quan.remove(product);
+			map_Quan.put(product,quan);
+			map_Price.put(product, product.getPrice());
+		}
+		else
+		{
+			map_Quan.put(product, quantity);
+			map_Price.put(product, product.getPrice());
+			list.add(product);
+		}
+	}
 	/**
 	 * overide price
 	 * @param product
@@ -70,4 +87,5 @@ public class Sale {
 	public HashMap<Product,Integer> getMapQuan(){return map_Quan;}
 	public ArrayList<Product> getList(){return list;}
 	public HashMap<Product,Integer> getMapPrice(){return map_Price;}
+	
 }

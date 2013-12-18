@@ -80,6 +80,7 @@ public class Tab_Sale_Activity extends Activity {
 
 	private Dialog dialog;
 	private Dialog reportDialog;
+	private Dialog saleDialog;
 
 	private Button reportDaily;
 	private Button reportWeekly;
@@ -120,7 +121,57 @@ public class Tab_Sale_Activity extends Activity {
 		addResetButton();
 		addReportButton();
 		addOnClickListItem();
+		addOnClickSaleItem();
 		addScanButton();
+	}
+	
+	private void addOnClickSaleItem(){
+		list_sale_item.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> arg0, View view, final int position,
+					long id) {
+				saleDialog = new Dialog(context);
+				saleDialog.findViewById(R.layout.sale_item_dialogbox);
+
+				saleDialog.setTitle("");
+				
+				TextView name = (TextView) saleDialog.findViewById(R.id.sale_item_dialogbox_name);
+				final EditText quantity = (EditText) saleDialog.findViewById(R.id.sale_item_dialogbox_editText);
+				Button okButton = (Button) saleDialog.findViewById(R.id.sale_item_dialogbox_ok);
+				Button remove = (Button) saleDialog.findViewById(R.id.sale_item_dialogbox_remove);
+				Button edit = (Button) saleDialog.findViewById(R.id.sale_item_dialogbox_edit);
+				
+				name.setText("");
+				
+				okButton.setOnClickListener(new OnClickListener() {
+					
+					@Override
+					public void onClick(View v) {
+						// TODO Auto-generated method stub
+						basket.addProduct(position, Integer.parseInt(quantity.getText().toString()));
+					}
+				});
+				
+				remove.setOnClickListener(new OnClickListener() {
+					
+					@Override
+					public void onClick(View v) {
+						// TODO Auto-generated method stub
+						
+					}
+				});
+				
+				edit.setOnClickListener(new OnClickListener() {
+					
+					@Override
+					public void onClick(View v) {
+						// TODO Auto-generated method stub
+						
+					}
+				});
+			}
+		});
 	}
 	
 	private void addScanButton() {
@@ -199,7 +250,7 @@ public class Tab_Sale_Activity extends Activity {
 						.findViewById(R.id.saleDialog_editButton);
 
 				name.setText(product.getName());
-				quantity.setText("1");
+				quantity.setHint("1");
 
 				dialogOkButton.setOnClickListener(new OnClickListener() {
 					// input only quantity
