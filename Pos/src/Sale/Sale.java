@@ -35,7 +35,6 @@ public class Sale {
 			int quan = map_Quan.get(product) + quantity;
 			map_Quan.remove(product);
 			map_Quan.put(product,quan);
-			map_Price.put(product, product.getPrice());
 		}
 		else
 		{
@@ -52,7 +51,6 @@ public class Sale {
 			int quan = map_Quan.get(product) + quantity;
 			map_Quan.remove(product);
 			map_Quan.put(product,quan);
-			map_Price.put(product, product.getPrice());
 		}
 		else
 		{
@@ -83,6 +81,12 @@ public class Sale {
 			total += (map_Price.get(p) * map_Quan.get(p)); 
 		}
 		return total;
+	}
+	public void remove(Product product)
+	{
+		list.remove(product);
+		map_Price.remove(product);
+		map_Quan.remove(product);
 	}
 	public HashMap<Product,Integer> getMapQuan(){return map_Quan;}
 	public ArrayList<Product> getList(){return list;}

@@ -129,47 +129,141 @@ public class Tab_Sale_Activity extends Activity {
 		list_sale_item.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
-			public void onItemClick(AdapterView<?> arg0, View view, final int position,
-					long id) {
-				saleDialog = new Dialog(context);
-				saleDialog.findViewById(R.layout.sale_item_dialogbox);
+			public void onItemClick(AdapterView<?> parent, View view,
+					final int position, long id) {
 
-				saleDialog.setTitle("");
+				dialog = new Dialog(context);
+				dialog.setContentView(R.layout.sale_item_dialogbox);
+				dialog.setTitle("KOK");
+
+				TextView name = (TextView) dialog
+						.findViewById(R.id.sale_item_dialogbox_nameeeee);
+				final EditText quantity = (EditText) dialog
+						.findViewById(R.id.sale_item_dialogbox_editText);
+				Button dialogOkButton = (Button) dialog
+						.findViewById(R.id.sale_item_dialogbox_ok);
+				Button dialogRemoveButton = (Button)dialog.findViewById(R.id.sale_item_dialogbox_remove);
+				Button dialogEditButton = (Button) dialog
+						.findViewById(R.id.sale_item_dialogbox_edit);
+
+				name.setText(basket.getList().get(position).getName());
+				quantity.setHint("1");
 				
-				TextView name = (TextView) saleDialog.findViewById(R.id.sale_item_dialogbox_name);
-				final EditText quantity = (EditText) saleDialog.findViewById(R.id.sale_item_dialogbox_editText);
-				Button okButton = (Button) saleDialog.findViewById(R.id.sale_item_dialogbox_ok);
-				Button remove = (Button) saleDialog.findViewById(R.id.sale_item_dialogbox_remove);
-				Button edit = (Button) saleDialog.findViewById(R.id.sale_item_dialogbox_edit);
-				
-				name.setText("");
-				
-				okButton.setOnClickListener(new OnClickListener() {
+				dialogOkButton.setOnClickListener(new OnClickListener() {
 					
 					@Override
 					public void onClick(View v) {
 						// TODO Auto-generated method stub
-						basket.addProduct(position, Integer.parseInt(quantity.getText().toString()));
+						try
+						{
+						int quan = 0;
+						if (quantity.getText().toString().equals(""))
+							quan = 1;
+						else quan = Integer.parseInt(quantity.getText().toString());
+						basket.addProduct(position,quan);
+						saleAdapter.notifyDataSetChanged();
+						dialog.dismiss();
+						}catch(Exception s)
+						{
+							final AlertDialog.Builder dialog_not = new AlertDialog.Builder(
+									Tab_Sale_Activity.this);
+
+							dialog_not.setTitle("Warning!!!");
+							dialog_not.setMessage("Not enough money");
+							dialog_not.setPositiveButton("OK",
+									new DialogInterface.OnClickListener() {
+
+										@Override
+										public void onClick(DialogInterface arg0,
+												int arg1) {
+											// TODO Auto-generated method stub
+										}
+									}).show();
+						}
 					}
 				});
 				
-				remove.setOnClickListener(new OnClickListener() {
+				dialogRemoveButton.setOnClickListener(new OnClickListener() {
 					
 					@Override
 					public void onClick(View v) {
 						// TODO Auto-generated method stub
+						basket.remove(basket.getList().get(position));
+						saleAdapter.notifyDataSetChanged();
+						dialog.dismiss();
 						
 					}
 				});
 				
-				edit.setOnClickListener(new OnClickListener() {
+				dialogEditButton.setOnClickListener(new OnClickListener() {
 					
 					@Override
 					public void onClick(View v) {
+						final Product product = basket.getList().get(position);
 						// TODO Auto-generated method stub
-						
+						final Dialog dialogDiscount = new Dialog(context);
+						dialogDiscount
+								.setContentView(R.layout.sale_dialog_discount);
+
+						dialogDiscount.setTitle(product.getName());
+
+						TextView nameItem = (TextView) dialogDiscount
+								.findViewById(R.id.sale_dialog_nameTextView);
+						final EditText price = (EditText) dialogDiscount
+								.findViewById(R.id.sale_dialog_priceEditText);
+						Button okButton = (Button) dialogDiscount
+								.findViewById(R.id.sale_dialog_okButton);
+						price.setText(product.getPrice() + "");
+						nameItem.setText(product.getName());
+						// edit price,quantity
+						okButton.setOnClickListener(new OnClickListener() {
+
+							@Override
+							public void onClick(View arg0) {
+								// TODO Auto-generated method stub
+
+								try {
+									
+									
+									if (Integer.parseInt(price.getText().toString()) < 0)
+									{
+										throw new Exception();
+									}
+									
+									basket.setPrice(product, Integer
+											.parseInt(price.getText()
+													.toString()));
+
+									saleAdapter.notifyDataSetChanged();
+									total_text.setText(basket.getTotalPrice()
+											+ "");
+									editText.setText("");
+								} catch (Exception e) {
+									final AlertDialog.Builder dialog_not = new AlertDialog.Builder(
+											Tab_Sale_Activity.this);
+
+									dialog_not.setTitle("Warning!!!");
+									dialog_not.setMessage("Plese enter amount of overide price");
+									dialog_not.setPositiveButton("OK",
+											new DialogInterface.OnClickListener() {
+
+												@Override
+												public void onClick(DialogInterface arg0,
+														int arg1) {
+													// TODO Auto-generated method stub
+												}
+											}).show();
+								}
+								dialog.dismiss();
+								dialogDiscount.dismiss();
+							}
+						});
+
+						dialogDiscount.show();
 					}
 				});
+
+				dialog.show();
 			}
 		});
 	}
@@ -258,7 +352,10 @@ public class Tab_Sale_Activity extends Activity {
 					public void onClick(View v) {
 						// TODO Auto-generated method stub
 						try {
-							int quan = Integer.parseInt(quantity.getText()
+							int quan = 0;
+							if (quantity.getText().toString().equals(""))
+								quan = 1;
+							else quan = Integer.parseInt(quantity.getText()
 									.toString());
 							if (quan > 0) {
 								System.out.println("Testttttttttttttttttttt");
@@ -290,79 +387,6 @@ public class Tab_Sale_Activity extends Activity {
 					}
 				});
 
-				dialogEditButton.setOnClickListener(new OnClickListener() {
-
-					@Override
-					public void onClick(View v) {
-						// TODO Auto-generated method stub
-
-						final Dialog dialogDiscount = new Dialog(context);
-						dialogDiscount
-								.setContentView(R.layout.sale_dialog_discount);
-
-						dialogDiscount.setTitle(product.getName());
-
-						TextView nameItem = (TextView) dialogDiscount
-								.findViewById(R.id.sale_dialog_nameTextView);
-						final EditText quan = (EditText) dialogDiscount
-								.findViewById(R.id.sale_dialog_quantityEditText);
-						final EditText price = (EditText) dialogDiscount
-								.findViewById(R.id.sale_dialog_priceEditText);
-						Button okButton = (Button) dialogDiscount
-								.findViewById(R.id.sale_dialog_okButton);
-						quan.setText("1");
-						price.setText(product.getPrice() + "");
-						nameItem.setText(product.getName());
-						// edit price,quantity
-						okButton.setOnClickListener(new OnClickListener() {
-
-							@Override
-							public void onClick(View arg0) {
-								// TODO Auto-generated method stub
-
-								try {
-									
-									int tempQuan = Integer.parseInt(quan
-											.getText().toString());
-									
-									if (tempQuan < 0 || Integer.parseInt(price.getText().toString()) < 0)
-									{
-										throw new Exception();
-									}
-									
-									basket.addProduct(product, tempQuan);
-									basket.setPrice(product, Integer
-											.parseInt(price.getText()
-													.toString()));
-
-									saleAdapter.notifyDataSetChanged();
-									total_text.setText(basket.getTotalPrice()
-											+ "");
-									editText.setText("");
-								} catch (Exception e) {
-									final AlertDialog.Builder dialog_not = new AlertDialog.Builder(
-											Tab_Sale_Activity.this);
-
-									dialog_not.setTitle("Warning!!!");
-									dialog_not.setMessage("Plese enter amount of Quantity and overide price");
-									dialog_not.setPositiveButton("OK",
-											new DialogInterface.OnClickListener() {
-
-												@Override
-												public void onClick(DialogInterface arg0,
-														int arg1) {
-													// TODO Auto-generated method stub
-												}
-											}).show();
-								}
-								dialog.dismiss();
-								dialogDiscount.dismiss();
-							}
-						});
-
-						dialogDiscount.show();
-					}
-				});
 				dialog.show();
 			}
 		});
